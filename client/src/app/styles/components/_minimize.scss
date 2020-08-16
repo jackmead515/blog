@@ -1,0 +1,33 @@
+.minimize {
+
+  &_container {
+    border: 1px solid #cccccc;
+  }
+
+  &_control {
+    font-size: 15px;
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #65aae7;
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  &_control:hover {
+    cursor: pointer;
+  }
+
+  &_content {
+    display: grid;
+    grid-gap: 15px;
+    background-color: white;
+  }
+
+  &_content * {
+    border: none !important;
+  }
+}

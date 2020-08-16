@@ -1,0 +1,93 @@
+{
+  "head": {
+    "title": "L293D DC Motor Circuit and Driver",
+    "subtitle": "Controlling a DC motors speed and direction in Rust on the Raspberry Pi.",
+    "date": 1580669667,
+    "link": "l293d-dc-motor-stepper-driver-circuit-raspberry-pi-rust",
+    "description": "Controlling a DC motor is easy enough. However, the L293D chip allows us to control the direction and speed programmatically. And, we can do it in Rust!",
+    "image": "image/generic/electronics3.jpg",
+    "tags": [
+      "rust", "embedded", "raspberry", "pi", "arduino", "l293d", "programming", "sensor", "electronics", "555", "motor", "stepper"
+    ]
+  },
+  "contents": [
+    {
+      "type": "p",
+      "contents": "Sometimes when your designing a circuit, all you want is something to spin, twirl, move, or blink. It's boring sometimes! And our dumb lizard brains want to see something happen. Well, the L293D chip makes controlling dc motors a breeze."
+    },
+    {
+      "type": "p",
+      "contents": "Unfortunately, I didn't have a stepper motor on hand. However, you can also control a single stepper motor with this chip without much struggle."
+    },
+    {
+      "type": "p",
+      "contents": "You can check out the datasheets and full source code in the links below."
+    },
+    {
+      "type": "table",
+      "props": {
+        "headings": [
+          "Links"
+        ]
+      },
+      "contents": [
+        {
+          "type": "a",
+          "props": {
+            "href": "https://www.ti.com/lit/ds/symlink/l293.pdf",
+            "target": "tab"
+          },
+          "contents": "L293D H-Bridge Motor Driver Datasheet"
+        },
+        {
+          "type": "a",
+          "props": {
+            "href": "https://www.renesas.com/us/en/www/doc/datasheet/x9c102-103-104-503.pdf",
+            "target": "tab"
+          },
+          "contents": "X9C104 Digital Potentiometer Datasheet"
+        },
+        {
+          "type": "a",
+          "props": {
+            "href": "http://ww1.microchip.com/downloads/en/DeviceDoc/22060b.pdf",
+            "target": "tab"
+          },
+          "contents": "MCP4151 SPI Digital Potentiometer Datasheet"
+        },
+        {
+          "type": "a",
+          "props": {
+            "href": "http://ww1.microchip.com/downloads/en/DeviceDoc/11195c.pdf",
+            "target": "tab"
+          },
+          "contents": "MCP41200 SPI Digital Potentiometer Datasheet"
+        },
+        {
+          "type": "a",
+          "props": {
+            "href": "https://www.ti.com/lit/ds/symlink/lm555.pdf",
+            "target": "tab"
+          },
+          "contents": "555 Timer Datasheet"
+        },
+        {
+          "type": "a",
+          "props": {
+            "href": "https://github.com/jackmead515/rust_l293d",
+            "target": "tab"
+          },
+          "contents": "L293D Motor Driver Github Source Code"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "contents": "More unfortunately, I don't have a digital potentiometer on hand either! I need to get some supplies... So for now, I am just going to use a regular potentimeter to control the speed."
+    },
+    {
+      "type": "p",
+      "contents": ""
+    }
+  ]
+}

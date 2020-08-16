@@ -1,0 +1,46 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-size: 15px !important;
+  color: white !important;
+  font-family: sans-serif !important;
+  background-color: black;
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+input {
+  padding: 5px;
+  border: none;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #040404;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu input {
+  max-width: 200px;
+  width: 90vw;
+}

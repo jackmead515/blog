@@ -1,0 +1,94 @@
+{
+  "head": {
+    "title": "D3 Live Updating Graphs",
+    "subtitle": "Building D3 graphs for live update feeds",
+    "date": 1579550947,
+    "link": "d3-live-updating-graph",
+    "description": "Everyone can make a line graph really easily with D3.js. But updating a graph for a live feed is another story. Learn how you can make live updating graphs with D3!",
+    "image": "image/generic/code2.jpg",
+    "tags": [
+      "javascript", "node", "d3.js", "graph", "react", "programming"
+    ]
+  },
+  "contents": [
+    {
+      "type": "p",
+      "contents": "Alright this will be a short one. But an informative one. It's pretty easy to look up a quick tutorial for how to create a line graph with D3.js. But what about a line graph that can accept new data as a live feed? Well, quick and dirty, check out the source code below for your copy pasta work."
+    },
+    {
+      "type": "a",
+      "props": {
+        "target": "tab",
+        "href": "https://github.com/jackmead515/blog/blob/master/d3-graphs/src/LiveUpdating.js#L15"
+      },
+      "contents": "Github Source Code"
+    },
+    {
+      "type": "p",
+      "contents": "The prinicpals of it are extremely simple but may not be obvious to those that haven't seen it yet! Once you get the hang out it, you will be able to create dynamic ever-changing visualizations like the one just below. The visualization below is a automatically updating graph that translates a virtual sensor (configurable from your mouse) to data on the line graph."
+    },
+    {
+      "type": "plugin",
+      "props": {
+        "source": "plugin/capacitor-sensor",
+        "id": "capacitor-sensor",
+        "width": "100%",
+        "height": "400"
+      }
+    },
+    {
+      "type": "p",
+      "contents": "So let's start with the basics. Let's target a div element by it's ID and snatch it's width and height to create D3 scales."
+    },
+    {
+      "type": "code",
+      "props": {
+        "language": "javascript",
+        "source": "const bb = d3.select('#graph').node().getBoundingClientRect();\n\nconst xScale = d3.scaleLinear()\n\t.domain([0, 100])\n\t.range([0, bb.width]);\n\nconst yScale = d3.scaleLinear()\n\t.domain([0, 10])\n\t.range([bb.height, 0]);"
+      }
+    },
+    {
+      "type": "p",
+      "contents": "Very straight forward. The getBoundingClientRect() is a neat little trick. It's not specific to D3 either. You can use the function after calling node() on any HTMLDocument."
+    },
+    {
+      "type": "p",
+      "contents": "Alright next we will create our fake data, render an SVG, create our line, and apply the data to it as a path!"
+    },
+    {
+      "type": "code",
+      "props": {
+        "language": "javascript",
+        "source": "const data = new Array(100)\n\t.fill(0)\n\t.map(() => Math.random()*10);\n  \nconst svg = d3.select('#graph')\n\t.append('svg')\n\t.attr('id', 'svg')\n\t.attr('width', '100%')\n\t.attr('height', '100%');\n    \nconst line = d3.line()\n\t.curve(d3.curveBasis)\n\t.x((_, i) => xScale(i))\n\t.y((d) => yScale(d))\n\nsvg.append('path')\n\t.attr('d', line(data))"
+      }
+    },
+    {
+      "type": "p",
+      "contents": "Couple notes to remember is that we are applying the xScale and yScale to the data on the d3.line(). If we didn't do this, D3 would interpret it as pixels and we would get a very small graph. The next note is that we apply a path to the svg element and call 'd' to apply our line function too it. The line function will return data for our path element!"
+    },
+    {
+      "type": "p",
+      "contents": "Now. That's easy. But here is the entertaining part. For simulation purposes, I am creating an interval in javascript and then generating new data every loop. Then, to apply the data, we use D3 functions to select all the path elements under the svg and call the data function on them to apply our updated data. Finally, we regenerate our line graph using the same line function."
+    },
+    {
+      "type": "code",
+      "props": {
+        "language": "javascript",
+        "source": "this.interval = setInterval(() => {\n\tdata.pop();\n\tdata.unshift(Math.random()*10);\n\n\tsvg.selectAll('path')\n\t\t.data([data])\n\t\t.attr('d', line);\n}, 50);"
+      }
+    },
+    {
+      "type": "p",
+      "contents": "You see? Not bad when you see a demonstrated easy to read blog post about it. Hope you enjoyed that. Thank you all and good day. Leave any questions you have in the comments below!"
+    },
+    {
+      "type": "plugin",
+      "props": {
+        "source": "plugin/d3-graphs",
+        "id": "live-updating",
+        "width": "100%",
+        "height": "200"
+      }
+    }
+  ]
+}

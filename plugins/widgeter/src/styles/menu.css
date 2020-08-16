@@ -1,0 +1,27 @@
+.menu {
+  background-color: #fff;
+  border-bottom: 1px solid #e3e3e3;
+  padding: 5px;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(5, auto) 1fr;
+}
+
+.menu > div {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 5px;
+  align-self: flex-end;
+  justify-self: end;
+}
+
+.menu > div > div {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 5px;
+}
+
+.menu button:hover  {
+  cursor: pointer;
+}

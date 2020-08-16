@@ -1,0 +1,7 @@
+.blog_container {
+  display: grid;
+  grid-gap: 20px;
+  background-color: white;
+  border: 1px solid #cccccc;
+  padding: 10px;
+}

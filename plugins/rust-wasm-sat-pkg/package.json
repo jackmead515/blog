@@ -1,0 +1,1 @@
+{"name":"rust-wasm-sat-pkg","collaborators":["Jack <jack.mead@foreveroceans.com>"],"version":"0.1.0","files":["rust_wasm_sat_bg.wasm","rust_wasm_sat.js","rust_wasm_sat.d.ts"],"module":"rust_wasm_sat.js","types":"rust_wasm_sat.d.ts","sideEffects":false}

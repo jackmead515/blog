@@ -1,0 +1,199 @@
+{
+  "head": {
+    "title": "Preparing Weather Data for Time Series Predictions",
+    "subtitle": "Using numpy, pandas, sklearn, and raw python to format some data",
+    "date": 1574013600,
+    "link": "parsing-formatting-weather-data-numpy-pandas-sklearn",
+    "description": "Data has to go through a lot of parsing and manipulating to be feed to an AI. Thankfully, python makes it easy for us.",
+    "image": "image/tii/year_by_year.png",
+    "tags": [
+      "python", "ai", "deep", "machine", "learning", "numpy", "keras", "neural", "networks", "sklearn", "lstm", "pandas", "matplotlib", "programming"
+    ]
+  },
+  "contents": [
+    {
+      "type": "p",
+      "contents": "In this blog, we are going to continue on preparing our data by parsing and manipulating the data to get the desired shape for our recurrent network. This blog is broken into two other blogs, links are listed below as well."
+    },
+    {
+      "type": "a",
+      "props": {
+        "target": "tab",
+        "href": "https://mesonet.agron.iastate.edu/request/download.phtml"
+      },
+      "contents": "Iowa Environmental Mesonet (ISU)"
+    },
+    {
+      "type": "a",
+      "props": {
+        "target": "tab",
+        "href": "https://github.com/jackmead515/python_ai/tree/master/temperature-in-iowa"
+      },
+      "contents": "Github Repo"
+    },
+    {
+      "type": "a",
+      "props": {
+        "target": "tab",
+        "href": "http://www.speblog.org/blog/visualizing-weather-data-numpy-pandas-sklearn-matplotlib"
+      },
+      "contents": "Visualizing the Data"
+    },
+    {
+      "type": "a",
+      "props": {
+        "target": "tab",
+        "href": "http://www.speblog.org/blog/building-lstm-neural-network-in-keras-for-weather-data"
+      },
+      "contents": "Building the Network"
+    },
+    {
+      "type": "p",
+      "contents": "It's time to prep our dataset so that it is ready to be used in a neural network. A quick look at the dataset shows this..." 
+    },
+    {
+      "type": "code",
+      "props": {
+        "source": "station,valid,tmpc\nAMW,1996-09-30 05:53,11.70\nAMW,1996-09-30 06:53,11.10\nAMW,,10.00\nAMW,1996-09-30 08:53,10.60\nAMW,1996-09-30 09:53,10.00\nAMW,,10.00\n...",
+        "language": "javascript"
+      }
+    },
+    {
+      "type": "p",
+      "contents": "First thing to do is to drop the 'station' column. It really doesn't concern us given that the entire dataset is from the same sensor. But, if we are going to draw scientific conclusions from it, let's remember that feature. At the same time, let's also remove all invalid values by calling 'dropna()' and rename the columns. Doing this will return a dataset where all rows have been dropped if there is a missing data point." 
+    },
+    {
+      "type": "code",
+      "props": {
+        "source": "import pandas as pd\n\ndf = pd.read_csv('dataset.csv')\ndf.drop(['station'], axis=1)\ndf = df.dropna()\ndf.columns = ['time', 'temp']",
+        "language": "python"
+      }
+    },
+    {
+      "type": "code",
+      "props": {
+        "source": "time,temp\n1996-09-30 05:53,11.70\n1996-09-30 06:53,11.10\n1996-09-30 08:53,10.60\n1996-09-30 09:53,10.00\n...",
+        "language": "javascript"
+      }
+    },
+    {
+      "type": "p",
+      "contents": "Great! The data is formatted nicely. But in order to run the data over a neural network, we are going to need numbers (That means the dates have to be nice)." 
+    },
+    {
+      "type": "p",
+      "contents": "For me, dates have always been such a struggle to deal with. I constantly am converting dates into UTC and just keeping them like that until I have to display them to the user. But, not everyone agrees with me on that. So we are forced to convert them." 
+    },
+    {
+      "type": "p",
+      "contents": "Thankfully, it's very easy to do so with pandas. BUT... it's also a one liner with basic python libraries." 
+    },
+    {
+      "type": "code",
+      "props": {
+        "source": "df.time = pd.DatetimeIndex(df.time).astype(np.int64)\n\n# Or using python datetime library...\n\ndf.time = [datetime.strptime(x, '%Y-%m-%d %H:%M').timestamp() for x in df.time]",
+        "language": "python"
+      }
+    },
+    {
+      "type": "p",
+      "contents": "Pandas 'DatetimeIndex' helps us to convert the time we need. Then, we convert the dates to type 'int64' from the numpy library (No need for floats. UTC dates are whole numbers). Python's datetime library does the exact same thing, but now you know what Panda's is using under the covers. I prefer the datetime method. It's also beneficial to use what's avaliable to us without extra dependencies. Now, we have the final values we want. A 'time' column of whole millisecond UTC dates, and the 'temp' column with celcius readings." 
+    },
+    {
+      "type": "p",
+      "contents": "Next thing we want to do is standardize our values. Standardizing our data means that we funnel our data to be between a range other than it's current range (that being between the minimum and maximum values). This is a very easy thing to do if you have the sklearn library." 
+    },
+    {
+      "type": "code",
+      "props": {
+        "language": "python",
+        "source": "from sklearn.preprocessing import MinMaxScaler\n\nscaler = MinMaxScaler(feature_range=(-1, 1))\ndataset = np.array(df)\ndataset = scaler.fit_transform(dataset)"
+      }
+    },
+    {
+      "type": "p",
+      "contents": "I'm choosing to use a value range of -1 to 1 as our temperature data can be negative as well. I'm not sure if the sklearn library takes this into consideration, but you can find more information about it in there documentation below."
+    },
+    {
+      "type": "a",
+      "props": {
+        "target": "tab",
+        "href": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html"
+      },
+      "contents": "sklearn.preprocessing.MinMaxScaler"
+    },
+    {
+      "type": "p",
+      "props": {
+        "embed": true
+      },
+      "contents": "Continuing, the next steps require us to parse the data as sequences. Specifically, our data needs to take the shape of <b>(amount of points, window size, features)</b>."
+    },
+    {
+      "type": "p",
+      "contents": "Our window size is the amount of data to keep in the sequence. So if I say I have a window size of 5, that means that the sequence is 5 concecutive points longs. Refering back to the previous section, we discovered that each day has roughly one data point for every hour. So, our window size would be refering to a concecutive 5 hours of sensor readings!"
+    },
+    {
+      "type": "p",
+      "contents": "The features represent the different categories of data I have. Since we are only considering temperature, the features will be 1."
+    },
+    {
+      "type": "p",
+      "contents": "Let's see how we would parse our data to fit that."
+    },
+    {
+      "type": "code",
+      "props": {
+        "source": "def forecast(data, window_size):\n\tdatax, datay = [], []\n\tfor i in range(len(data)-window_size-1):\n\t\tdatax.append(data[i:(i+window_size), 1])\n\t\tdatay.append(data[i + window_size, 1])\n\treturn datax, datay\n\nWINDOW_SIZE = 5\nTRAIN_TEST_SPLIT = 0.8\n\ndatax, datay = forecast(dataset, WINDOW_SIZE)\n\ntts = int(len(datax)*TRAIN_TEST_SPLIT)\nx_train = np.array(datax[:tts]).astype(np.float32)\ny_train = np.array(datay[:tts]).astype(np.float32)\nx_test = np.array(datax[tts+1:]).astype(np.float32)\ny_test = np.array(datay[tts+1:]).astype(np.float32)\nx_train = np.expand_dims(x_train, axis=2)\ny_train = np.expand_dims(y_train, axis=2)\nx_test = np.expand_dims(x_test, axis=2)\ny_test = np.expand_dims(y_test, axis=2)",
+        "language": "python"
+      }
+    },
+    {
+      "type": "p",
+      "contents": "Taking a closer look at this forecast method, all it does is loop through each and every value in the dataset (minus the window_size), and builds up sequences that contain the next window_size'd amounts in them. The datay list then contains the value that comes directly after the sequence. datay are the target values our AI has to predict!!"
+    },
+    {
+      "type": "p",
+      "contents": "Next we need to split our dataset into the training set and test set. Or train_test_split value is 0.8, meaning that our training set will contain 80% of the data, and our test set will be the remaining 20%. So we calculate our value tts which is the index to split on, and then do this:"
+    },
+    {
+      "type": "code",
+      "props": {
+        "language": "python",
+        "source": "# x_train data\nnp.array(datax[:tts]).astype(np.float32)\n\n# x_test data\nnp.array(datax[tts+1:]).astype(np.float32)"
+      }
+    },
+    {
+      "type": "p",
+      "props": {
+        "embed": true
+      },
+      "contents": "Ignoring the expand_dims for now, we call this code to select our test and train. The <b>astype(np.float32)</b> method is called to make sure we retain the decimal places on our values. Doing this produces data that looks like this"
+    },
+    {
+      "type": "code",
+      "props": {
+        "language": "python",
+        "source": "[\n\t[11.7 11.1 10.  10.6 10. ]\n\t[11.1 10.  10.6 10.  10. ]\n\t[10.  10.6 10.  10.   8.9]\n\t...\n\t[12.8 12.8 15.6 17.8 20. ]\n\t[12.8 15.6 17.8 20.  22.8]\n\t[15.6 17.8 20.  22.8 25.6]\n]"
+      }
+    },
+    {
+      "type": "p",
+      "props": {
+        "embed": true
+      },
+      "contents": "We have a two dimensional array where each row has window_sized (5) columns. But, we need something slightly different. Remember, we need to have a three dimensional tensor. So, calling <b>np.expand_dims(data, axis=2)</b> produces our final output of"
+    },
+    {
+      "type": "code",
+      "props": {
+        "language": "python",
+        "source": "[\n\t[[11.7] [11.1] [10. ] [10.6] [10. ]]\n\t[[11.1] [10. ] [10.6] [10. ] [10. ]]\n\t[[10. ] [10.6] [10. ] [10. ] [8.9 ]]\n\t...\n\t[[12.8] [12.8] [15.6] [17.8] [20. ]]\n\t[[12.8] [15.6] [17.8] [20. ] [22.8]]\n\t[[15.6] [17.8] [20. ] [22.8] [25.6]]\n]"
+      }
+    },
+    {
+      "type": "p",
+      "contents": "And that concludes our formatting! WHEW! That was so much fun right?? LOLZ. So, now we can do the fun stuff. The neural network!"
+    }
+  ]
+}

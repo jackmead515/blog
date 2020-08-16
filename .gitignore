@@ -1,0 +1,15 @@
+node_modules
+.vscode
+**/node_modules
+**/node_modules
+
+**/.vscode
+**/.vscode
+
+**/dist
+**/dist
+**/build
+**/build
+**/target
+
+plugin/rust-wasm/target

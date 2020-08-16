@@ -1,0 +1,25 @@
+.bmc-button img {
+  width: 16px !important;
+  height: 16px;
+}
+
+.bmc-button span {
+  margin-left:10px;
+  font-size: 0.9em !important;
+  font-weight: 700;
+}
+
+.bmc-button {
+  margin-right: 5px;
+  height: 36px;
+  flex-grow: 1;
+  padding: 10px;
+  color: #ffffff !important;
+  background-color: #FF813F;
+  border-radius: 5px;
+  box-sizing: border-box !important;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,101 @@
+.attblock {
+  &-closed {
+    border-bottom: 3px solid #b3b3b3;
+    margin: 0px !important;
+  }
+
+  &-closed span {
+    background-color: #b3b3b3 !important;
+    flex: 1;
+    animation-name: closeFlex;
+    animation-timing-function: ease-out;
+    animation-duration: 0.2s;
+  }
+
+  &-closed + div {
+    overflow: hidden;
+    height: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  &-opened {
+    border-bottom: 3px solid #DD3333;
+  }
+
+  &-opened + div {
+    height: inherit;
+  }
+  
+  &-opened span {
+    background-color: #DD3333 !important;
+    flex: none;
+    animation-name: openFlex;
+    animation-timing-function: ease-out;
+    animation-duration: 0.2s;
+  }
+
+  @keyframes closeFlex {
+    from { flex: none }
+    to { flex: 1 }
+  }
+
+  @keyframes openFlex {
+    from { flex: 1 }
+    to { flex: none }
+  }
+}
+
+.attblock {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.preload .attblock-opened span:first-child {
+  -webkit-animation-duration: 0s !important;
+  animation-duration: 0s !important;
+  transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+}
+
+.preload .attblock-closed span:first-child {
+  -webkit-animation-duration: 0s !important;
+  animation-duration: 0s !important;
+  transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+}
+
+.attblock h2 {
+  display: flex;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.attblock h2:hover {
+  cursor: pointer;
+}
+
+.attblock h2 > span {
+  color: #ffffff;
+  padding: 5px;
+  font-size: inherit;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

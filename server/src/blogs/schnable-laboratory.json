@@ -1,0 +1,61 @@
+{
+  "head": {
+    "title": "Schnable Laboratory",
+    "subtitle": "My journey into science at Iowa State University",
+    "date": 1571936400,
+    "link": "schnable-laboratory",
+    "image": "image/phenotypingsystem.jpg",
+    "tags": [
+      "ai", "numpy", "math", "algorithm", "python", "machine", "learning", "react", "java", "raspberry", "pi",
+      "science", "programming"
+    ]
+  },
+  "contents": [
+    {
+      "type": "mini",
+      "props": {
+        "title": "Field Setup"
+      },
+      "contents": [
+        {
+          "type": "image",
+          "props": {
+            "source": "image/phenotypingsystem.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "contents": "The Schnable Laboratory, at Iowa State University, is lead by Dr. Patrick Schnable. As the first scientist to decode the maize genome, along with countless other achievements, the lab is looked at by geneticists all over the world to be fairly pretigeous."
+    },
+    {
+      "type": "p",
+      "contents": "Now, I am no geneticist. I know very little about the actual biological research that goes on. I only hear little snippets whenever I ask questions to the graduate students if they have time to take a breath from their work."
+    },
+    {
+      "type": "p",
+      "contents": "My work is about a series of studies that occurred at the laboratory involving long-term, high stress, high-volume, time-lapse photography of maize genomes in a standard field environment."
+    },
+    {
+      "type": "p",
+      "contents": "My goal was to develop a program with some very strict restrictions"
+    },
+    {
+      "type": "p",
+      "contents": "1.) The hardware would run off of a Raspberry Pi. This means the program had to be designed to handle high volumes of network traffic and image data while being confined to limited hardware resources."
+    },
+    {
+      "type": "p",
+      "contents": "2.) The system was designed to be run using solar energy. So the program had to be designed to consume as little energy as possible. Each client has 4 cameras attached to it that need to be recharged. Again, the limitations of the hardware meant that the program had to be designed to intelligently charge the cameras only when necessary."
+    },
+    {
+      "type": "p",
+      "contents": "3.) The program had to be designed to handle real-world field-like conditions (such as rain, wind, or lab assistants fumbling with cables)."
+    },
+    {
+      "type": "p",
+      "contents": "With these restrictions, any normal programmer coming from an industry-type environment, where they don't have to think about optimization TOO terribly, may be shocked. However, in this environment, only the most optimized code would do. In brief, I'll go over the technologies I used and why I utilized them."
+    }
+  ]
+}

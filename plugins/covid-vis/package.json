@@ -1,0 +1,36 @@
+{
+  "name": "covid-vis",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://127.0.0.1:5000/plugin/covid19",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "d3": "^5.15.0",
+    "leaflet": "^1.6.0",
+    "moment": "^2.24.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

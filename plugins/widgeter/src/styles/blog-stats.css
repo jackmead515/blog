@@ -1,0 +1,25 @@
+.blog-stats {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+}
+
+.blog-stats > h3 {
+  margin: 0;
+  padding: 5px 10px 5px 10px;
+  background-color: #e3e3e3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.blog-stats > div {
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  gap: 10px;
+}
+
+.blog-stats > div > div {
+  overflow: hidden;
+}

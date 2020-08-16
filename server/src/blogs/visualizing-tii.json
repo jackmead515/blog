@@ -1,0 +1,215 @@
+{
+  "head": {
+    "title": "Visualizing Weather Data with Matplotlib",
+    "subtitle": "Looking at graphs of weather data, but it's fun!",
+    "date": 1570899600,
+    "link": "visualizing-weather-data-numpy-pandas-sklearn-matplotlib",
+    "description": "In order to build powerful neural networks and deep learning artifical intelligence, you have to understand how to visualize the data. Matplotlib is a powerful Python tool to do just that.",
+    "image": "image/temp_1996_2019.png",
+    "tags": [
+      "python", "ai", "deep", "machine", "learning", "numpy", "keras", "neural", "networks", "sklearn", "lstm", "pandas", "matplotlib", "programming"
+    ]
+  },
+  "contents": [
+    {
+      "type": "p",
+      "contents": "In this blog, we are going to use the powerful libraries matplotlib, numpy, and pandas to visualize weather data. This blog is broken into two other blogs, links are listed below as well."
+    },
+    {
+      "type": "a",
+      "props": {
+        "target": "tab",
+        "href": "https://mesonet.agron.iastate.edu/request/download.phtml"
+      },
+      "contents": "Iowa Environmental Mesonet (ISU)"
+    },
+    {
+      "type": "a",
+      "props": {
+        "target": "tab",
+        "href": "https://github.com/jackmead515/python_ai/tree/master/temperature-in-iowa"
+      },
+      "contents": "Github Repo"
+    },
+    {
+      "type": "a",
+      "props": {
+        "target": "tab",
+        "href": "http://www.speblog.org/blog/parsing-formatting-weather-data-numpy-pandas-sklearn"
+      },
+      "contents": "Preparing the Data"
+    },
+    {
+      "type": "a",
+      "props": {
+        "target": "tab",
+        "href": "http://www.speblog.org/blog/building-lstm-neural-network-in-keras-for-weather-data"
+      },
+      "contents": "Building the Network"
+    },
+    {
+      "type": "p",
+      "contents": "First thing we really need to do is understand that data as best we can. Building a neural network is easy, yes, but that's only a fraction of the job. The majority is understanding, visualizing, parsing, and manipulating the data itself."
+    },
+    {
+      "type": "p",
+      "contents": "We can start by loading the dataset and doing some preliminary work (Like importing our dependencies)."
+    },
+    {
+      "type": "code",
+      "props": {
+        "language": "python",
+        "source": "import matplotlib.pyplot as plot\nimport numpy as np\nimport pandas as pd\nfrom datetime import datetime\n\ndf = pd.read_csv('ames_iowa_30-09-1996_26-10-2019_temp.csv')\ndf = df.drop(['station'], axis=1)\ndf = df.dropna()\ndf.columns = ['time', 'value']\n\n# df.time = pd.DatetimeIndex(df.time).astype(np.int64)\ndf.time = [datetime.strptime(x, \"%Y-%m-%d %H:%M\").timestamp() for x in df.time]"
+      }
+    },
+    {
+      "type": "p",
+      "props": {
+        "embed": true
+      },
+      "contents": "Loading the content is easy enough. Pandas is awesome. This code is explained more in the <b>Preparing Data</b> section. All we are doing is loading the content, dropping useless data, and formatting the times to be unix timestamps in seconds."
+    },
+    {
+      "type": "p",
+      "contents": "First things first, let's get a big picture look at the content. What is it? Are there any noticable patterns that our network can learn from? Or will we have to let the network figure that out?"
+    },
+    {
+      "type": "code",
+      "props": {
+        "language": "python",
+        "source": "df = df.set_index('time')\naxis = df.plot.line(grid=True)\naxis.set_yticklabels(['{}C'.format(y) for y in axis.get_yticks()])\naxis.set_ylabel('Temperature in C')\naxis.set_xticklabels([datetime.utcfromtimestamp(x).strftime('%Y') for x in axis.get_xticks()])\naxis.set_xlabel('Time (1996 - 2019)')\naxis.get_legend().remove()\nplot.show()\ndf = df.reset_index()"
+      }
+    },
+    {
+      "type": "mini",
+      "props": {
+        "title": "Temperature from 1996 to 2019"
+      },
+      "contents": [
+        {
+          "type": "image",
+          "props": {
+            "zoomable": true,
+            "source": "image/temp_1996_2019.png"
+          }
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "contents": "Wow! So obviously there is a recurrent pattern. The temperature seems to rise and fall on a steady interval. Whether we are going forwards in time or backwards, the pattern is the same. This is important when we get to LSTM and GRU's and the Bidirectional layer in Keras."
+    },
+    {
+      "type": "p",
+      "contents": "Obviously this interval is the seasonal change per year. But if that wasn't obvious enough, we can just look at each year on a graph."
+    },
+    {
+      "type": "code",
+      "props": {
+        "language": "python",
+        "source": "def split_years(df):\n\tvalues = np.array(df)\n\tyears = [[]]\n\tindex = 0\n\tcurrent_year = datetime.fromtimestamp(values[0, 0]).year\n\tfor pair in values:\n\t\ttime = pair[0]\n\t\ttemp = pair[1]\n\t\tdata_year = datetime.fromtimestamp(time).year\n\t\tif data_year == current_year:\n\t\t\tyears[index].append(np.array([time, temp]))\n\t\telse:\n\t\t\tindex += 1\n\t\t\tcurrent_year = data_year\n\t\t\tyears.append([])\n\treturn years\n\ndef graph_years(df):\n\tyears = np.array(split_years(df))\n\tfigure = plot.figure(facecolor='white')\n\tplot_index = 1\n\tfor year in years:\n\t\tyear = np.array(year)\n\t\taxis = figure.add_subplot(4, 6, plot_index)\n\t\tplot.xticks([])\n\t\tplot.yticks([])\n\t\taxis.set_xlabel(datetime.fromtimestamp(year[0, 0]).year)\n\t\tplot.plot(year[:, 0], year[:, 1])\n\t\tplot_index+=1\n\tplot.show()\n\ngraph_years(df)"
+      }
+    },
+    {
+      "type": "p",
+      "props": {
+        "embed": true
+      },
+      "contents": "Now I know that's a lot of code to throw at you, but, I attempted to make the code read as much like English as possible. The <b>split_years</b> function scans over the whole dataframe and groups the data into the years variable. The <b>graph_years</b> function scans over the 24 years in the dataset and adds a subplot for each one."
+    },
+    {
+      "type": "mini",
+      "props": {
+        "title": "Temperature Year by Year"
+      },
+      "contents": [
+        {
+          "type": "image",
+          "props": {
+            "zoomable": true,
+            "source": "image/tii/year_by_year.png"
+          }
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "contents": "Again, it's obvious enough that each year the temperature rises and falls. Looking at 1996 though, did the temperature just contiously fall? Nah, we just apparently didn't grab the entire dataset of that year (no big deal)."
+    },
+    {
+      "type": "p",
+      "contents": "One thing you may have noticed, is how thick the graphs are. This is because, day to day, the temperature can really fluctuate. Additionally, during the night it usually gets far colder than during the day. But that begs another question: Are there noticable patterns day to day in any given year? Lets pick a random year, say, 2005, and see what's happening."
+    },
+    {
+      "type": "p",
+      "contents": "So to visualize this, it should actually be really straight forward. We can reuse the code we already used when looking at the years. This time, we just direct the algorithm to select on months instead."
+    },
+    {
+      "type": "code",
+      "props": {
+        "language": "python",
+        "source": "def split_months(year):\n\tvalues = np.array(year)\n\tmonths = [[]]\n\tindex = 0\n\tcurrent_month = datetime.fromtimestamp(values[0, 0]).month\n\tfor pair in values:\n\t\ttime = pair[0]\n\t\ttemp = pair[1]\n\t\tdata_month = datetime.fromtimestamp(time).month\n\t\tif data_month == current_month:\n\t\t\tmonths[index].append(np.array([time, temp]))\n\t\telse:\n\t\t\tindex += 1\n\t\t\tcurrent_month = data_month\n\t\t\tmonths.append([])\n\treturn months\n\ndef graph_months(df):\n\tyears = split_years(df)\n\tmonths = np.array(split_months(years[9]))\n\tfigure = plot.figure(facecolor='white')\n\tplot_index = 1\n\tfor month in months:\n\t\tmonth = np.array(month)\n\t\taxis = figure.add_subplot(3, 4, plot_index)\n\t\tplot.xticks([])\n\t\tplot.yticks([])\n\t\taxis.set_xlabel(datetime.fromtimestamp(month[0, 0]).month)\n\t\tplot.plot(month[:, 0], month[:, 1])\n\t\tplot_index+=1\n\tplot.show()\n\ngraph_months(df)"
+      }
+    },
+    {
+      "type": "mini",
+      "props": {
+        "title": "2015 Temperature Month by Month"
+      },
+      "contents": [
+        {
+          "type": "image",
+          "props": {
+            "zoomable": true,
+            "source": "image/tii/2005_month_by_month.png"
+          }
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "contents": "Beautiful! One thing that strikes out to me is how relatively stable the temperature is during the months of May, June, July, and August. In the months of November, December, January, and Feburary, the temperature flucuates a much greater deal as the month goes on. Perhaps this is something we can bounce an idea off of, instead of creating 1 neural network for all the years, we create seperate networks for each month!"
+    },
+    {
+      "type": "p",
+      "contents": "One last important piece of information that we might need is the average amount of data points per month (or per day). This will give us a clue as to how far back our network should look (if we are building a Recurrent Neural Network). We can do that very simply by using the following code."
+    },
+    {
+      "type": "code",
+      "props": {
+        "language": "python",
+        "source": "years = split_years(df)\nmonths = np.array(split_months(years[9]))\nlengths = []\nfor i in range(len(months)):\n\tlengths.append(len(months[i]))\n\tprint('Month: ' + str(i) + ' data points: ' + str(len(months[i])))\nprint('Median: ' + str(np.median(lengths)))\nprint('Mode: ' + str(np.average(lengths)))"
+      }
+    },
+    {
+      "type": "p",
+      "props": {
+        "embed": true
+      },
+      "contents": "Running this shows us a (rounded) mode of <b>717</b> and a median of <b>721</b>. And, assumming there are 30 days in a month, that's an average of <b>24</b>! Perfect! That means we roughly have a data point once every hour. Awesome! Let's continue on to the next section."
+    },
+    {
+      "type": "p",
+      "contents": "For kicks and giggles, let's apply the same logic for parsing and graphing the years and months, and parse and graph each day of June of 2005."
+    },
+    {
+      "type": "mini",
+      "props": {
+        "title": "June 2015 Temperature Day by Day"
+      },
+      "contents": [
+        {
+          "type": "image",
+          "props": {
+            "zoomable": true,
+            "source": "image/tii/june_2015_day_by_day.png"
+          }
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "contents": "Now there is a very obvious pattern going on here! During the night, the temperature drops. Then, during the day, the temperature rises again!"
+    }
+  ]
+}

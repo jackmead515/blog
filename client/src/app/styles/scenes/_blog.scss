@@ -1,0 +1,302 @@
+.blog {
+  &_container {
+    display: grid;
+    grid-gap: 20px;
+    background-color: white;
+    border: 1px solid #cccccc;
+    padding: 10px;
+  }
+
+  &_tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &_tag {
+    text-decoration: none;
+    color: #404040;
+    font-weight: normal;
+    font-size: 0.8em;
+    padding: 8px;
+    margin: 1px;
+    border: 1px solid #cccccc;
+    background-color: white;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+
+  &_tag:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #404040;
+  }
+
+  &_tag p {
+    line-height: normal;
+  }
+
+  &_tag:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    -webkit-box-shadow: 0px 0px 5px 0px #cccccc;
+    -moz-box-shadow: 0px 0px 5px 0px #cccccc;
+    box-shadow: 0px 0px 5px 0px #cccccc;
+  }
+
+  &_heading {
+    display: grid;
+    justify-items: start;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #cccccc;
+  }
+
+  &_heading h1 {
+    color: #00cc99;
+    margin-top: 15px;
+  }
+
+  &_heading h2 {
+    font-size: 1em;
+    margin-top: 5px;
+    font-weight: normal;
+    font-style: oblique;
+  }
+
+  &_heading span {
+    margin-top: 15px !important;
+  }
+
+  &_recent {
+    margin-top: 20px;
+  }
+
+  &_recent-listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    align-items: stretch;
+    grid-gap: 10px;
+  }
+
+  &_comments {
+    display: block;
+    background-color: white;
+    border: 1px solid #cccccc;
+    padding: 10px;
+  }
+
+  &_comments h2 {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cccccc;
+  }
+
+  &_comments-github {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &_comments p {
+    line-height: 20px;
+  }
+
+  &_stats {
+    display: grid;
+    grid-gap: 20px;
+    background-color: white;
+    border: 1px solid #cccccc;
+    padding: 10px;
+  }
+
+  &_stats p {
+    line-height: 20px;
+  }
+
+  &_prevnext {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  &_prevnext h2 {
+    display: flex;
+    align-items: center;
+  }
+
+  &_prevnext p {
+    line-height: 20px;
+  }
+
+  &_suggest {
+    margin-top: 20px;
+  }
+
+  &_suggest-listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    align-items: stretch;
+    grid-gap: 10px;
+  }
+
+  &_break {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &_arrow-next {
+    text-decoration: none;
+    color: #404040;
+    display: grid;
+    grid-gap: 10px;
+    justify-content: flex-end;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    background-color: white;
+    transition: transform 0.1s;
+  }
+
+  &_arrow-next:hover {
+    color: #404040;
+    transform: scale(1.02);
+    -webkit-box-shadow: 0px 0px 5px 0px #cccccc;
+    -moz-box-shadow: 0px 0px 5px 0px #cccccc;
+    box-shadow: 0px 0px 5px 0px #cccccc;
+    text-decoration: none;
+  }
+
+  &_arrow-prev {
+    text-decoration: none;
+    color: #404040;
+    display: grid;
+    grid-gap: 10px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    background-color: white;
+    transition: transform 0.1s;
+  }
+
+  &_arrow-prev:hover {
+    color: #404040;
+    transform: scale(1.02);
+    -webkit-box-shadow: 0px 0px 5px 0px #cccccc;
+    -moz-box-shadow: 0px 0px 5px 0px #cccccc;
+    box-shadow: 0px 0px 5px 0px #cccccc;
+    text-decoration: none;
+  }
+
+  &_related {
+    margin-top: 20px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+
+  &_related-listings {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  &_popular {
+    margin-top: 20px;
+  }
+
+  &_popular-listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    align-items: stretch;
+    grid-gap: 10px;
+  }
+
+  &_share {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    flex-wrap: nowrap;
+    align-items: center;
+    grid-gap: 10px;
+  }
+
+  &_share-reddit {
+    background-color: #FF4301 !important;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  &_share-twitter {
+    background-color: #1DA1F2 !important;
+    margin-right: 5px;
+  }
+
+  &_share-facebook {
+    background-color: #3b5998 !important;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  &_share-linkedin {
+    background-color: #2867B2 !important;
+    margin-left: 5px;
+  }
+
+  &_share-github {
+    background-color: #333 !important;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  &_share a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    font-size: 1em;
+    padding: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #00cc99;
+    border-radius: 5px;
+  }
+
+  &_share div {
+    font-size: 0.9em;
+    width: 0px;
+    text-align: center;
+    overflow: hidden;
+    transition: width 0.2s;
+  }
+
+  &_share a:hover > div {
+    width: 60px;
+  }
+
+  &_share a:hover {
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+  &_donate {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  @media only screen and (max-width: 800px) {
+    &_related-listings {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    &_suggest-listings, &_related-listings, &_popular-listings, &_recent-listings, &_share, &_related-mids {
+      grid-template-columns: 1fr;
+    }
+  }
+}

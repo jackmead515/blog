@@ -1,0 +1,238 @@
+{
+  "head": {
+    "title": "Data Encoding Techniques",
+    "subtitle": "Testing different data encoding techniques for speed and compression.",
+    "date": 1579992651,
+    "link": "encoding-with-avro-json-csv-protobuf-base64-in-java",
+    "description": "Many people default to simple CSV or JSON to encode data to transfer between apps. But, there are much faster and more efficient approaches like Protobuf and Avro.",
+    "image": "image/generic/network.jpg",
+    "tags": [
+      "avro", "json", "csv", "base64", "protobuf", "java", "maven", "apache", "google", "compression", "programming"
+    ]
+  },
+  "contents": [
+    {
+      "type": "p",
+      "contents": "So, I've always been a fan of big data. I do it as my full time job. And trust me, it costs a lot of money to move data around. The more data you have, the more it costs."
+    },
+    {
+      "type": "p",
+      "contents": "When comparing encoding techniques, there may only be a few kilobytes of difference between the two. But if you have billions of encoded readings, even a fraction of a fraction of bytes saved can save thousands of dollars."
+    },
+    {
+      "type": "a",
+      "props": {
+        "target": "tab",
+        "href": " https://github.com/jackmead515?tab=repositories"
+      },
+      "contents": "Serialization Methods Github Source Code"
+    },
+    {
+      "type": "mini",
+      "props": {
+        "title": "Comparisons"
+      },
+      "contents": [
+        {
+          "type": "code",
+          "props": {
+            "language": "shell",
+            "source": "20,000 strings at 20 characters\n20,000 numbers at 32 bits\n\n==| CSV |==\nData Size: 1024302 bytes\nBase64 Size: 1365736 bytes\nEncode Time: 4.538122835 ms\nParse Time: 9.893573074999999 ms\n\n==| JSON |==\nData Size: 1268814 bytes\nBase64 Size: 1691752 bytes\nEncode Time: 8.921927827 ms\nParse Time: 8.213622645 ms\n\n==| ProtoBuf |==\nData Size: 936944 bytes\nBase64 Size: 1249260 bytes\nEncode Time: 5.467107863 ms\nParse Time: 1.2513737409999999 ms\n\n==| Avro |==\nData Size: 847351 bytes\nBase64 Size: 1129804 bytes\nEncode Time: 4.372638659 ms\nParse Time: 2.6514886630000003 ms"
+          }
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "contents": "So what kind of techniques are out there? What do the professionals recommend? For starters, there is the famous JSON"
+    },
+    {
+      "type": "div",
+      "props": {
+        "embed": true
+      },
+      "contents": "<h3 style=\"border-top: 1px solid #cccccc;padding-top: 20px;\">JSON</h3>"
+    },
+    {
+      "type": "p",
+      "contents": "JSON is really cool because it's extremely human readable. Many configuration files, embedded data, and records are stored in this format. In fact, this blog your reading is actually written and stored as JSON in my github repo. Since I have a disk quota, at the time of writing this, at 100GB (hard limit) I don't have anything to worry about and could stored hundreds of blog posts on there."
+    },
+    {
+      "type": "p",
+      "contents": "But, JSON is the most expensive, in terms of size, in my list. In the link above, I stored 20,000 strings of 20 characters long, and 20,000 integers (32 bits) in a simple JSON schema. This resulted in 1269 KB of data. Not bad! But we can do much better."
+    },
+    {
+      "type": "div",
+      "props": {
+        "embed": true
+      },
+      "contents": "<h3 style=\"border-top: 1px solid #cccccc;padding-top: 20px;\">CSV</h3>"
+    },
+    {
+      "type": "p",
+      "contents": "CSV is another very popular human readable encoding format. It is the prefered format for spreadsheets, tables, and even AI datasets as it can easily store row x column based data."
+    },
+    {
+      "type": "p",
+      "contents": "And it's fast! Using the same strings and numbers as above, The encoding time was HALF of JSON's encoding time. Woah! Additionally, it's also lighter of on the disk space coming in at around 1024 KB. But is there anything better? Oh heck yeah..."
+    },
+    {
+      "type": "div",
+      "props": {
+        "embed": true
+      },
+      "contents": "<h3 style=\"border-top: 1px solid #cccccc;padding-top: 20px;\">Protobuf</h3>"
+    },
+    {
+      "type": "p",
+      "contents": "This is an insanely cool format released by the Google team. But, it's a little different then your traditional formats like JSON, CSV, or XML. The main difference is that your data is stored seperately from it's own schema. Your schema is actually stored as a seperate 'proto' file. An example is seen below."
+    },
+    {
+      "type": "mini",
+      "props": {
+        "title": "sample.proto"
+      },
+      "contents": [
+        {
+          "type": "code",
+          "props": {
+            "language": "shell",
+            "source": "message Wrapper {\n\trepeated string name = 1;\n\trepeated int32 number = 2;\n}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "contents": "Obviously the schema can get much more complicated, but, you write your schema in this sudo language and then encode the data with it. In my example, I stored the strings and numbers with this schema which resulted in only 936.9KB. Funny thing is that it was actually slower at encoding the data then CSV, but faster at parsing it then any other format listed here! The average parse time was just 1.2 miliseconds!! Blazing fast!"
+    },
+    {
+      "type": "p",
+      "contents": "Is there something better than this? It would be hard to imagine, but, there certainly is. Unfortunately, it's an Apache creation. Yuck..."
+    },
+    {
+      "type": "div",
+      "props": {
+        "embed": true
+      },
+      "contents": "<h3 style=\"border-top: 1px solid #cccccc;padding-top: 20px;\">Avro</h3>"
+    },
+    {
+      "type": "p",
+      "contents": "Taking the same concept as Protobuf, Avro has a schema file written in JSON and then encodes the data with that. Admittedly, it beats all other encoding methods at everything (only losing to Protobuf in parsing time just slightly)."
+    },
+    {
+      "type": "mini",
+      "props": {
+        "title": "sample.avsc"
+      },
+      "contents": [
+        {
+          "type": "code",
+          "props": {
+            "language": "shell",
+            "source": "{\n\t\"namespace\": \"\",\n\t\"name\": \"AvroSample\",\n\t\"type\": \"record\",\n\t\"fields\": [\n\t\t{\n\t\t\t\"name\": \"name\",\n\t\t\t\"type\": {\n\t\t\t\t\"name\": \"nameType\",\n\t\t\t\t\"type\": \"array\",\n\t\t\t\t\"items\": \"string\"\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"name\": \"number\",\n\t\t\t\"type\": {\n\t\t\t\t\"name\": \"numberType\",\n\t\t\t\t\"type\": \"array\",\n\t\t\t\t\"items\": \"int\"\n\t\t\t}\n\t\t}\n\t]\n}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "contents": "This schema takes those strings and numbers and turns it into just 847 KB in 4.3 milliseconds. And it hasn't even been compressed yet!"
+    },
+    {
+      "type": "div",
+      "props": {
+        "embed": true
+      },
+      "contents": "<h3 style=\"border-top: 1px solid #cccccc;padding-top: 20px;\">Overview</h3>"
+    },
+    {
+      "type": "p",
+      "contents": "When I chose to use JSON for my blogs, I did it knowing that it was slow and heavy on disk. But I didn't mind because in the end it's still fast enough to make my blog load really fast. Would it be cool to use something even faster and more compact? Sure of course! But it's not super necessary. However, I also make this educated choices whenever I make a new product. And now, with these comparisons, you can too."
+    },
+    {
+      "type": "p",
+      "contents": "Giving tutorials over Protobuf and Avro would be way to boring and take a long time to make complete. Besides, there is already great documentation in addition to the source code I built in Java. So instead, I suggest reading these links below. These are all tools and tutorials I have used to learn the schema and how to start building your own big data applications!"
+    },
+    {
+      "type": "table",
+      "props": {
+        "headings": [
+          "Protobuf",
+          "Avro"
+        ]
+      },
+      "contents": [
+        {
+          "type": "a",
+          "props": {
+            "target": "tab",
+            "href": "https://developers.google.com/protocol-buffers/docs/proto3"
+          },
+          "contents": "Documentation on V3 Schema"
+        },
+        {
+          "type": "a",
+          "props": {
+            "target": "tab",
+            "href": "https://avro.apache.org/docs/1.7.6/spec.html"
+          },
+          "contents": "Schema Specification"
+        },
+        {
+          "type": "a",
+          "props": {
+            "target": "tab",
+            "href": "https://www.npmjs.com/package/protobufjs"
+          },
+          "contents": "Node.js NPM: protobufjs"
+        },
+        {
+          "type": "a",
+          "props": {
+            "target": "tab",
+            "href": "https://www.npmjs.com/package/avsc"
+          },
+          "contents": "Node.js NPM: avsc"
+        },
+        {
+          "type": "a",
+          "props": {
+            "target": "tab",
+            "href": "https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java"
+          },
+          "contents": "Java Maven: com.google.protobuf"
+        },
+        {
+          "type": "a",
+          "props": {
+            "target": "tab",
+            "href": "https://mvnrepository.com/artifact/org.apache.avro/avro"
+          },
+          "contents": "Java Maven: org.apache.avro"
+        },
+        {
+          "type": "a",
+          "props": {
+            "target": "tab",
+            "href": "https://crates.io/crates/protobuf"
+          },
+          "contents": "Rust Crates: protobuf"
+        },
+        {
+          "type": "a",
+          "props": {
+            "target": "tab",
+            "href": "https://crates.io/crates/avro-rs"
+          },
+          "contents": "Rust Crates: avro-rs"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "contents": "If you enjoyed this content, let me know in the comments below. If you'd like to see more or learn more, don't be afraid to ask!"
+    }
+  ]
+}

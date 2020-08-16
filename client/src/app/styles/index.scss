@@ -1,0 +1,206 @@
+@import "./scenes/navigation";
+@import "./scenes/home";
+@import "./scenes/about";
+@import "./scenes/blog";
+@import "./scenes/gallery";
+@import "./scenes/contact";
+
+@import "./components/loading";
+@import "./components/image";
+@import "./components/video";
+@import "./components/listing";
+@import "./components/minimize";
+@import "./components/code";
+@import "./components/graph";
+@import "./components/toast";
+@import "./components/search";
+@import "./components/sshow";
+@import "./components/table";
+@import "./components/silisting";
+@import "./components/jilisting";
+@import "./components/adblock";
+@import "./components/pinned";
+@import "./components/minilisting";
+@import "./components/attblock";
+
+@import "./lib/fontawesome/css/font-awesome.css";
+@import "./lib/fonts/arimo/index.css";
+@import "./lib/fonts/ubuntu/index.css";
+@import "./lib/animate.css";
+@import "./lib/buymecoffee.css";
+@import "./lib/patreon.css";
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arimo', sans-serif !important;
+  color: #404040 !important;
+  background-color: #f2f2f2;
+  max-width: 100vw;
+}
+
+#root {
+  max-width: 100vw;
+}
+
+footer {
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid #cccccc;
+  font-size: 10px;
+  font-style: italic;
+  position: static;
+  top: 100%;
+  bottom: 0;
+}
+
+.footer-content {
+  padding: 20px;
+  background-color: white;
+  display: grid;
+  grid-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: auto 1fr;
+}
+
+.footer-nav {
+  color: #404040 !important;
+}
+
+.footer-nav span {
+  font-size: 5px;
+  margin: 0px;
+}
+
+.footer-nav a {
+  color: #404040 !important;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: normal;
+}
+
+iframe {
+  border: 1px solid #cccccc;
+}
+
+a {
+  font-size: 1em;
+  color: #1e73be;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+a:hover {
+  color: #155084;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+b {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  font-size: 1em !important;
+  line-height: 27px;
+  padding: 0;
+  margin: 0;
+}
+
+span {
+  font-size: 0.8em;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.4em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+input {
+  font-size: 1em;
+}
+
+.disable_scroll {
+  overflow: hidden;
+}
+
+.padded_container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+  min-height: 100vh;
+}
+
+.centeredinline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.centered {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.inline {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: start;
+  grid-gap: 10px;
+}
+
+.rows {
+  display: grid;
+  align-content: start;
+  grid-gap: 10px;
+}
+
+.blur {
+  filter: blur(3px); 
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -ms-filter: blur(3px);
+  -o-filter: blur(3px);
+}
+
+.tooltip {
+  position: absolute;
+}
+
+.spin-loader {
+  border: 5px solid #cccccc;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.8s ease-in-out infinite;
+}
+
+.remote_broken {
+  text-align: center;
+  background-color: #f2f2f2;
+  border: 1px solid #cccccc;
+  padding: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

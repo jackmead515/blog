@@ -1,0 +1,90 @@
+.home {
+
+  &_container {
+    max-width: 1300px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  &_listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    align-content: flex-start;
+    grid-gap: 10px;
+  }
+
+  &_headers {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  &_tags {
+    margin-top: 10px;
+  }
+
+  &_tag-title {
+    padding: 30px 10px 20px 10px;
+    max-width: 1300px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  &_tag-listings {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &_popular {
+    margin-top: 10px;
+  }
+
+  &_popular-listings {
+    display: grid;
+    grid-gap: 10px;
+    overflow: hidden;
+  }
+
+  @media only screen and (max-width: 850px) {
+    &_headers {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+    }
+
+    &_tags {
+      grid-column: span 1;
+    }
+
+    &_container {
+      grid-template-areas: "a" "b";
+      grid-template-columns: 1fr;
+      grid-gap: 10px;
+    }
+
+    &_sidebar {
+      grid-area: a;
+    }
+
+    &_listings {
+      grid-area: b;
+    }
+  }
+
+  @media only screen and (max-width: 390px) {
+    &_listings {
+      grid-template-columns: 1fr;
+    }
+
+    &_container {
+      grid-gap: 10px;
+    }
+  }
+
+}

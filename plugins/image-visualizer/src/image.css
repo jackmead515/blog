@@ -1,0 +1,30 @@
+.image {
+  /* display: block;
+  padding: 0;
+  max-width: 70vw;
+  max-height: 70vh;
+  width: 100%; */
+  transition: transform 0.3s;
+  animation: fadeIn 0.5s linear 1;
+}
+
+.image:hover {
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  0% {
+    filter: blur(3px); 
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -ms-filter: blur(3px);
+    -o-filter: blur(3px);
+  }
+  100% {
+    filter: blur(0px); 
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -ms-filter: blur(0px);
+    -o-filter: blur(0px);
+  }
+}

@@ -1,0 +1,36 @@
+.minimize_container {
+  border: 1px solid #e3e3e3;
+}
+
+.minimize_control {
+  font-size: 15px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+.minimize_control > span {
+  font-family: monospace !important;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.minimize_control:hover {
+  cursor: pointer;
+}
+
+.minimize_content {
+  display: grid;
+  grid-gap: 15px;
+  background-color: white;
+}
+
+.minimize_content > * {
+  border: none !important;
+}

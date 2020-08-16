@@ -1,0 +1,38 @@
+.silisting {
+
+  &_container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    text-decoration: none;
+    color: #404040;
+    font-weight: normal;
+  }
+
+  &_container:hover {
+    text-decoration: none;
+    color: #404040;
+  }
+
+  &_container:hover h1 {
+    color: #00cc99;
+  }
+
+  &_image {
+    width: 5vw;
+    height: 5vw;
+    min-width: 60px;
+    min-height: 60px;
+    background-origin: border-box;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+
+  &_info {
+    padding: 10px;
+  }
+
+  &_info h1 {
+    font-size: 1em;
+  }
+
+}

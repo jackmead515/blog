@@ -1,0 +1,86 @@
+{
+  "head": {
+    "title": "Travelling to Cuba",
+    "subtitle": "My adventures to the beautiful country of Cuba in 2018",
+    "date": 1533229200,
+    "link": "traveling-to-cuba-2018",
+    "image": "image/mageno_beach.jpg",
+    "tags": [
+      "travel", "cuba"
+    ]
+  },
+  "contents": [
+    {
+      "type": "mini",
+      "props": {
+        "title": "Mageno Beach"
+      },
+      "contents": [
+        {
+          "type": "image",
+          "props": {
+            "source": "image/mageno_beach.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "contents": "Before I begin, I have to make one thing perfectly clear. It is a fact that I have come to know through reading books, talking with locals and friends from other places in the world, and physically interacting and exploring in other countries..."
+    },
+    {
+      "type": "p",
+      "contents": "If you live in America, even in the poorest parts, you are highly privileged."
+    },
+    {
+      "type": "p",
+      "contents": "In first world countries, many people spend their lives as if it's sole purpose is to work for someone else's desires (even though it doesn't have to be). And whether or not a first world'er knows that life has choices and opportunities, they continue to dream of growing wings and flying away."
+    },
+    {
+      "type": "p",
+      "contents": "Havanna, Cuba, was an amazingly beautiful place, don't get me wrong. And as far as the state of affairs is worldwide, Cuba would be considered a second world country. I am simply projecting what I experienced onto those in more economically despaired places. But the friends I made taught me what it is really like to not have wings."
+    },
+    {
+      "type": "p",
+      "contents": "Growing up in a small town in Iowa, with a father and mother that collectively made very little whilst supporting four children, I thought I was poor. My wardrobe was made up of my older brothers clothes, my toys were from the local thrift store, and I didn't have my own bedroom until I was 14. I remember my parents arguing over whether or not to buy the name brand product, or, discussing in the other room whether or not they could afford to take my ill sister into the hospital."
+    },
+    {
+      "type": "p",
+      "contents": "It was only just recently that I made the realization that there were two, if not more, products of the same food in the store. And that, there was a fully staffed and supplied hospital within ten miles of my house. In other parts of the world, it is a daily reality for people to have a single choice for dinner that evening or no choice at all! And, when one is sick, the only choice people have is to pray."
+    },
+    {
+      "type": "p",
+      "contents": "During my time in Cuba, I learned that the life I was living, and the life that everyone there was living, was so dramatically different that I was ashamed to admit I had a car, a 1000 square foot apartment, and a job making more than $15 an hour. I was ashamed to admit that back home, I was stressed everyday because I thought I was struggling."
+    },
+    {
+      "type": "b",
+      "contents": "I learned an unforgettable truth: Most of humanity is suffering a great deal more than myself."
+    },
+    {
+      "type": "p",
+      "contents": "In Cuba, I met a wonderful musician that agreed to play for us as long as he could have the rest of my water. For thirty minutes or so, he played on this guitar that looked like it came out of an antique store. The strings looked as if they had come out of other random instruments and the polish was wearing all over. But he played that thing like he had an audience of a thousand screaming fans. That night, I learned that when you have a single choice, you make the most out of it."
+    },
+    {
+      "type": "p",
+      "contents": "After a day at the beach, my partner was severely burnt. She had blisters all over her shoulders and back and refused to go out into the sun for another two days after that. So, I went out venturing on my own like this..."
+    },
+    {
+      "type": "mini",
+      "props": {
+        "title": "Me looking like an idiot"
+      },
+      "contents": [
+        {
+          "type": "image",
+          "props": {
+            "source": "image/cuba_tourist.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "contents": "Stay tuned for more... I'm a slow writer..."
+    }
+  ]
+}
