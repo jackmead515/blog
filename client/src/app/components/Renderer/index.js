@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import { createParagraph } from './paragraph.js';
 import { createBold } from './bold.js';
 import { createLink } from './link.js';
@@ -20,8 +20,9 @@ export function count() {
   return keyIdentifier;
 }
 
+// eslint-disable-next-line complexity
 export function component(item) {
-  switch(item.type) {
+  switch (item.type) {
     case 'p': return createParagraph(item);
     case 'b': return createBold(item);
     case 'a': return createLink(item);
@@ -45,7 +46,7 @@ export function component(item) {
 
 export function build(data) {
   if (!Array.isArray(data)) {
-    throw new Error("Data is not an array.");
+    throw new Error('Data is not an array.');
   }
   keyIdentifier = 0;
   return data.map(component);
@@ -54,5 +55,5 @@ export function build(data) {
 export default {
   build,
   component,
-  count
-}
+  count,
+};

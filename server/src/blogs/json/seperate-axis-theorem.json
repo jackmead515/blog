@@ -8,7 +8,8 @@
     "description": "This complicated algorithm doesn't have to be a pain. Explore every detail of how this algorithm is used in 2D games.",
     "tags": [
       "collision", "simulation", "math", "algorithm", "seperate", "axis", "theorem", "detection", "resolution",
-      "gravity", "momentum", "javascript", "polygon", "java", "programming"
+      "gravity", "momentum", "javascript", "polygon", "java", "programming", "rust",
+      "wasm"
     ]
   },
   "contents": [

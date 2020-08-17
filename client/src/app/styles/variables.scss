@@ -1,0 +1,21 @@
+:root {
+  --primary-color: #00cc99;
+  --primary-dark: #00b88a;
+  --primary-darker: #00a37a;
+  --primary-darkest: #008f6b;
+
+  --error-color: #DD3333;
+}
+
+$primary-color: #00cc99;
+$primary-dark: #00b88a;
+$primary-darker: #00a37a;
+$primary-darkest: #008f6b;
+$error-color: #DD3333;
+$border-color: #cccccc;
+
+$space-tiny: 3px;
+$space-half: 5px;
+$space: 10px;
+
+$border: 1px solid $border-color;

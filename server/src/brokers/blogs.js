@@ -3,7 +3,7 @@ const stats = require('./stats');
 const path = require('path');
 const fs = require('fs');
 
-const blogsPath = path.join(global.__basedir, 'blogs');
+const blogsPath = path.join(global.__basedir, 'blogs/json');
 
 function blogExists(linkName) {
   return cache.getBlogInfo(linkName) !== null;

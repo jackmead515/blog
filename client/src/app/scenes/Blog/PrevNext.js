@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import FAIcon from 'react-fontawesome';
 
 class Arrow extends Component {
@@ -21,11 +21,11 @@ export default class PrevNext extends Component {
     super(props);
 
     this.state = {
-      loading: true
-    }
+      loading: true,
+    };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(nextProps) {
     if (nextProps.next || nextProps.prev) {
       this.setState({ loading: false });
     }
@@ -39,16 +39,16 @@ export default class PrevNext extends Component {
         <Arrow listing={prev} direction="prev">
           <h2>
             <FAIcon
-              style={{marginRight: 10}} 
+              style={{ marginRight: 10 }} 
               name="arrow-left"
             />
             Previous
           </h2>
         </Arrow>
-      )
+      );
     }
 
-    return <div className="blog_prevnext-prev" />
+    return <div className="blog_prevnext-prev" />;
   }
 
   renderNext() {
@@ -57,18 +57,18 @@ export default class PrevNext extends Component {
     if (next) {
       return (
         <Arrow listing={next} direction="next">
-          <h2 style={{justifySelf: 'flex-end'}}>
+          <h2 style={{ justifySelf: 'flex-end' }}>
             Next
             <FAIcon
-              style={{marginLeft: 10}} 
+              style={{ marginLeft: 10 }} 
               name="arrow-right"
             />
           </h2>
         </Arrow>
-      )
+      );
     }
 
-    return <div className="blog_prevnext-next"/>
+    return <div className="blog_prevnext-next"/>;
   }
 
   render() {
@@ -76,11 +76,11 @@ export default class PrevNext extends Component {
 
     if (!loading) {
       return (
-        <div className="blog_prevnext" style={{marginTop: 10}}>
+        <div className="blog_prevnext" style={{ marginTop: 10 }}>
           {this.renderPrev()}
           {this.renderNext()}
         </div>
-      )
+      );
     }
 
     return null;

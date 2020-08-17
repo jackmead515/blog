@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import hljs from 'highlight.js';
 
-// import 'highlight.js/styles/monokai-sublime.css';
 import 'highlight.js/styles/xt256.css';
 
 export default class CodeBlock extends React.PureComponent {

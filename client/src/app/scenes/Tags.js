@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import axios from 'axios';
 
 import { asyncRetry } from '../util/retry';
@@ -11,8 +11,8 @@ export default class Tags extends Component {
 
     this.state = {
       tags: [],
-      loading: true
-    }
+      loading: true,
+    };
   }
 
   componentDidMount() {
@@ -27,7 +27,7 @@ export default class Tags extends Component {
     try {
       const response = await asyncRetry(() => axios.get('/tags/top?number=20'));
       this.setState({ tags: response.data, loading: false });
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   }
@@ -49,7 +49,7 @@ export default class Tags extends Component {
       >
         {tags.map((tag, i) => <Tag key={i} count={tag.count} tag={tag.tag}/>)}
       </AttentionBlock>
-    )
+    );
   }
 
   render() {

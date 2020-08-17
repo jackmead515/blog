@@ -6,7 +6,7 @@ const initialState = {
 
 export const pushError = (state, error) => {
   const errors = state.errors;
-  const id = errors.length > 0 ? errors[ errors.length-1 ].id+1 : 0;
+  const id = Math.floor(Math.random()*10000);
 
   errors.push({
     id,

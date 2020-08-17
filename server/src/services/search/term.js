@@ -5,10 +5,10 @@ const blogs = require('../../brokers/blogs');
 function validateTerm(req, res, next) {
   const { term } = req.body;
   if (typeof term === 'string' && term.length >= 0 && term.length <= 500 && term.match(/^\w+$/g)) {
-    next();
-  } else {
-    res.status(400).send('Invalid Search Term');
+    return next();
   }
+
+  return res.status(400).send('Invalid Search Term');
 }
 
 function shapeQuery(req, res, next) {
@@ -17,17 +17,18 @@ function shapeQuery(req, res, next) {
     .replace(/\s+/g, ' ')
     .split(' ')
     .map((term) => term.toLowerCase());
-  next();
+
+  return next();
 }
 
 async function fetchData(req, res, next) {
   try {
     req.blogs = await blogs.fetchBlogList();
     req.blogs = req.blogs.map((blog) => blog.head);
-    next();
+    return next();
   } catch(e) {
     console.log('FAILED LIST BLOGS', e);
-    res.status(500).send('Internal Server Error');
+    return res.status(500).send('Internal Server Error');
   }
 }
 
@@ -44,11 +45,11 @@ async function searchByTerm(req, res, next) {
     }).find((blog) => blog);
   });
 
-  next();
+  return next();
 }
 
 route.post('/', [validateTerm, shapeQuery, fetchData, searchByTerm], function(req, res) {
-  res.status(200).send(req.results);
+  return res.status(200).send(req.results);
 });
 
 module.exports = route;

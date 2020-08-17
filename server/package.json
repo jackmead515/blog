@@ -7,7 +7,8 @@
     "node": "10.19.0"
   },
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "util": "node src/util.js"
   },
   "author": "Jack Mead",
   "license": "ISC",
@@ -24,7 +25,8 @@
     "nodemailer": "^6.4.2",
     "nodemon": "^1.19.4",
     "pg": "^7.12.1",
-    "retry": "^0.12.0"
+    "retry": "^0.12.0",
+    "showdown": "^1.9.1"
   },
   "devDependencies": {
     "xml": "^1.0.1"

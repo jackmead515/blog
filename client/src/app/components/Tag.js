@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import * as colors from '../styles/ThemeColors';
 
 export default class Tag extends Component {
@@ -6,8 +6,8 @@ export default class Tag extends Component {
     super(props);
 
     this.state = {
-      border: null
-    }
+      border: null,
+    };
 
     this.mouseEnter = this.mouseEnter.bind(this);
     this.mouseLeave = this.mouseLeave.bind(this);
@@ -17,26 +17,22 @@ export default class Tag extends Component {
     return this.state.border !== nextState.border;
   }
 
-  mouseEnter(event) {
-    this.setState({
-      border: `1px solid ${colors.random()}`
-    })
+  mouseEnter() {
+    this.setState({ border: `1px solid ${colors.random()}` });
   } 
 
-  mouseLeave(event) {
-    this.setState({
-      border: null
-    })
+  mouseLeave() {
+    this.setState({ border: null });
   }
 
   renderTag() {
     const { tag, count } = this.props;
 
     if (count) {
-      return <p><span>{`(${count})`}</span>{` ${tag}`}</p>
-    } else {
-      return <p>{`${tag}`}</p>
-    }
+      return <p><span>{`(${count})`}</span>{` ${tag}`}</p>;
+    } 
+    return <p>{`${tag}`}</p>;
+    
   }
 
   render() {

@@ -3,9 +3,9 @@ import React from 'react'
 export default function Footer() {
   return (
     <footer>
-      <div className="footer-content">
+      <div>
         <span>© {new Date().getUTCFullYear()} SELF PROCLAIMED ENGINEER</span>
-        <div className="footer-nav">
+        <div>
           <a href='/' alt='Home'>Home</a>
           |
           <a href='/about' alt='About'>About</a>

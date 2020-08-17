@@ -1,55 +1,31 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify';
 
-import FAIcon from 'react-fontawesome';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { popError } from '../actions/messages';
 
 class Toast extends Component {
-  constructor(props) {
-    super(props);
+  componentDidUpdate() {
+    const thisErrors = this.props.messages.errors;
 
-    this.state = {
-      messages: []
-    }
-
-    this.clearMessages = this.clearMessages.bind(this);
-  }
-
-  clearMessages() {
-    this.setState({ messages: [] });
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const nextErrors = nextProps.messages.errors;
-    nextErrors.map((error) => {
+    thisErrors.forEach((error) => {
       this.props.dispatch(popError(error.id));
-      const { messages } = this.state;
-      messages.push(error.message);
-      this.setState({ messages });
+      toast.error(error.message, {
+        progress: undefined,
+        autoClose: 5000,
+        closeOnClick: true
+      });
     });
   }
 
   render() {
-    const { messages } = this.state;
-
-    if(messages.length) {
-      return (
-        <div className="toast_container toast_fadeInDown">
-          <div className="toast_content">
-            {this.state.messages.map((m, i) => <p key={i} className="toast_text">{m}</p>)}
-          </div>
-          <div
-            onClick={this.clearMessages}
-            className="toast_clear"
-          >
-            <FAIcon name="times" />
-          </div>
-        </div>
-      );
-    }
-    
-    return null;
+    return (
+      <ToastContainer
+        hideProgressBar={true}
+      />
+    )
   }
 }
 

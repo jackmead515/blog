@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { pushError } from '../../actions/messages';
 
@@ -15,14 +15,13 @@ import Related from './Related';
 import Recent from './Recent';
 import Popular from './Popular';
 import Share from './Share';
-//import Donate from './Donate';
 
 export class Blog extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      head: {}
+      head: {},
     };
 
     this.blogLoadFailed = this.blogLoadFailed.bind(this);
@@ -30,9 +29,7 @@ export class Blog extends Component {
   }
 
   blogLoadFailed() {
-    this.props.dispatch(
-      pushError(`Failed to fetch blog.`)
-    );
+    this.props.dispatch(pushError('Failed to fetch blog.'));
   }
 
   blogLoadSuccess(head) {
@@ -40,13 +37,13 @@ export class Blog extends Component {
   }
 
   getBlogSource() {
-    const { name } = this.props.match.params
-    return `/blogs/get/${name}`
+    const { name } = this.props.match.params;
+    return `/blogs/get/${name}`;
   }
 
   getStatsSource() {
-    const { name } = this.props.match.params
-    return `/blogs/stats/${name}`
+    const { name } = this.props.match.params;
+    return `/blogs/stats/${name}`;
   }
 
   render() {
@@ -59,31 +56,25 @@ export class Blog extends Component {
           onLoaded={this.blogLoadSuccess}
           onFailed={this.blogLoadFailed}
         />
+        <Share />
+        <Comments />
         <Stats
           id="stats"
           source={this.getStatsSource()}
         />
-        <Share />
-        {/* <Donate /> */}
-        <Comments />
         <PrevNext
           prev={this.state.head.prev}
           next={this.state.head.next}
         />
-        <Related type="mids" link={this.state.head.link} />
-        {/* <div className="blog_break">
-          <h2>Thanks for Viewing! Explore More</h2>
-        </div> */}
+        <Related link={this.state.head.link} />
         <Popular />
         <Recent />
         <Suggest />
       </Template>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {}
-}
+const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps)(Blog)
+export default connect(mapStateToProps)(Blog);

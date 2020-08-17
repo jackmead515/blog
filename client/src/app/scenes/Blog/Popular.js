@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import axios from 'axios';
 
 import { asyncRetry } from '../../util/retry';
@@ -11,8 +11,8 @@ export default class Popular extends Component {
 
     this.state = {
       loading: true,
-      popular: []
-    }
+      popular: [],
+    };
   }
 
   componentDidMount() {
@@ -27,7 +27,7 @@ export default class Popular extends Component {
     try {
       const response = await asyncRetry(() => axios.get('/blogs/popular'));
       this.setState({ popular: response.data.slice(0, 6), loading: false });
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   }

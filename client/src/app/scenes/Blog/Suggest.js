@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import axios from 'axios';
 
 import { asyncRetry } from '../../util/retry';
@@ -11,11 +11,11 @@ export default class Suggest extends Component {
 
     this.state = {
       loading: true,
-      random: []
-    }
+      random: [],
+    };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchRandom();
   }
 
@@ -27,7 +27,7 @@ export default class Suggest extends Component {
     try {
       const response = await asyncRetry(() => axios.get('/blogs/random'));
       this.setState({ random: response.data, loading: false });
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   }

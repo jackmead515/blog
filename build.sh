@@ -51,6 +51,8 @@ echo "Creating Related Index"
 node related.js
 echo "Creating Sitemap.xml"
 node sitemap.js
+echo "Converting Markdown to HTML"
+node markdown.js
 
 cd ..
 

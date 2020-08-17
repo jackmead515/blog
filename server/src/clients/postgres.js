@@ -4,10 +4,10 @@ const config = require('../config');
 const options = {
   max: 10,
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000
+  connectionTimeoutMillis: 2000,
 };
 
-if(config.pgUrl) {
+if (config.pgUrl) {
   options.connectionString = config.pgUrl;
 } else {
   options.user = config.pgUser;
@@ -16,7 +16,7 @@ if(config.pgUrl) {
   options.port = 5432;
 }
 
-let pool = new Pool({ ...options });
+const pool = new Pool({ ...options });
 
 async function initialize() {
   let client = null;

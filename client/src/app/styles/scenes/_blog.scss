@@ -1,15 +1,20 @@
 .blog {
   &_container {
+    background-color: #fff;
+    border: $border;
+    border-radius: $space-tiny;
+  }
+
+  &_content {
+    padding: $space;
     display: grid;
-    grid-gap: 20px;
-    background-color: white;
-    border: 1px solid #cccccc;
-    padding: 10px;
+    gap: $space*2;
   }
 
   &_tags {
     display: flex;
     flex-wrap: wrap;
+    margin-top: $space;
   }
 
   &_tag {
@@ -19,9 +24,9 @@
     font-size: 0.8em;
     padding: 8px;
     margin: 1px;
-    border: 1px solid #cccccc;
+    border: $border;
     background-color: white;
-    border-radius: 5px;
+    border-radius: $space-tiny;
     text-transform: uppercase;
   }
 
@@ -38,85 +43,100 @@
   &_tag:hover {
     cursor: pointer;
     transform: scale(1.02);
-    -webkit-box-shadow: 0px 0px 5px 0px #cccccc;
-    -moz-box-shadow: 0px 0px 5px 0px #cccccc;
-    box-shadow: 0px 0px 5px 0px #cccccc;
+    -webkit-box-shadow: 0px 0px $space-half 0px #cccccc;
+    -moz-box-shadow: 0px 0px $space-half 0px #cccccc;
+    box-shadow: 0px 0px $space-half 0px #cccccc;
   }
 
   &_heading {
-    display: grid;
-    justify-items: start;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #cccccc;
-  }
+    padding: $space;
+    padding-bottom: $space*2;
+    border-bottom: $border;
 
-  &_heading h1 {
-    color: #00cc99;
-    margin-top: 15px;
-  }
+    > h1 {
+      color: $primary-color;
+      margin-top: $space-half*3;
+    }
 
-  &_heading h2 {
-    font-size: 1em;
-    margin-top: 5px;
-    font-weight: normal;
-    font-style: oblique;
-  }
-
-  &_heading span {
-    margin-top: 15px !important;
+    > h2 {
+      font-size: 1em;
+      margin-top: $space-half;
+      margin-bottom: $space-half*3;
+      font-weight: normal;
+      font-style: oblique;
+    }
   }
 
   &_recent {
-    margin-top: 20px;
+    margin-top: $space;
   }
 
   &_recent-listings {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     align-items: stretch;
-    grid-gap: 10px;
+    grid-gap: $space;
   }
 
   &_comments {
     display: block;
-    background-color: white;
-    border: 1px solid #cccccc;
-    padding: 10px;
-  }
+    background-color: #fff;
+    border: $border;
+    border-radius: $space-tiny;
 
-  &_comments h2 {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #cccccc;
-  }
+    > h2 {
+      margin-bottom: $space;
+      padding: $space;
+      border-bottom: $border;
+    }
 
-  &_comments-github {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-  }
+    &-github {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: $space*2;
+      padding: $space;
+    }
 
-  &_comments p {
-    line-height: 20px;
+    #disqus_thread {
+      border: none;
+      border-top: $border;
+      padding: $space;
+      box-sizing: border-box;
+
+      > iframe {
+        box-sizing: border-box;
+        border: none;
+      }
+    }
   }
 
   &_stats {
-    display: grid;
-    grid-gap: 20px;
-    background-color: white;
-    border: 1px solid #cccccc;
-    padding: 10px;
-  }
+    margin-top: $space;
+    background-color: #fff;
+    border: $border;
 
-  &_stats p {
-    line-height: 20px;
+    > h2 {
+      padding: $space;
+      padding: $space;
+      border-bottom: $border;
+    }
+
+    > p {
+      padding: $space;
+    }
+    
+    > .graph {
+      padding: $space;
+      padding-top: 0px;
+      box-sizing: border-box;
+    }
   }
 
   &_prevnext {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: $space;
   }
 
   &_prevnext h2 {
@@ -129,19 +149,19 @@
   }
 
   &_suggest {
-    margin-top: 20px;
+    margin-top: $space;
   }
 
   &_suggest-listings {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     align-items: stretch;
-    grid-gap: 10px;
+    grid-gap: $space;
   }
 
   &_break {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: $space;
+    margin-bottom: $space;
     padding-top: 50px;
     padding-bottom: 50px;
     display: flex;
@@ -153,9 +173,9 @@
     text-decoration: none;
     color: #404040;
     display: grid;
-    grid-gap: 10px;
+    grid-gap: $space;
     justify-content: flex-end;
-    padding: 10px;
+    padding: $space;
     border: 1px solid #cccccc;
     background-color: white;
     transition: transform 0.1s;
@@ -164,9 +184,9 @@
   &_arrow-next:hover {
     color: #404040;
     transform: scale(1.02);
-    -webkit-box-shadow: 0px 0px 5px 0px #cccccc;
-    -moz-box-shadow: 0px 0px 5px 0px #cccccc;
-    box-shadow: 0px 0px 5px 0px #cccccc;
+    -webkit-box-shadow: 0px 0px $space-half 0px #cccccc;
+    -moz-box-shadow: 0px 0px $space-half 0px #cccccc;
+    box-shadow: 0px 0px $space-half 0px #cccccc;
     text-decoration: none;
   }
 
@@ -174,8 +194,8 @@
     text-decoration: none;
     color: #404040;
     display: grid;
-    grid-gap: 10px;
-    padding: 10px;
+    grid-gap: $space;
+    padding: $space;
     border: 1px solid #cccccc;
     background-color: white;
     transition: transform 0.1s;
@@ -184,105 +204,105 @@
   &_arrow-prev:hover {
     color: #404040;
     transform: scale(1.02);
-    -webkit-box-shadow: 0px 0px 5px 0px #cccccc;
-    -moz-box-shadow: 0px 0px 5px 0px #cccccc;
-    box-shadow: 0px 0px 5px 0px #cccccc;
+    -webkit-box-shadow: 0px 0px $space-half 0px #cccccc;
+    -moz-box-shadow: 0px 0px $space-half 0px #cccccc;
+    box-shadow: 0px 0px $space-half 0px #cccccc;
     text-decoration: none;
   }
 
   &_related {
-    margin-top: 20px;
+    margin-top: $space;
     display: grid;
     grid-template-rows: auto 1fr;
-  }
 
-  &_related-listings {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 10px;
+    &-listings {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: $space;
+    }
   }
 
   &_popular {
-    margin-top: 20px;
+    margin-top: $space;
   }
 
   &_popular-listings {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     align-items: stretch;
-    grid-gap: 10px;
+    grid-gap: $space;
   }
 
   &_share {
-    margin-top: 10px;
+    margin-top: $space;
     display: flex;
     justify-content: center;
     text-decoration: none;
     flex-wrap: nowrap;
     align-items: center;
-    grid-gap: 10px;
-  }
+    grid-gap: $space;
 
-  &_share-reddit {
-    background-color: #FF4301 !important;
-    margin-right: 5px;
-    margin-left: 5px;
-  }
+    &-reddit {
+      background-color: #FF4301 !important;
+      margin-right: $space-half;
+      margin-left: $space-half;
+    }
 
-  &_share-twitter {
-    background-color: #1DA1F2 !important;
-    margin-right: 5px;
-  }
+    &-twitter {
+      background-color: #1DA1F2 !important;
+      margin-right: $space-half;
+    }
 
-  &_share-facebook {
-    background-color: #3b5998 !important;
-    margin-right: 5px;
-    margin-left: 5px;
-  }
+    &-facebook {
+      background-color: #3b5998 !important;
+      margin-right: $space-half;
+      margin-left: $space-half;
+    }
 
-  &_share-linkedin {
-    background-color: #2867B2 !important;
-    margin-left: 5px;
-  }
+    &-linkedin {
+      background-color: #2867B2 !important;
+      margin-left: $space-half;
+    }
 
-  &_share-github {
-    background-color: #333 !important;
-    margin-right: 5px;
-    margin-left: 5px;
-  }
+    &-github {
+      background-color: #333 !important;
+      margin-right: $space-half;
+      margin-left: $space-half;
+    }
 
-  &_share a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    font-size: 1em;
-    padding: 10px;
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #00cc99;
-    border-radius: 5px;
-  }
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+      font-size: 1em;
+      padding: $space;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #00cc99;
+      border-radius: $space-tiny;
+    }
 
-  &_share div {
-    font-size: 0.9em;
-    width: 0px;
-    text-align: center;
-    overflow: hidden;
-    transition: width 0.2s;
-  }
+    div {
+      font-size: 0.9em;
+      width: 0px;
+      text-align: center;
+      overflow: hidden;
+      transition: width 0.2s;
+    }
 
-  &_share a:hover > div {
-    width: 60px;
-  }
-
-  &_share a:hover {
-    text-decoration: none;
-    color: #ffffff;
+    a:hover > div {
+      width: 60px;
+    }
+  
+    a:hover {
+      text-decoration: none;
+      color: #ffffff;
+    }
   }
 
   &_donate {
-    margin-top: 10px;
+    margin-top: $space;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;

@@ -1,38 +1,35 @@
 .silisting {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  text-decoration: none;
+  color: #404040;
+  font-weight: normal;
 
-  &_container {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    text-decoration: none;
-    color: #404040;
-    font-weight: normal;
-  }
-
-  &_container:hover {
-    text-decoration: none;
-    color: #404040;
-  }
-
-  &_container:hover h1 {
-    color: #00cc99;
-  }
-
-  &_image {
+  > .image {
     width: 5vw;
     height: 5vw;
-    min-width: 60px;
-    min-height: 60px;
+    min-width: $space*6;
+    min-height: $space*6;
     background-origin: border-box;
     background-size: cover;
     background-position: 50% 50%;
+    border-radius: $space-tiny;
   }
 
-  &_info {
-    padding: 10px;
-  }
+  > .info {
+    padding: $space;
 
-  &_info h1 {
-    font-size: 1em;
+    > h1 {
+      font-size: 1em;
+    }
   }
+}
 
+.silisting:hover {
+  text-decoration: none;
+  color: #404040;
+}
+
+.silisting:hover h1 {
+  color: $primary-color;
 }

@@ -8,17 +8,4 @@
   &_wrapper {
     box-sizing: content-box;
   }
-
-  &_container pre {
-    margin: 0px;
-    tab-size: 3;
-  }
-
-  &_container code {
-    word-break: keep-all;
-    padding: 10px;
-    box-sizing: border-box;
-    line-height: 20px !important;
-    font-family: 'Ubuntu Mono', monospace !important;
-  }
 }

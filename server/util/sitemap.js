@@ -1,7 +1,7 @@
 const xml = require('xml');
 const fs = require('fs');
 const path = require('path');
-const blogsPath = path.join(__dirname, '/../src/blogs');
+const blogsPath = path.join(__dirname, '/../src/blogs/json');
 const sitemapPath = path.join(__dirname, '/../src/resources/sitemap.xml');
 
 const domain = 'https://www.speblog.org';

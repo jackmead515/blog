@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import FAIcon from 'react-fontawesome';
 
 export default class Share extends Component {
@@ -65,6 +65,6 @@ export default class Share extends Component {
           <div>Share</div>
         </a>
       </div>
-    )
+    );
   }
 }

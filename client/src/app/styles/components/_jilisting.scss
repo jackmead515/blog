@@ -9,6 +9,7 @@
     -o-transition:transform 0.1s ease-in; 
     transition:transform 0.1s ease-in;
     font-weight: normal;
+    border-radius: $space-tiny;
   }
 
   &_container:hover {
@@ -20,7 +21,7 @@
   }
 
   &_container:hover h1 {
-    color: #00cc99;
+    color: $primary-color;
   }
 
   &_image {
@@ -31,6 +32,7 @@
     background-origin: border-box;
     background-size: cover;
     background-position: 50% 50%;
+    border-radius: $space-tiny;
   }
 
   &_info {
@@ -38,7 +40,8 @@
     z-index: 1;
     bottom: 0;
     color: #ffffff;
-    padding: 10px;
+    padding: $space;
+    border-radius: $space-tiny;
   }
 
   &_info h1 {

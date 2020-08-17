@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class Comments extends Component {
   constructor(props) {
     super(props);
     
     this.state = {
-      loading: true
-    }
+      loading: true,
+    };
   }
 
-  componentWillMount() {
-    const script = document.createElement("script");
+  UNSAFE_componentWillMount() {
+    const script = document.createElement('script');
     script.innerHTML = `
       var disqus_config = function () {
         this.page.url = '${window.location.href}';
@@ -22,7 +22,7 @@ export default class Comments extends Component {
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
       })();
-    `
+    `;
     document.body.appendChild(script);
   }
 
@@ -33,7 +33,7 @@ export default class Comments extends Component {
           Have a question? Feel free to submit a Github issue&nbsp;<a href="https://github.com/jackmead515/blog/issues/new" target="_blank" rel="noopener noreferrer">here!</a>
         </p>
       </div>
-    )
+    );
   }
 
   render() {
@@ -46,6 +46,6 @@ export default class Comments extends Component {
         {this.renderGithubIssueSuggest()}
         <div id="disqus_thread"></div>
       </div>
-    )
+    );
   }
 }

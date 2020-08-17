@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { PersistGate } from 'redux-persist/lib/integration/react'
+import { PersistGate } from 'redux-persist/lib/integration/react';
 import { Provider } from 'react-redux';
 import axios from 'axios';
 
@@ -13,7 +13,7 @@ import './app/styles/index.css';
 
 config.initialize();
 
-axios.defaults.headers.common[ 'Content-Type' ] = 'application/json';
+axios.defaults.headers.common['Content-Type'] = 'application/json';
 axios.defaults.baseURL = config.data.baseUrl;
 
 ReactDOM.render((

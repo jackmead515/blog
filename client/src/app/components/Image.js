@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 import LineLoader from './LineLoader';
 
@@ -13,21 +13,21 @@ function enableGlobalScrolling() {
 }
 
 function globalScrollToTop() {
-  if(window && window.scrollTo) {
+  if (window && window.scrollTo) {
     window.scrollTo(0, 0);
   }
 }
 
 export default class Image extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
       loading: true,
       zoomed: false,
       zoom: 0,
-      errored: false
-    }
+      errored: false,
+    };
 
     this.onImageError = this.onImageError.bind(this);
     this.onImageLoad = this.onImageLoad.bind(this);
@@ -47,7 +47,7 @@ export default class Image extends Component {
     const { zoomable } = this.props;
 
     if (zoomable) {
-      let z = !this.state.zoomed;
+      const z = !this.state.zoomed;
 
       if (z) {
         disableGlobalScrolling();
@@ -59,6 +59,7 @@ export default class Image extends Component {
     }
   }
 
+  // eslint-disable-next-line complexity
   onWheel(e) {
     let delta = null;
     const mx = e.clientX?e.clientX:0;
@@ -75,13 +76,13 @@ export default class Image extends Component {
         this.setState({ 
           zoom: this.state.zoom-10<0?0:this.state.zoom-10,
           mouseX: mx,
-          mouseY: my
+          mouseY: my,
         });
       } else if (delta > 0) {
         this.setState({
           zoom: this.state.zoom+10>100?100:this.state.zoom+10,
           mouseX: mx,
-          mouseY: my
+          mouseY: my,
         });
       }
     }
@@ -91,7 +92,7 @@ export default class Image extends Component {
     const { loading } = this.state;
     const { source } = this.props;
 
-    const classes = loading ? "image_content blur" : "image_content";
+    const classes = loading ? 'image_content blur' : 'image_content';
 
     return (
       <img
@@ -101,7 +102,7 @@ export default class Image extends Component {
         onLoad={this.onImageLoad}
         onError={this.onImageError}
       />
-    )
+    );
   }
 
   renderLoading() {
@@ -109,23 +110,23 @@ export default class Image extends Component {
       <div className="image_loading">
         <LineLoader />
       </div>
-    )
+    );
   }
 
   renderErrored() {
     return (
       <div className="image_errored" />
-    )
+    );
   }
 
   renderOverlay() {
     const { loading, errored } = this.state;
 
-    if(loading) {
+    if (loading) {
       return this.renderLoading();
     }
 
-    if(errored) {
+    if (errored) {
       return this.renderErrored();
     }
   }
@@ -148,7 +149,7 @@ export default class Image extends Component {
             src={`${config.data.baseUrl}/${source}`}
           />
         </div>
-      )
+      );
     }    
   }
 
@@ -167,6 +168,6 @@ export default class Image extends Component {
         </div>
         {this.renderZoomed()}
       </>
-    )
+    );
   }
 }

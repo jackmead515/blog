@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "My blog.",
   "main": "n/a",
-  "engines" : { "node" : ">=10.19.0" },
+  "engines": {
+    "node": ">=10.19.0"
+  },
   "engineStrict": true,
   "scripts": {
     "bootstrap": "lerna exec npm install",
@@ -20,6 +22,8 @@
   },
   "homepage": "https://github.com/jackmead515/blog#readme",
   "devDependencies": {
+    "eslint": "^7.7.0",
+    "eslint-plugin-react": "^7.20.6",
     "gulp": "^4.0.2",
     "lerna": "^3.22.0"
   }

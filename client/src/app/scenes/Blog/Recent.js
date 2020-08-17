@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import axios from 'axios';
 
 import { asyncRetry } from '../../util/retry';
@@ -11,8 +11,8 @@ export default class Recent extends Component {
 
     this.state = {
       recent: [],
-      loading: true
-    }
+      loading: true,
+    };
   }
 
   componentDidMount() {
@@ -27,7 +27,7 @@ export default class Recent extends Component {
     try {
       const response = await asyncRetry(() => axios.get('/blogs/recent'));
       this.setState({ recent: response.data, loading: false });
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
   }

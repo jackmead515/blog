@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import axios from 'axios';
 
 import { asyncRetry } from '../../util/retry';
@@ -11,26 +11,28 @@ export default class Related extends Component {
 
     this.state = {
       loading: true,
-      related: []
-    }
+      related: [],
+    };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.link) {
-      this.fetchRelated(nextProps.link);
+  componentDidUpdate() {
+    if (this.state.loading && this.props.link) {
+      this.fetchRelated();
     }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.state.loading !== nextState.loading;
+    return nextProps.link !== this.props.link
+    || this.state.loading !== nextState.loading;
   }
 
-  async fetchRelated(link) {
+  async fetchRelated() {
+    const { link } = this.props;
     try {
       const response = await asyncRetry(() => axios.get(`/blogs/related/${link}`));
       this.setState({ related: response.data, loading: false });
-    } catch(e) {
-      console.log(e);
+    } catch (e) {
+      console.error(e);
     }
   }
 

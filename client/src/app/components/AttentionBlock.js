@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class AttentionBlock extends Component {
   constructor(props) {
@@ -6,16 +6,14 @@ export default class AttentionBlock extends Component {
 
     this.state = {
       closed: props.defaultClosed ? true : false,
-      preloadClassName: 'preload'
-    }
+      preloadClassName: 'preload',
+    };
 
     this.firstRender = false;
   }
 
   componentDidUpdate() {
     this.setState({ preloadClassName: null });
-    // const elem = document.getElementById(this.state.id);
-    // elem.style.height = elem.clientHeight + 'px';
   }
 
   componentDidMount() {
@@ -38,7 +36,7 @@ export default class AttentionBlock extends Component {
     return (
       <div className={`attblock ${containerClassName} ${preloadClassName}`}>
         <h2 
-          onClick={() => this.setState({closed: !this.state.closed})}
+          onClick={() => this.setState({ closed: !this.state.closed })}
           className={openedClass}
         >
           <span>{title}</span>
@@ -47,6 +45,6 @@ export default class AttentionBlock extends Component {
           {children}
         </div>
       </div>
-    )
+    );
   }
 }

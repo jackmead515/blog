@@ -3,7 +3,8 @@
   &_container {
     display: grid;
     grid-template-columns: auto 1fr;
-    border: 1px solid #cccccc;
+    border: $border;
+    border-radius: $space-tiny;
     box-sizing: border-box;
     position: relative;
   }
@@ -15,18 +16,24 @@
     justify-content: center;
     align-items: center;
     background-color: #f2f2f2;
+    border-top-left-radius: $space-tiny;
+    border-bottom-left-radius: $space-tiny;
   }
 
   &_field {
     width: 100%;
+    border-top-right-radius: $space-tiny;
+    border-bottom-right-radius: $space-tiny;
   }
 
   &_field input {
     width: 100%;
     border: none;
-    padding: 10px;
+    padding: $space;
     box-sizing: border-box;
-    border-left: 1px solid #cccccc;
+    border-left: $border;
+    border-top-right-radius: $space-tiny;
+    border-bottom-right-radius: $space-tiny;
   }
 
   &_results {
@@ -38,21 +45,20 @@
     max-height: 50vh;
     overflow-y: auto;
     box-sizing: border-box;
-    // box-sizing: border-box;
-    border-right: 1px solid #ccc;
-    border-left: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-right: $border;
+    border-left: $border;
+    border-bottom: $border;
     display: grid;
-    -webkit-box-shadow: 0px 0px 10px 0px #cccccc;
-    -moz-box-shadow: 0px 0px 10px 0px #cccccc;
-    box-shadow: 0px 0px 10px 0px #cccccc;
+    -webkit-box-shadow: 0px 0px $space 0px #cccccc;
+    -moz-box-shadow: 0px 0px $space 0px #cccccc;
+    box-shadow: 0px 0px $space 0px #cccccc;
   }
 
   &_results a {
     color: #404040;
     display: block;
     text-decoration: none;
-    padding: 10px;
+    padding: $space;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

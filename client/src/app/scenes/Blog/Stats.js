@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import * as d3 from 'd3';
@@ -25,8 +25,8 @@ export default class Stats extends Component {
       stats: [],
       loading: true,
       windowWidth: 0,
-      error: ""
-    }
+      error: '',
+    };
 
     this.drawn = false;
     this.vvMarker = null;
@@ -34,12 +34,9 @@ export default class Stats extends Component {
     this.updateDimensions = this.updateDimensions.bind(this);
   }
 
-  componentWillMount() {
-    this.fetchStats();
-  }
-
   componentDidMount() {
-    window.addEventListener("resize", this.updateDimensions);
+    this.fetchStats();
+    window.addEventListener('resize', this.updateDimensions);
     this.updateDimensions();
   }
 
@@ -55,7 +52,7 @@ export default class Stats extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions);
+    window.removeEventListener('resize', this.updateDimensions);
   }
 
   updateDimensions() {
@@ -76,42 +73,40 @@ export default class Stats extends Component {
     const statsD = stats.map((value, index, arr) => arr[index+1] - value);
     statsD.pop();
 
-    let newData = statsD.map((d, i) => {
-      return {
-        x: stats[i] + (stats[i+1]-stats[i])/2,
-        y: d
-      }
-    });
+    let newData = statsD.map((d, i) => ({
+      x: stats[i] + (stats[i+1]-stats[i])/2,
+      y: d,
+    }));
 
-    const minTime = d3.min(newData, (d) => d.x);
-    const maxTime = d3.max(newData, (d) => d.x);
-    const minDiff = d3.min(newData, (d) => d.y);
-    const maxDiff = d3.max(newData, (d) => d.y);
+    const minTime = d3.min(newData, d => d.x);
+    const maxTime = d3.max(newData, d => d.x);
+    const minDiff = d3.min(newData, d => d.y);
+    const maxDiff = d3.max(newData, d => d.y);
 
-    newData = newData.map((d) => {
+    newData = newData.map(d => {
       d.y = maxDiff - d.y;
       return d;
-    })
+    });
 
     const xScale = d3.scaleLinear()
       .domain([minTime, maxTime])
       .range([0, width]);
     const rxScale = d3.scaleLinear()
-    .domain([0, width])
-    .range([minTime, maxTime]);
+      .domain([0, width])
+      .range([minTime, maxTime]);
     const yScale = d3.scaleLinear()
       .domain([minDiff, maxDiff])
       .range([height-5, 0]);
 
     const svg = d3.select(`#${this.props.id}-vv`)
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height);
+      .append('svg')
+      .attr('width', width)
+      .attr('height', height);
     
     const line = d3.line()
       .curve(d3.curveMonotoneX)
-      .x((d) => xScale(d.x))
-      .y((d) => yScale(d.y))
+      .x(d => xScale(d.x))
+      .y(d => yScale(d.y));
     
     svg.append('rect')
       .attr('fill', '#f2f2f2')
@@ -120,15 +115,15 @@ export default class Stats extends Component {
       .attr('width', width)
       .attr('height', height);
     
-    const path = svg.append("g")
+    const path = svg.append('g')
       .attr('class', 'graph_line')
       .append('path')
       .data(newData)
-      .attr("d", line(newData))
+      .attr('d', line(newData));
 
-    const pbb = path.node().getBoundingClientRect()
+    const pbb = path.node().getBoundingClientRect();
     const ty = (height-pbb.height)/2;
-    path.attr('transform', `translate(${0},${ty})`)
+    path.attr('transform', `translate(${0},${ty})`);
 
     const tooltip = svg.append('text')
       .attr('x', 0)
@@ -136,54 +131,54 @@ export default class Stats extends Component {
       .attr('text-anchor', 'right')
       .attr('fill', '#404040')
       .attr('font-size', '15px')
-      .text('')
+      .text('');
 
     this.vvMarker = svg.append('rect')
-      .attr("width", 1)
-      .attr("height", height)
+      .attr('width', 1)
+      .attr('height', height)
       .attr('fill', '#404040')
-      .attr("visibility", 'hidden');
+      .attr('visibility', 'hidden');
   
-    svg.append("rect")
-      .attr("width", width)
-      .attr("height", height)
-      .attr("opacity", 0)
-      .on("mousemove", () => {
+    svg.append('rect')
+      .attr('width', width)
+      .attr('height', height)
+      .attr('opacity', 0)
+      .on('mousemove', () => {
         const x = d3.event.offsetX;
         const y = d3.event.offsetY;
         tooltip
           .attr('x', x+5)
           .attr('y', y)
-          .text(moment(rxScale(x)).format('YYYY MMM, Do kk:mm'))
+          .text(moment(rxScale(x)).format('YYYY MMM, Do kk:mm'));
         
         const toolNode = tooltip.node().getBoundingClientRect();
-        if(x+toolNode.width >= width-5) {
+        if (x+toolNode.width >= width-5) {
           tooltip.attr('x', x-toolNode.width-5);
         }
 
-        if(this.vvMarker) {
-          this.vvMarker.attr("x", x);
+        if (this.vvMarker) {
+          this.vvMarker.attr('x', x);
         }
-        if(this.vMarker) {
-          this.vMarker.attr("x", x);
+        if (this.vMarker) {
+          this.vMarker.attr('x', x);
         }
       })
-      .on("mouseenter", () => {
+      .on('mouseenter', () => {
         tooltip.attr('visibility', 'visible');
-        if(this.vvMarker) {
-          this.vvMarker.attr("visibility", 'visible');
+        if (this.vvMarker) {
+          this.vvMarker.attr('visibility', 'visible');
         }
-        if(this.vMarker) {
-          this.vMarker.attr("visibility", 'visible');
+        if (this.vMarker) {
+          this.vMarker.attr('visibility', 'visible');
         }
       })
-      .on("mouseout", () => {
+      .on('mouseout', () => {
         tooltip.attr('visibility', 'hidden');
-        if(this.vvMarker) {
-          this.vvMarker.attr("visibility", 'hidden');
+        if (this.vvMarker) {
+          this.vvMarker.attr('visibility', 'hidden');
         }
-        if(this.vMarker) {
-          this.vMarker.attr("visibility", 'hidden');
+        if (this.vMarker) {
+          this.vMarker.attr('visibility', 'hidden');
         }
       });
   }
@@ -198,12 +193,12 @@ export default class Stats extends Component {
     const maxTime = d3.max(stats);
     const xScale = d3.scaleLinear()
       .domain([minTime, maxTime])
-      .range([ 0, width ]);
+      .range([0, width]);
 
     const svg = d3.select(`#${this.props.id}-v`)
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height);
+      .append('svg')
+      .attr('width', width)
+      .attr('height', height);
     
     svg.append('rect')
       .attr('fill', '#f2f2f2')
@@ -215,24 +210,24 @@ export default class Stats extends Component {
     svg.selectAll('rect')
       .data(stats)
       .enter()
-      .append("rect")
-      .attr("fill", "#00cc99")
-      .attr("width", 2)
-      .attr("height", height)
-      .attr("x", (d) => xScale(d))
+      .append('rect')
+      .attr('fill', '#00cc99')
+      .attr('width', 2)
+      .attr('height', height)
+      .attr('x', d => xScale(d))
       .append('svg:title')
-      .text((d) => moment(d).format("YYYY MMM DD, kk:mm"));
+      .text(d => moment(d).format('YYYY MMM DD, kk:mm'));
 
     this.vMarker = svg.append('rect')
-      .attr("width", 1)
-      .attr("height", height)
+      .attr('width', 1)
+      .attr('height', height)
       .attr('fill', '#404040')
-      .attr("visibility", 'hidden');
+      .attr('visibility', 'hidden');
   
-    svg.append("rect")
-      .attr("width", width)
-      .attr("height", height)
-      .attr("opacity", 0);
+    svg.append('rect')
+      .attr('width', width)
+      .attr('height', height)
+      .attr('opacity', 0);
   }
 
   async fetchStats() {
@@ -240,7 +235,7 @@ export default class Stats extends Component {
       const response = await asyncRetry(() => axios.get(this.props.source));
       const { historic, count } = response.data;
       this.setState({ stats: historic, count, loading: false });
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   }
@@ -248,32 +243,22 @@ export default class Stats extends Component {
   renderContent() {
     const { stats } = this.state;
 
-    if(stats.length > 5) {
+    if (stats.length > 5) {
       return (
-        <div
-          className="blog_stats"
-          style={{
-            marginTop: 10,
-            display: 'block'
-          }}
-        >
-          <h2
-            style={{
-              marginBottom: 10,
-              paddingBottom: 10,
-              borderBottom: '1px solid #cccccc'
-            }}
-          >
+        <div className="blog_stats">
+          <h2>
             Statistics
           </h2>
-          <p style={{marginBottom: 10}}>Total Views: {this.state.count}</p>
-          <div id={`${this.props.id}-v`} />
-          <div id={`${this.props.id}-vv`} />
+          <p>Total Views: {this.state.count}</p>
+          <div className="graph">
+            <div id={`${this.props.id}-v`} />
+            <div id={`${this.props.id}-vv`} />
+          </div>
         </div>
       );
-    } else {
-      return null;
-    }
+    } 
+    return null;
+    
   }
 
   render() {

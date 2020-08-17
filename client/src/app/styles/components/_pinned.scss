@@ -49,17 +49,17 @@
   }
 
   &-active {
-    border: 1px solid #DD3333;
-    background-color: #DD3333;
+    border: 1px solid $error-color;
+    background-color: $error-color;
     color: white;
     font-weight: bold;
   }
 
   &-active:hover {
-    background-color: #DD3333;
+    background-color: $error-color;
   }
 }
 
 .pinned {
-  margin-top: 10px;
+  margin-top: $space;
 }

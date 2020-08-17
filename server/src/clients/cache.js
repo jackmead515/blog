@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const UNLIMITED_TIME = 0;
-const blogsPath = path.join(global.__basedir, 'blogs');
+const blogsPath = path.join(global.__basedir, 'blogs/json');
 const resourcesPath = path.join(global.__basedir, 'resources');
 
 const cache = new NodeCache({

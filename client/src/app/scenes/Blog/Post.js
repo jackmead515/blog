@@ -1,64 +1,63 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import axios from 'axios';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import moment from 'moment';
 import { Helmet } from 'react-helmet';
 
-import { asyncRetry } from '../../util/retry';
 import LineLoader from '../../components/LineLoader';
-import Renderer from '../../components/Renderer';
 import PinButton from '../../components/PinButton';
 
+import { highlightCode } from '../../util/markdown';
+import { getBlog } from '../../services/blog';
 import { addToPinned, removeFromPinned } from '../../actions/list';
-
 import * as config from '../../../config';
+
 
 class Post extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      components: [],
+      contents: null,
       head: {
         title: '',
         subtitle: '',
-        date: ''
+        date: '',
       },
       loading: true,
-      error: "",
-      pinState: false
-    }
+      error: '',
+      pinState: false,
+    };
 
     this.onClickPin = this.onClickPin.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { loading, head } = this.state;
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    const { loading, head, pinState } = this.state;
     const { pinned } = nextProps;
 
-    if (!loading) {
-      if (pinned.find((h) => h.link === head.link)) {
-        this.setState({ pinState: false });
-      } else {
-        this.setState({ pinState: true });
-      }
+    const newPinState = pinned.find(h => h.link === head.link) ? false : true;
+
+    if (!loading && pinState !== newPinState) {
+      this.setState({ pinState: newPinState });
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchPost();
   }
 
   async fetchPost() {
     const { pinned } = this.props;
     try {
-      const response = await asyncRetry(() => axios.get(this.props.source));
-      const { contents, head } = response.data;
-      const components = Renderer.build(contents);
-      const pinState = pinned.find((h) => h.link === head.link) ? false : true;
-      this.setState({ components, head, pinState, loading: false });
-      this.props.onLoaded(head);
-    } catch(e) {
-      console.log(e);
+      const { contents, head } = await getBlog(this.props.source);
+      const pinState = pinned.find(h => h.link === head.link) ? false : true;
+      this.setState({ contents, head, pinState, loading: false }, () => {
+        if (head.markdown) {
+          highlightCode('blog-markdown');
+        }
+        this.props.onLoaded(head);
+      });
+    } catch (e) {
+      console.log('FAILED TO GET BLOG', e);
       this.props.onFailed();
     }
   }
@@ -75,7 +74,6 @@ class Post extends Component {
 
   renderHeading() {
     const { pinState } = this.state;
-    
 
     return (
       <div className="blog_heading">
@@ -85,9 +83,9 @@ class Post extends Component {
         />
         <h1>{this.state.head.title}</h1>
         <h2>{this.state.head.subtitle}</h2>
-        <span>{moment(this.state.head.date*1000).format("MMM, Do YYYY")}</span>
+        <span>{moment(this.state.head.date*1000).format('MMM, Do YYYY')}</span>
       </div>
-    )
+    );
   }
 
   renderHelmet() {
@@ -104,19 +102,19 @@ class Post extends Component {
       next = <link rel="next" href={`${config.data.baseUrl}/blog/${head.next.link}`} />;
     }
     const ldJson = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Blogs",
-        "item": "https://speblog.org"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": head.title,
-        "item": window.location.href
-      }]
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': [{
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Blogs',
+        'item': 'https://speblog.org',
+      }, {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': head.title,
+        'item': window.location.href,
+      }],
     };
 
     return (
@@ -138,25 +136,35 @@ class Post extends Component {
           {JSON.stringify(ldJson)}
         </script>
       </Helmet>
-    )
+    );
+  }
+
+  renderContents() {
+    const { contents, head } = this.state;
+
+    if (head.markdown) {
+      return <div id="blog-markdown" className="blog_content markdown" dangerouslySetInnerHTML={{ __html: contents }} />;
+    }
+
+    return <div className="blog_content">{contents}</div>;
   }
 
   renderContent() {
     return (
-      <div className="blog_container" style={{marginTop: 10}}>
+      <div className="blog_container" style={{ marginTop: 10 }}>
         {this.renderHelmet()}
         {this.renderHeading()}
-        {this.state.components}
+        {this.renderContents()}
       </div>
-    )
+    );
   }
 
   renderLoading() {
     return (
-      <div className="blog_container" style={{marginTop: 10}}>
+      <div className="blog_container" style={{ marginTop: 10 }}>
         <LineLoader />
       </div>
-    )
+    );
   }
   
   render() {
@@ -165,10 +173,8 @@ class Post extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    pinned: state.list.pinned
-  }
-}
+const mapStateToProps = state => ({
+  pinned: state.list.pinned,
+});
 
-export default connect(mapStateToProps)(Post)
+export default connect(mapStateToProps)(Post);

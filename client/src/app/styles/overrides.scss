@@ -1,0 +1,157 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif !important;
+  color: #404040 !important;
+  background-color: #f2f2f2;
+  max-width: 100vw;
+}
+
+#root {
+  max-width: 100vw;
+}
+
+pre {
+  margin: 0px;
+  tab-size: 3;
+  border-radius: $space-tiny;
+}
+
+code {
+  word-break: keep-all;
+  padding: $space;
+  border-radius: $space-tiny;
+  box-sizing: border-box;
+  line-height: $space*2 !important;
+  font-family: monospace !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-stretch: normal !important;
+  font-size: $space-half*3;
+}
+
+footer {
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid #cccccc;
+  font-size: $space;
+  font-style: italic;
+  position: static;
+  top: 100%;
+  bottom: 0;
+
+  > span {
+    font-size: $space-half;
+    margin: 0px;
+  }
+
+  > div {
+    padding: $space*2;
+    background-color: white;
+    display: grid;
+    gap: $space;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+
+    > div {
+      > a {
+        color: #404040 !important;
+        padding-left: $space-half;
+        padding-right: $space-half;
+        font-weight: normal;
+      }
+    }
+  }
+
+}
+
+iframe {
+  border: $border;
+  border-radius: $space-tiny;
+}
+
+a {
+  font-size: 1em;
+  color: #1e73be;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+a:hover {
+  color: #155084;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+b {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  font-size: 1em !important;
+  line-height: 27px;
+  padding: 0;
+  margin: 0;
+}
+
+span {
+  font-size: 0.8em;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.4em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+input {
+  font-size: 1em;
+  border: $border;
+}
+
+textarea {
+  border: $border;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: $space-tiny;
+}
+
+td, th {
+  border: $border;
+  text-align: left;
+  padding: $space-half $space $space-half $space;
+}
+
+td {
+  font-size: 1em;
+}
+
+th {
+  text-align: center;
+  background-color: #65aae7;
+  color: #fff;
+  font-size: 1.1em;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

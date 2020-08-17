@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const blogsPath = path.join(__dirname, '/../src/blogs');
+const blogsPath = path.join(__dirname, '/../src/blogs/json');
 const relatedPath = path.join(__dirname, '/../src/resources/related.json');
 
 function calculateWeighted(blog) {

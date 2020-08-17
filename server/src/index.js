@@ -1,4 +1,4 @@
-global.__basedir = __dirname
+global.__basedir = __dirname;
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -14,7 +14,7 @@ const { staticFile } = require('./mw/staticFile');
 
 const sitemapPath = path.join(global.__basedir, 'resources/sitemap.xml');
 const robotsPath = path.join(global.__basedir, 'resources/robots.txt');
-const imageRoute = express.static(path.join(global.__basedir, 'images'))
+const imageRoute = express.static(path.join(global.__basedir, 'images'));
 const clientRoute = express.static(path.join(global.__basedir, 'build/client'));
 const satTesterRoute = express.static(path.join(global.__basedir, 'build/sat-tester'));
 const capSensorVisRoute = express.static(path.join(global.__basedir, 'build/cap-sensor-vis'));
@@ -62,13 +62,13 @@ app.use('/tags/list', services.tags.list);
 app.use('/tags/top', services.tags.top);
 app.use('/lists/books', services.lists.books);
 app.use('/lists/stocks', services.lists.stocks);
-app.use('/farm/ingest', services.farm.ingest);
+//app.use('/farm/ingest', services.farm.ingest);
 
 Promise.all([postgres.initialize(), cache.initialize()])
   .then(() => {
     app.listen(config.port, () => console.log('Server started on port: ' + config.port));
   })
-  .catch((err) => {
+  .catch(err => {
     console.log('FAILED TO CREATE TABLE', err);
     process.exit();
   });

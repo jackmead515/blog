@@ -12,4 +12,5 @@ node_modules
 **/build
 **/target
 
+server/.git
 plugin/rust-wasm/target
