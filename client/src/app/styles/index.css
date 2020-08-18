@@ -376,7 +376,8 @@ tr:nth-child(even) {
 .blog_stats {
   margin-top: 10px;
   background-color: #fff;
-  border: 1px solid #cccccc; }
+  border: 1px solid #cccccc;
+  border-radius: 3px; }
   .blog_stats > h2 {
     padding: 10px;
     padding: 10px;
@@ -1088,16 +1089,15 @@ tr:nth-child(even) {
     grid-template-rows: auto auto; } }
 
 .pinned-listings {
-  padding: 10px;
   display: grid;
-  grid-gap: 10px;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #cccccc;
   overflow-y: auto;
-  max-height: 40vh; }
+  max-height: 40vh;
+  border-radius: 3px; }
 
 .pinned-listings a {
-  padding-bottom: 10px;
+  padding: 10px;
   border-bottom: 1px solid #cccccc; }
 
 .pinned-listings a:last-child {
@@ -1113,8 +1113,9 @@ tr:nth-child(even) {
 .pinned-button {
   font-size: 10px;
   border: 1px solid #cccccc;
-  background-color: #ffffff;
-  padding: 5px; }
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 3px; }
 
 .pinned-button span {
   margin: 0 !important; }
@@ -1153,15 +1154,14 @@ tr:nth-child(even) {
   The dropdown component for attention. Like "Most Popular" or "Top Tags" on dashboard.
 */
 .attblock-closed {
-  border-bottom: 3px solid #b3b3b3;
   margin: 0px !important; }
-
-.attblock-closed span {
-  background-color: #b3b3b3 !important;
-  flex: 1;
-  animation-name: closeFlex;
-  animation-timing-function: ease-out;
-  animation-duration: 0.2s; }
+  .attblock-closed > span {
+    flex: 1;
+    background-color: #cccccc;
+    border-radius: 3px;
+    animation-name: closeFlex;
+    animation-timing-function: ease-out;
+    animation-duration: 0.2s; }
 
 .attblock-closed + div {
   overflow: hidden;
@@ -1171,16 +1171,14 @@ tr:nth-child(even) {
 
 .attblock-opened {
   border-bottom: 3px solid #DD3333; }
-
-.attblock-opened + div {
-  height: inherit; }
-
-.attblock-opened span {
-  background-color: #DD3333 !important;
-  flex: none;
-  animation-name: openFlex;
-  animation-timing-function: ease-out;
-  animation-duration: 0.2s; }
+  .attblock-opened > span {
+    background-color: #DD3333;
+    flex: none;
+    animation-name: openFlex;
+    animation-timing-function: ease-out;
+    animation-duration: 0.2s;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px; }
 
 @keyframes closeFlex {
   from {

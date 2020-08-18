@@ -1,18 +1,17 @@
 .pinned {
 
   &-listings {
-    padding: 10px;
     display: grid;
-    grid-gap: 10px;
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
+    background-color: #fff;
+    border: $border;
     overflow-y: auto;
     max-height: 40vh;
+    border-radius: $space-tiny;
   }
 
   &-listings a {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #cccccc;
+    padding: $space;
+    border-bottom: $border;
   }
 
   &-listings a:last-child {
@@ -29,10 +28,11 @@
   }
 
   &-button {
-    font-size: 10px;
-    border: 1px solid #cccccc;
-    background-color: #ffffff;
-    padding: 5px;
+    font-size: $space;
+    border: $border;
+    background-color: #fff;
+    padding: $space-half;
+    border-radius: $space-tiny;
   }
 
   &-button span {

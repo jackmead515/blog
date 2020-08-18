@@ -1,13 +1,11 @@
 
 @import "./lib/fontawesome/css/font-awesome.css";
-// @import "./lib/fonts/arimo/index.css";
-// @import "./lib/fonts/ubuntu/index.css";
 @import "./lib/animate.css";
 @import "./lib/buymecoffee.css";
 @import "./lib/patreon.css";
 
-@import "./variables.scss";
-@import "./overrides.scss";
+@import "./config/variables.scss";
+@import "./config/overrides.scss";
 
 @import "./scenes/navigation";
 @import "./scenes/home";

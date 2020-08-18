@@ -3,16 +3,16 @@
 */
 .attblock {
   &-closed {
-    border-bottom: 3px solid #b3b3b3;
     margin: 0px !important;
-  }
 
-  &-closed span {
-    background-color: #b3b3b3 !important;
-    flex: 1;
-    animation-name: closeFlex;
-    animation-timing-function: ease-out;
-    animation-duration: 0.2s;
+    > span {
+      flex: 1;
+      background-color: $border-color;
+      border-radius: $space-tiny;
+      animation-name: closeFlex;
+      animation-timing-function: ease-out;
+      animation-duration: 0.2s;
+    }
   }
 
   &-closed + div {
@@ -23,19 +23,17 @@
   }
 
   &-opened {
-    border-bottom: 3px solid #DD3333;
-  }
+    border-bottom: 3px solid $error-color;
 
-  &-opened + div {
-    height: inherit;
-  }
-  
-  &-opened span {
-    background-color: #DD3333 !important;
-    flex: none;
-    animation-name: openFlex;
-    animation-timing-function: ease-out;
-    animation-duration: 0.2s;
+    > span {
+      background-color: $error-color;
+      flex: none;
+      animation-name: openFlex;
+      animation-timing-function: ease-out;
+      animation-duration: 0.2s;
+      border-top-left-radius: $space-tiny;
+      border-top-right-radius: $space-tiny;
+    }
   }
 
   @keyframes closeFlex {
