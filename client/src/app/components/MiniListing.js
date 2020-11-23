@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import FAIcon from 'react-fontawesome';
 import moment from 'moment';
 
 export default class Listing extends Component {
@@ -17,7 +18,7 @@ export default class Listing extends Component {
       >
         <div className='minilisting_info'>
           <h1>{listing.title}</h1>
-          <span>{moment(listing.date*1000).format('MMM, Do YYYY')}</span>
+          <span><FAIcon name="clock-o" /> {moment(listing.date*1000).format('MMM, Do YYYY')}</span>
         </div>
       </a>
     );

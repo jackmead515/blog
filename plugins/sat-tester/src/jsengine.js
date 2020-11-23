@@ -1,18 +1,12 @@
 const VecUtil = {
-  subtract: (v1, v2)  => {
-    return [ v1[0]-v2[0], v1[1]-v2[1] ];
-  },
-  normal: (v) => {
-    return [ -v[1], v[0] ];
-  },
-  normalize: (v) => {
+  subtract: (v1, v2) => [v1[0]-v2[0], v1[1]-v2[1]],
+  normal: v => [-v[1], v[0]],
+  normalize: v => {
     const l = Math.sqrt(Math.pow(v[0], 2) + Math.pow(v[1], 2));
-	  return [ v[0]/l, v[1]/l ];
+	  return [v[0]/l, v[1]/l];
   },
-  dot: (v1, v2) => {
-    return v1[0]*v2[0] + v1[1]*v2[1];
-  }
-}
+  dot: (v1, v2) => v1[0]*v2[0] + v1[1]*v2[1],
+};
 
 function collideWithBoundary(width, height, rect) {
   if (rect.x < 0) {
@@ -34,22 +28,22 @@ function collideWithBoundary(width, height, rect) {
 }
 
 function getRectCenter(rect) {
-  return [ rect.x+rect.width/2, rect.y+rect.height/2 ]
+  return [rect.x+rect.width/2, rect.y+rect.height/2];
 }
 
 function project(axis, points) {
   let dot = VecUtil.dot(axis, points[0]);
   let min = dot; let max = dot;
-  for(let i = 0; i < points.length; i++) {
+  for (let i = 0; i < points.length; i++) {
     const point = points[i];
     dot = VecUtil.dot(axis, point);
-		if (dot < min) {
-			min = dot;
-		} else if (dot > max) {
-			max = dot;
-		}
+    if (dot < min) {
+      min = dot;
+    } else if (dot > max) {
+      max = dot;
+    }
   }
-	return [ min, max ];
+  return [min, max];
 }
 
 function getPoints(rect) {
@@ -63,12 +57,12 @@ function getPoints(rect) {
 
 function getEdges(points) {
   const edges = [];
-	for (let i = 0; i < points.length; i++) {
+  for (let i = 0; i < points.length; i++) {
 	  const p1 = points[i];
-		const p2 = points[i + 1 === points.length ? 0 : i + 1];
-		edges.push(VecUtil.subtract(p1, p2));
-	}
-	return edges;
+    const p2 = points[i + 1 === points.length ? 0 : i + 1];
+    edges.push(VecUtil.subtract(p1, p2));
+  }
+  return edges;
 }
 
 function satCollision(rect1, rect2) {
@@ -92,7 +86,7 @@ function satCollision(rect1, rect2) {
       minAxis = axis;
     }
   }
-  for(let i = 0; i < edges2.length; i++) {
+  for (let i = 0; i < edges2.length; i++) {
     const edge = edges2[i];
     const axis = VecUtil.normalize(VecUtil.normal(edge));
     const mm1 = project(axis, points1);
@@ -106,34 +100,34 @@ function satCollision(rect1, rect2) {
     }
   }
 
-  const mtv = [ minAxis[0]*minOverlap, minAxis[1]*minOverlap ];
+  const mtv = [minAxis[0]*minOverlap, minAxis[1]*minOverlap];
   const c1c2 = VecUtil.subtract(getRectCenter(rect1), getRectCenter(rect2));
   if (VecUtil.dot(minAxis, c1c2) < 0) {
-    return [ -mtv[0], -mtv[1] ];
-  } else {
-    return mtv;
-  }
+    return [-mtv[0], -mtv[1]];
+  } 
+  return mtv;
+  
 }
 
 function applyElastic(rect1, rect2, damping) {
-  let dx = rect2.x - rect1.x;
-  let dy = rect2.y - rect1.y;
-  let dr = Math.sqrt(dx * dx + dy * dy);
+  const dx = rect2.x - rect1.x;
+  const dy = rect2.y - rect1.y;
+  const dr = Math.sqrt(dx * dx + dy * dy);
 
-  let nx = dx / dr; //normal x
-  let ny = dy / dr; //normal y
+  const nx = dx / dr; //normal x
+  const ny = dy / dr; //normal y
 
-  let tx = -ny; //tangent x
-  let ty = nx; //tangent y
+  const tx = -ny; //tangent x
+  const ty = nx; //tangent y
 
-  let dpt1 = rect1.vx * tx + rect1.vy * ty; //dot product of tangent
-  let dpt2 = rect2.vx * tx + rect2.vy * ty;
+  const dpt1 = rect1.vx * tx + rect1.vy * ty; //dot product of tangent
+  const dpt2 = rect2.vx * tx + rect2.vy * ty;
 
-  let dpn1 = rect1.vx * nx + rect1.vy * ny; //dot product of normal
-  let dpn2 = rect2.vx * nx + rect2.vy * ny;
+  const dpn1 = rect1.vx * nx + rect1.vy * ny; //dot product of normal
+  const dpn2 = rect2.vx * nx + rect2.vy * ny;
 
-  let m1 = (dpn1 * (rect1.mass - rect2.mass) + 2.0 * rect2.mass * dpn2) / (rect1.mass + rect2.mass); //momentum
-  let m2 = (dpn2 * (rect2.mass - rect1.mass) + 2.0 * rect1.mass * dpn1) / (rect1.mass + rect2.mass);
+  const m1 = (dpn1 * (rect1.mass - rect2.mass) + 2.0 * rect2.mass * dpn2) / (rect1.mass + rect2.mass); //momentum
+  const m2 = (dpn2 * (rect2.mass - rect1.mass) + 2.0 * rect1.mass * dpn1) / (rect1.mass + rect2.mass);
 
   rect1.vx = (tx * dpt1 + nx * m1) * damping;
   rect1.vy = (ty * dpt1 + ny * m1) * damping;
@@ -151,8 +145,8 @@ function applyGravity(rect1, rect2, constant) {
   const dsq = dx*dx + dy*dy;
   const dr = Math.sqrt(dsq);
 
-  if(dsq > 5) {
-    const force = (constant*((rect1.mass*rect2.mass)/dsq))
+  if (dsq > 5) {
+    const force = (constant*((rect1.mass*rect2.mass)/dsq));
     ax += force*dx/dr;
     ay += force*dy/dr;
   }
@@ -183,8 +177,8 @@ export default class JSEngine {
       vy: 0.0,
       ax: 0.0, 
       ay: 0.0,
-      mass: 50.0
-    }
+      mass: 50.0,
+    };
   }
 
   static new(world_width, world_height, gravity_constant, damping) {
@@ -197,11 +191,11 @@ export default class JSEngine {
 
   generate(amount) {
     for (let i = 0; i < amount; i++) {
-      let width = Math.random() * 15.0 + 5.0;
-      let height = Math.random() * 15.0 + 5.0;
-      let x = Math.random() * this.world_width;
-      let y = Math.random() * this.world_height;
-      let mass = width*height;
+      const width = 5//Math.random() * 15.0 + 5.0;
+      const height = 5//Math.random() * 15.0 + 5.0;
+      const x = Math.random() * this.world_width;
+      const y = Math.random() * this.world_height;
+      const mass = width*height;
       let vx = Math.random();
       let vy = Math.random();
       if (Math.random() > 0.5) {
@@ -221,7 +215,7 @@ export default class JSEngine {
         vy, 
         mass, 
         ax: 0, 
-        ay: 0
+        ay: 0,
       });
     }
   }
@@ -277,6 +271,7 @@ export default class JSEngine {
             if (col !== null) {
               rect.x += col[0]; rect.y += col[1];
               rect2.x -= col[0]; rect2.y -= col[1];
+              // eslint-disable-next-line max-depth
               if (this.elastic_enabled) {
                 applyElastic(rect, rect2, this.damping);
               }

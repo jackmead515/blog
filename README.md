@@ -9,9 +9,9 @@ Contributing consists of asking questions and adding suggestions for the types o
 ### Install Postgres
 
 #### Mac
-1.) ```brew update```
-2.) ```brew install postgresql```
-3.) ```pg_ctl -D /usr/local/var/postgres start```
-4.) ```psql postgres```
-5.) ```CREATE ROLE postgres WITH LOGIN PASSWORD 'password';```
-6.) ```ALTER ROLE postgres Superuser;```
+* ```brew update```
+* ```brew install postgresql```
+* ```pg_ctl -D /usr/local/var/postgres start```
+* ```psql postgres```
+* ```CREATE ROLE postgres WITH LOGIN PASSWORD 'password';```
+* ```ALTER ROLE postgres Superuser;```

@@ -41,6 +41,21 @@ async function initialize() {
   }
 }
 
-module.exports = { pool, initialize };
+async function drop() {
+  let client = null;
+  try {
+    client = await pool.connect();
+    await client.query(`
+      DROP TABLE stats;
+      DROP TABLE views;
+    `);
+  } finally {
+    if (client !== null) {
+      client.release();
+    }
+  }
+}
+
+module.exports = { pool, drop, initialize };
 
 

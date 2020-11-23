@@ -10,13 +10,14 @@
     transition:transform 0.1s ease-in;
     font-weight: normal;
     border-radius: $space-tiny;
+
+    > .listing_gradient {
+      border-radius: $space-tiny;
+    }
   }
 
   &_container:hover {
-    transform: scale(1.02);
-    -webkit-box-shadow: 0px 0px 5px 0px #cccccc;
-    -moz-box-shadow: 0px 0px 5px 0px #cccccc;
-    box-shadow: 0px 0px 5px 0px #cccccc;
+    transform: translateY(-$space-half);
     color: #404040;
   }
 

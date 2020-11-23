@@ -3,6 +3,7 @@
     background-color: #fff;
     border: $border;
     border-radius: $space-tiny;
+    margin-top: $space * 2;
   }
 
   &_content {
@@ -14,7 +15,7 @@
   &_tags {
     display: flex;
     flex-wrap: wrap;
-    margin-top: $space;
+    margin-top: $space * 2;
   }
 
   &_tag {
@@ -28,24 +29,24 @@
     background-color: white;
     border-radius: $space-tiny;
     text-transform: uppercase;
+    -webkit-transition:transform 0.1s ease-in; 
+    -moz-transition:transform 0.1s ease-in;
+    -o-transition:transform 0.1s ease-in;
+    transition: transform 0.1s ease-in;
   }
 
   &_tag:hover {
     text-decoration: none;
-    cursor: pointer;
     color: #404040;
+    cursor: pointer;
+    transform: translateY(-2px);
+    -webkit-box-shadow: 0px 0px $space-half 0px #cccccc;
+    -moz-box-shadow: 0px 0px $space-half 0px #cccccc;
+    box-shadow: 0px 0px $space-half 0px #cccccc;
   }
 
   &_tag p {
     line-height: normal;
-  }
-
-  &_tag:hover {
-    cursor: pointer;
-    transform: scale(1.02);
-    -webkit-box-shadow: 0px 0px $space-half 0px #cccccc;
-    -moz-box-shadow: 0px 0px $space-half 0px #cccccc;
-    box-shadow: 0px 0px $space-half 0px #cccccc;
   }
 
   &_heading {
@@ -68,7 +69,7 @@
   }
 
   &_recent {
-    margin-top: $space;
+    margin-top: $space * 2;
   }
 
   &_recent-listings {
@@ -83,6 +84,7 @@
     background-color: #fff;
     border: $border;
     border-radius: $space-tiny;
+    margin-top: $space * 2;
 
     > h2 {
       margin-bottom: $space;
@@ -112,7 +114,7 @@
   }
 
   &_stats {
-    margin-top: $space;
+    margin-top: $space * 2;
     background-color: #fff;
     border: $border;
     border-radius: $space-tiny;
@@ -150,7 +152,7 @@
   }
 
   &_suggest {
-    margin-top: $space;
+    margin-top: $space * 2;
   }
 
   &_suggest-listings {
@@ -212,7 +214,7 @@
   }
 
   &_related {
-    margin-top: $space;
+    margin-top: $space * 2;
     display: grid;
     grid-template-rows: auto 1fr;
 
@@ -224,7 +226,7 @@
   }
 
   &_popular {
-    margin-top: $space;
+    margin-top: $space * 2;
   }
 
   &_popular-listings {
@@ -235,7 +237,7 @@
   }
 
   &_share {
-    margin-top: $space;
+    margin-top: $space * 2;
     display: flex;
     justify-content: center;
     text-decoration: none;

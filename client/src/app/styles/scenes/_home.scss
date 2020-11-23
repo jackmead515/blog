@@ -4,18 +4,29 @@
     max-width: 1300px;
     min-height: 100vh;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-gap: 20px;
-    padding: 10px;
+    padding: $space;
     box-sizing: border-box;
+
+    &_content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-gap: $space * 2;
+    }
+  }
+
+  &_update {
+    border: $border;
+    background-color: #fff;
+    border-radius: $space-tiny;
+    padding: $space-half;
+    margin-bottom: $space * 2;
   }
 
   &_listings {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     align-content: flex-start;
-    grid-gap: 10px;
+    grid-gap: $space * 2;
   }
 
   &_headers {
@@ -25,7 +36,7 @@
   }
 
   &_tags {
-    margin-top: 10px;
+    margin-top: $space * 2;
   }
 
   &_tag-title {
@@ -41,19 +52,19 @@
   }
 
   &_popular {
-    margin-top: 10px;
+    margin-top: $space * 2;
   }
 
   &_popular-listings {
     display: grid;
-    grid-gap: 10px;
+    grid-gap: $space;
     overflow: hidden;
   }
 
   @media only screen and (max-width: 850px) {
     &_headers {
       display: grid;
-      grid-gap: 10px;
+      grid-gap: $space;
       grid-template-columns: 1fr;
       grid-template-rows: auto auto auto;
     }
@@ -62,10 +73,9 @@
       grid-column: span 1;
     }
 
-    &_container {
+    &_container_content {
       grid-template-areas: "a" "b";
       grid-template-columns: 1fr;
-      grid-gap: 10px;
     }
 
     &_sidebar {
@@ -80,10 +90,6 @@
   @media only screen and (max-width: 390px) {
     &_listings {
       grid-template-columns: 1fr;
-    }
-
-    &_container {
-      grid-gap: 10px;
     }
   }
 

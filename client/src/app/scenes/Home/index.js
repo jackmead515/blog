@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import { asyncRetry } from '../../util/retry';
@@ -12,6 +12,7 @@ import Tags from '../Tags';
 import Popular from '../Popular';
 import Footer from '../Footer';
 import Pinned from '../Pinned';
+import HomeUpdate from '../HomeUpdate';
 
 class Home extends Component {
   constructor(props) {
@@ -21,8 +22,8 @@ class Home extends Component {
       listings: [],
       loading: false,
       page: 0,
-      windowWidth: 0
-    }
+      windowWidth: 0,
+    };
 
     this.scrollEnabled = true;
     this.updateScrollPosition = this.updateScrollPosition.bind(this);
@@ -30,8 +31,8 @@ class Home extends Component {
   }
 
   async componentDidMount() {
-    window.addEventListener("scroll", this.updateScrollPosition);
-    window.addEventListener("resize", this.updateDimensions);
+    window.addEventListener('scroll', this.updateScrollPosition);
+    window.addEventListener('resize', this.updateDimensions);
     this.updateDimensions();
     await this.fetchList();
     this.updateScrollPosition();
@@ -43,8 +44,8 @@ class Home extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.updateScrollPosition);
-    window.removeEventListener("resize", this.updateDimensions);
+    window.removeEventListener('scroll', this.updateScrollPosition);
+    window.removeEventListener('resize', this.updateDimensions);
   }
 
   updateScrollPosition() {
@@ -67,22 +68,22 @@ class Home extends Component {
 
   fetchList() {
     const { listings, page, loading } = this.state;
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       if (!loading) {
         try {
           this.setState({ loading: true }, async () => {
             const response = await asyncRetry(() => axios.get(`/blogs/list/page?number=${page}`));
-            if(response.data.length <= 0) {
+            if (response.data.length <= 0) {
               this.scrollEnabled = false;
             }
             this.setState({
               listings: listings.concat(response.data),
               page: page+1,
-              loading: false
+              loading: false,
             }, resolve);
           });
-        } catch(e) {
-          this.props.dispatch(pushError(`Failed to fetch blogs! Please try again later.`))
+        } catch (e) {
+          this.props.dispatch(pushError('Failed to fetch blogs! Please try again later.'));
           return resolve();
         }
       } else {
@@ -94,9 +95,7 @@ class Home extends Component {
   renderListings() {
     const { listings } = this.state;
 
-    return listings.map((listing, index) => {
-      return <Listing key={index} listing={listing} />
-    });
+    return listings.map((listing, index) => <Listing key={index} listing={listing} />);
   }
 
   render() {
@@ -105,14 +104,17 @@ class Home extends Component {
       <>
         <Navigation/>
         <div className="home_container">
-          <div className="home_listings">
-            {this.renderListings()}
-          </div>
-          <div className="home_sidebar">
-            <SearchBar />
-            <Popular mobile={mobile} />
-            <Tags mobile={mobile} />
-            <Pinned mobile={mobile} />
+          {/* <HomeUpdate mobile={mobile} /> */}
+          <div className="home_container_content">
+            <div className="home_listings">
+              {this.renderListings()}
+            </div>
+            <div className="home_sidebar">
+              <SearchBar />
+              <Popular mobile={mobile} />
+              <Tags mobile={mobile} />
+              <Pinned mobile={mobile} />
+            </div>
           </div>
         </div>
         <Footer />
@@ -121,8 +123,6 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {}
-}
+const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps)(Home);

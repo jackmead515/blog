@@ -101,7 +101,7 @@ export default class About extends Component {
       <>
         <Navigation/>
         <div className="padded_container">
-          <div className="blog_container">
+          <div className="blog_container" style={{ marginTop: 0 }}>
             <div className="blog_content">
               {aboutBlog}
             </div>

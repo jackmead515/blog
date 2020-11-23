@@ -64,5 +64,5 @@ this.interval = setInterval(() => {
 
 You see? Not bad when you see a demonstrated easy to read blog post about it. Hope you enjoyed that. Thank you all and good day. Leave any questions you have in the comments below!
 
-<iframe id="/d3-graphs" width="100%" height="200" src="/plugin//d3-graphs">
+<iframe id="/d3-graphs" width="100%" height="200" src="/plugin/d3-graphs">
 </iframe>

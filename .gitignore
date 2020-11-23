@@ -14,3 +14,5 @@ node_modules
 
 server/.git
 plugin/rust-wasm/target
+.DS_STORE
+__MAC_OSX

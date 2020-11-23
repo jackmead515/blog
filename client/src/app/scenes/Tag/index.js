@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import { asyncRetry } from '../../util/retry';
@@ -19,21 +19,21 @@ class Tag extends Component {
     this.state = {
       listings: [],
       loading: false,
-      page: 0
-    }
+      page: 0,
+    };
 
     this.scrollEnabled = true;
     this.updateScrollPosition = this.updateScrollPosition.bind(this);
   }
 
   async componentDidMount() {
-    window.addEventListener("scroll", this.updateScrollPosition);
+    window.addEventListener('scroll', this.updateScrollPosition);
     await this.fetchList();
     this.updateScrollPosition();
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.updateScrollPosition);
+    window.removeEventListener('scroll', this.updateScrollPosition);
   }
 
   updateScrollPosition() {
@@ -49,22 +49,22 @@ class Tag extends Component {
   fetchList() {
     const { name } = this.props.match.params;
     const { listings, page, loading } = this.state;
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       if (!loading) {
         try {
           this.setState({ loading: true }, async () => {
             const response = await asyncRetry(() => axios.get(`/search/tag?tag=${name}&number=${page}`));
-            if(response.data.length <= 0) {
+            if (response.data.length <= 0) {
               this.scrollEnabled = false;
             }
             this.setState({
               listings: listings.concat(response.data),
               page: page+1,
-              loading: false
+              loading: false,
             }, resolve);
           });
-        } catch(e) {
-          this.props.dispatch(pushError(`Failed to fetch blogs! Please try again later.`))
+        } catch (e) {
+          this.props.dispatch(pushError('Failed to fetch blogs! Please try again later.'));
           resolve();
         }
       } else {
@@ -76,9 +76,7 @@ class Tag extends Component {
   renderListings() {
     const { listings } = this.state;
 
-    return listings.map((listing, index) => {
-      return <Listing key={index} listing={listing} />
-    })
+    return listings.map((listing, index) => <Listing key={index} listing={listing} />);
   }
 
   render() {
@@ -88,13 +86,15 @@ class Tag extends Component {
         <Navigation/>
         <h2 className="home_tag-title">{`Showing Tag: '${name}'`}</h2>
         <div className="home_container">
-          <div className="home_listings">
-            {this.renderListings()}
-          </div>
-          <div className="home_sidebar">
-            <SearchBar />
-            <Tags />
-            <Popular />
+          <div className="home_container_content">
+            <div className="home_listings">
+              {this.renderListings()}
+            </div>
+            <div className="home_sidebar">
+              <SearchBar />
+              <Tags />
+              <Popular />
+            </div>
           </div>
         </div>
         <Footer />
@@ -103,8 +103,6 @@ class Tag extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {}
-}
+const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps)(Tag)
+export default connect(mapStateToProps)(Tag);

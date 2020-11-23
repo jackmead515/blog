@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { pushError } from '../../actions/messages';
 import axios from 'axios';
@@ -12,20 +12,20 @@ class Contact extends Component {
     super(props);
 
     this.state = {
-      loading: false
-    }
+      loading: false,
+    };
 
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentDidMount () {
-    const script = document.createElement("script");
-    script.src = "https://www.google.com/recaptcha/api.js";
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js';
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);
 
-    document.getElementById('contact').addEventListener('submit', this.onSubmit)
+    document.getElementById('contact').addEventListener('submit', this.onSubmit);
   }
 
   onSubmit(e) {
@@ -40,13 +40,13 @@ class Contact extends Component {
         name,
         email,
         message,
-        recaptcha
-      }
+        recaptcha,
+      };
       
       try {
         const response = await axios.post('/contact_me', data);
         alert(response.data);
-      } catch(e) {
+      } catch (e) {
         this.props.dispatch(pushError(e.response.data || 'Message failed to send. Please try again.'));
       }
 
@@ -58,7 +58,7 @@ class Contact extends Component {
     const { loading } = this.state;
 
     if (loading) {
-      return <div className="spin-loader" />
+      return <div className="spin-loader" />;
     }
 
     return (
@@ -68,7 +68,7 @@ class Contact extends Component {
       >
         Submit
       </button>
-    )
+    );
   }
 
   render() {
@@ -112,8 +112,6 @@ class Contact extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {}
-}
+const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps)(Contact)
+export default connect(mapStateToProps)(Contact);

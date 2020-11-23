@@ -40,7 +40,6 @@ export default class Comments extends Component {
     return (
       <div
         className="blog_comments"
-        style={{ marginTop: 10 }}
       >
         <h2>Comments</h2>
         {this.renderGithubIssueSuggest()}

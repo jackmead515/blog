@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import FAIcon from 'react-fontawesome';
 import moment from 'moment';
 
 import * as config from '../../config';
@@ -17,12 +18,12 @@ export default class Listing extends Component {
     if (Date.now() - ms <= 604800000) {
       return (
         <span className='listing_new'>
-          NEW: {str}
+          <FAIcon name="clock-o" /> NEW: {str}
         </span>
       );
     }
 
-    return <span>{str}</span>;
+    return <span><FAIcon name="clock-o" /> {str}</span>;
   }
 
   render() {
@@ -31,12 +32,12 @@ export default class Listing extends Component {
     return (
       <a
         href={`/blog/${listing.link}`}
-        style={{animationDelay: animatedTime ? `${animatedTime}s` : 0}}
+        style={{ animationDelay: animatedTime ? `${animatedTime}s` : 0 }}
         className="listing_container"
       >
         <div
           className="listing_image"
-          style={{backgroundImage: `url("${config.data.baseUrl}/${listing.image}")`}}
+          style={{ backgroundImage: `url("${config.data.baseUrl}/${listing.image}")` }}
         > 
           <div className="listing_gradient" />
           <h1>{listing.title}</h1>

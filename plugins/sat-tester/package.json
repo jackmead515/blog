@@ -8,7 +8,8 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0",
-    "rust-wasm-sat-pkg": "0.1.0"
+    "rust-wasm-sat-pkg": "0.1.0",
+    "three": "^0.119.1"
   },
   "scripts": {
     "start": "react-app-rewired start",

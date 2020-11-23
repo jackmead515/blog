@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FAIcon from 'react-fontawesome';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { Helmet } from 'react-helmet';
@@ -83,7 +84,7 @@ class Post extends Component {
         />
         <h1>{this.state.head.title}</h1>
         <h2>{this.state.head.subtitle}</h2>
-        <span>{moment(this.state.head.date*1000).format('MMM, Do YYYY')}</span>
+        <span><FAIcon name="clock-o"/> {moment(this.state.head.date*1000).format('MMM, Do YYYY')}</span>
       </div>
     );
   }
@@ -151,7 +152,7 @@ class Post extends Component {
 
   renderContent() {
     return (
-      <div className="blog_container" style={{ marginTop: 10 }}>
+      <div className="blog_container">
         {this.renderHelmet()}
         {this.renderHeading()}
         {this.renderContents()}
@@ -161,7 +162,7 @@ class Post extends Component {
 
   renderLoading() {
     return (
-      <div className="blog_container" style={{ marginTop: 10 }}>
+      <div className="blog_container">
         <LineLoader />
       </div>
     );

@@ -23,7 +23,7 @@
   }
 
   &-opened {
-    border-bottom: 3px solid $error-color;
+    border-bottom: $space-tiny solid $error-color;
 
     > span {
       background-color: $error-color;
@@ -72,7 +72,7 @@
 .attblock h2 {
   display: flex;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-bottom: $space;
   font-size: 1.1em;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
@@ -89,7 +89,7 @@
 
 .attblock h2 > span {
   color: #ffffff;
-  padding: 5px;
+  padding: $space-half;
   font-size: inherit;
   text-align: center;
   -webkit-tap-highlight-color: transparent;
