@@ -5,7 +5,7 @@
     "date": 1606089409,
     "link": "auto-farm-machine-learning-opencv-matplotlib-colored-masks",
     "description": "Follow along with me as I explore the image data of my basil experiment using machine learning and opencv techniques to extract the green masks of the plants",
-    "image": "image/autofarm/full_green_graph_back.png",
+    "image": "image/autofarm/mask.png",
     "markdown": true,
     "tags": [
       "programming",

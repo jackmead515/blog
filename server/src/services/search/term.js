@@ -16,7 +16,7 @@ function shapeQuery(req, res, next) {
   req.query = term.trim()
     .replace(/\s+/g, ' ')
     .split(' ')
-    .map((term) => term.toLowerCase());
+    .map(term => term.toLowerCase());
 
   return next();
 }
@@ -24,9 +24,9 @@ function shapeQuery(req, res, next) {
 async function fetchData(req, res, next) {
   try {
     req.blogs = await blogs.fetchBlogList();
-    req.blogs = req.blogs.map((blog) => blog.head);
+    req.blogs = req.blogs.map(blog => blog.head);
     return next();
-  } catch(e) {
+  } catch (e) {
     console.log('FAILED LIST BLOGS', e);
     return res.status(500).send('Internal Server Error');
   }
@@ -35,14 +35,12 @@ async function fetchData(req, res, next) {
 async function searchByTerm(req, res, next) {
   const { blogs, query } = req;
 
-  req.results = blogs.filter((blog) => {
-    const { title, subtitle, link, tags = []} = blog;
-    return query.map((term) => {
-      return title.toLowerCase().match(term) ||
+  req.results = blogs.filter(blog => {
+    const { title, subtitle, link, tags = [] } = blog;
+    return query.map(term => title.toLowerCase().match(term) ||
         subtitle.toLowerCase().match(term) ||
         link.toLowerCase().match(term) ||
-        tags.find((tag) => tag.toLowerCase().match(term));
-    }).find((blog) => blog);
+        tags.find(tag => tag.toLowerCase().match(term))).find(blog => blog);
   });
 
   return next();

@@ -8,7 +8,7 @@ const resourcesPath = path.join(global.__basedir, 'resources');
 
 const cache = new NodeCache({
   stdTTL: 10,
-  checkperiod: 5
+  checkperiod: 5,
 });
 
 function initialize() {
@@ -19,7 +19,7 @@ function initialize() {
 
 function loadRelated() {
   const json = JSON.parse(fs.readFileSync(path.join(resourcesPath, 'related.json')));
-  Object.keys(json).map((linkName) => {
+  Object.keys(json).forEach(linkName => {
     cache.set('blog_related_' + linkName, json[linkName], UNLIMITED_TIME);
   });
 }
@@ -31,16 +31,16 @@ function loadTags() {
 
 function loadBlogs() {
   const list = fs.readdirSync(blogsPath)
-    .filter((file) => fs.statSync(path.join(blogsPath, file)).isFile())
-    .map((file) => ({ file, data: fs.readFileSync(path.join(blogsPath, file))}))
-    .map((obj) => ({ file: obj.file, data: JSON.parse(obj.data)}))
-    .map((obj) => ({ file: obj.file, head: obj.data.head }));
+    .filter(file => fs.statSync(path.join(blogsPath, file)).isFile())
+    .map(file => ({ file, data: fs.readFileSync(path.join(blogsPath, file)) }))
+    .map(obj => ({ file: obj.file, data: JSON.parse(obj.data) }))
+    .map(obj => ({ file: obj.file, head: obj.data.head }));
 
   list.sort((a, b) => b.head.date-a.head.date);
 
   list
     .map((file, index) => ({ ...file, meta: { index } }))
-    .map((file) => {
+    .map(file => {
       cache.set(`blog_info_${file.head.link}`, file, UNLIMITED_TIME);
       return file;
     });
@@ -49,5 +49,5 @@ function loadBlogs() {
 }
 
 module.exports = {
-  cache, initialize
-}
+  cache, initialize,
+};

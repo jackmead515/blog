@@ -19,16 +19,6 @@ class Arrow extends Component {
 export default class PrevNext extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      loading: true,
-    };
-  }
-
-  componentDidUpdate(nextProps) {
-    if (nextProps.next || nextProps.prev) {
-      this.setState({ loading: false });
-    }
   }
 
   renderPrev() {
@@ -72,17 +62,11 @@ export default class PrevNext extends Component {
   }
 
   render() {
-    const { loading } = this.state;
-
-    if (!loading) {
-      return (
-        <div className="blog_prevnext" style={{ marginTop: 10 }}>
-          {this.renderPrev()}
-          {this.renderNext()}
-        </div>
-      );
-    }
-
-    return null;
+    return (
+      <div className="blog_prevnext">
+        {this.renderPrev()}
+        {this.renderNext()}
+      </div>
+    );
   }
 }

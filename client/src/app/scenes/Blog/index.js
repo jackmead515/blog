@@ -75,6 +75,6 @@ export class Blog extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = () => ({});
 
 export default connect(mapStateToProps)(Blog);

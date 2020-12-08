@@ -140,6 +140,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: $space;
+    margin-top: $space * 2;
   }
 
   &_prevnext h2 {

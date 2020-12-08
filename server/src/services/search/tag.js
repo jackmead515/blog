@@ -7,25 +7,27 @@ function validateTerm(req, res, next) {
   const { tag } = req.query;
   if (typeof tag === 'string' && tag.length >= 0 && tag.length <= 500) {
     return next();
-  } else {
-    return res.status(400).send('Invalid Search Tag');
-  }
+  } 
+
+  return res.status(400).send('Invalid Search Tag');
 }
 
 function shapeQuery(req, res, next) {
   const { tag } = req.query;
+
   req.tag = tag.trim()
     .replace(/\s+/g, '')
     .toLowerCase();
-    return next();
+
+  return next();
 }
 
 async function fetchData(req, res, next) {
   try {
     req.blogs = await blogs.fetchBlogList();
-    req.blogs = req.blogs.map((blog) => blog.head);
+    req.blogs = req.blogs.map(blog => blog.head);
     return next();
-  } catch(e) {
+  } catch (e) {
     console.log('FAILED LIST BLOGS', e);
     return res.status(500).send('Internal Server Error');
   }
@@ -34,9 +36,9 @@ async function fetchData(req, res, next) {
 async function searchByTag(req, res, next) {
   const { blogs, tag } = req;
 
-  req.results = blogs.filter((blog) => {
+  req.results = blogs.filter(blog => {
     const { tags = [] } = blog;
-    return tags.find((t) => t.toLowerCase() === tag)
+    return tags.find(t => t.toLowerCase() === tag);
   });
 
   return next();
