@@ -17,10 +17,9 @@ body, html {
 #graph {
   width: 3000px;
   height: 3000px;
+  border: 1px solid black;
   position: absolute;
   background-color: #fff;
-  top: calc(-1500px + 50vh);
-  left: calc(-1500px + 100vh);
 }
 
 .container {
