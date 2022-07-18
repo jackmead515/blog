@@ -1,0 +1,22 @@
+date: '2020-01-25'
+description: Many people default to simple CSV or JSON to encode data to transfer
+  between apps. But, there are much faster and more efficient approaches like Protobuf
+  and Avro.
+file: encoding-techniques.md
+image: /images/generic/network.jpg
+link: encoding-with-avro-json-csv-protobuf-base64-in-java
+subtitle: Testing different data encoding techniques for speed and compression.
+tags:
+- avro
+- json
+- csv
+- base64
+- protobuf
+- java
+- maven
+- apache
+- google
+- compression
+- programming
+- schema
+title: Data Encoding Techniques

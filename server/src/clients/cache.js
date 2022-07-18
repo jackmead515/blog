@@ -1,53 +1,74 @@
 const NodeCache = require('node-cache');
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
+const YAML = require('yaml');
+const moment = require('moment');
+const Fuse = require('fuse.js');
 
-const UNLIMITED_TIME = 0;
-const blogsPath = path.join(global.__basedir, 'blogs/json');
-const resourcesPath = path.join(global.__basedir, 'resources');
+const blogsMetaPath = path.join(global.__basedir, '../blogs/meta');
+const relatedPath = path.join(global.__basedir, '../resources/related.json');
 
-const cache = new NodeCache({
-  stdTTL: 10,
-  checkperiod: 5,
+
+const client = new NodeCache({
+    stdTTL: 10,
+    checkperiod: 5,
 });
 
-function initialize() {
-  loadBlogs();
-  loadTags();
-  loadRelated();
-}
-
-function loadRelated() {
-  const json = JSON.parse(fs.readFileSync(path.join(resourcesPath, 'related.json')));
-  Object.keys(json).forEach(linkName => {
-    cache.set('blog_related_' + linkName, json[linkName], UNLIMITED_TIME);
-  });
-}
-
-function loadTags() {
-  const json = JSON.parse(fs.readFileSync(path.join(resourcesPath, 'tags.json')));
-  cache.set('tag_list', json, UNLIMITED_TIME);
-}
-
 function loadBlogs() {
-  const list = fs.readdirSync(blogsPath)
-    .filter(file => fs.statSync(path.join(blogsPath, file)).isFile())
-    .map(file => ({ file, data: fs.readFileSync(path.join(blogsPath, file)) }))
-    .map(obj => ({ file: obj.file, data: JSON.parse(obj.data) }))
-    .map(obj => ({ file: obj.file, head: obj.data.head }));
+    const blogList = fs.readdirSync(blogsMetaPath)
+        .map(file => {
+            const fileContent = fs.readFileSync(path.join(blogsMetaPath, file)).toString()
+            const metadata = YAML.parse(fileContent);
+            metadata.date = moment(metadata.date);
+            return metadata;
+        })
+        .sort((a, b) => b.date - a.date);
 
-  list.sort((a, b) => b.head.date-a.head.date);
+    client.set('blog_list', blogList, 0);
 
-  list
-    .map((file, index) => ({ ...file, meta: { index } }))
-    .map(file => {
-      cache.set(`blog_info_${file.head.link}`, file, UNLIMITED_TIME);
-      return file;
+    const blogMap = blogList.reduce((map, blog, index) => {
+        const metadata = {
+            next: undefined,
+            previous: undefined
+        }
+
+        if (index > 0) {
+            metadata.previous = blogList[index-1];
+        }
+
+        if (index < blogList.length) {
+            metadata.next = blogList[index+1];
+        }
+
+        map[blog.link] = { ...blog, metadata };
+        return map;
+    }, {});
+
+    client.set('blog_map', blogMap, 0);
+
+    const fuse = new Fuse(blogList, {
+        useExtendedSearch: true,
+        keys: [
+            "title",
+            "subtitle",
+            "description",
+            "link",
+            "tags"
+        ]
     });
 
-  cache.set('blog_list', list, UNLIMITED_TIME);
+    client.set('blog_search', fuse, 0);
+
+    const related = JSON.parse(fs.readFileSync(relatedPath));
+    
+    client.set('blog_related', related, 0);
+}
+
+function initialize() {
+    loadBlogs();
 }
 
 module.exports = {
-  cache, initialize,
-};
+    initialize,
+    client
+}

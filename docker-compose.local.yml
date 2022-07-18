@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+
+  postgres:
+    image: postgres:14
+    ports:
+      - '54320:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./data/postgres:/var/lib/postgresql
+  
+  pgadmin:
+    image: dpage/pgadmin4:4.23
+    environment:
+        PGADMIN_DEFAULT_EMAIL: admin@pgadmin.com
+        PGADMIN_DEFAULT_PASSWORD: password
+        PGADMIN_LISTEN_PORT: 80
+    ports:
+        - 15432:80
+    volumes:
+        - ./data/pgadmin:/var/lib/pgadmin
+    depends_on:
+        - postgres

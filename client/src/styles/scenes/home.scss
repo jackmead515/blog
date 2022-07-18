@@ -1,0 +1,17 @@
+.home {
+    max-height: 100%;
+    overflow: auto;
+
+    &__wrapper {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: $space*4;
+        padding: $space*4;
+        max-width: 1000px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

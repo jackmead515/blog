@@ -1,0 +1,17 @@
+.related {
+    display: grid;
+    gap: $space*4;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (max-width: 1000px) {
+    .related {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .related {
+        grid-template-columns: 1fr;
+    }
+}

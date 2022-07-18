@@ -12,7 +12,14 @@ node_modules
 **/build
 **/target
 
+lerna-debug.log
 server/.git
 plugin/rust-wasm/target
 .DS_Store
 __MAC_OSX
+
+/data
+/server/resources
+/archive
+/client/public/plugins
+/client/public/sitemap.xml

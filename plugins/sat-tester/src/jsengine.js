@@ -191,8 +191,8 @@ export default class JSEngine {
 
   generate(amount) {
     for (let i = 0; i < amount; i++) {
-      const width = 5//Math.random() * 15.0 + 5.0;
-      const height = 5//Math.random() * 15.0 + 5.0;
+      const width = Math.random() * 15.0 + 5.0;
+      const height = Math.random() * 15.0 + 5.0;
       const x = Math.random() * this.world_width;
       const y = Math.random() * this.world_height;
       const mass = width*height;

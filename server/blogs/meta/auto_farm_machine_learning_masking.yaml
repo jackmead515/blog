@@ -1,0 +1,23 @@
+date: '2020-11-22'
+description: Follow along with me as I explore the image data of my basil experiment
+  using machine learning and opencv techniques to extract the green masks of the plants
+file: auto_farm_machine_learning_masking.md
+image: /images/autofarm/mask.png
+link: auto-farm-machine-learning-opencv-matplotlib-colored-masks
+subtitle: Learn to extract colored pixels out of images and plot them using OpenCV
+  and Matplotlib
+tags:
+- programming
+- python
+- postgres
+- opencv
+- sklearn
+- keras
+- regression
+- tensorflow
+- neural
+- network
+- pandas
+- numpy
+- matplotlib
+title: Extracting Colored Masks From Auto Farm Images

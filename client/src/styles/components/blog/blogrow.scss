@@ -1,0 +1,94 @@
+.blogrow {
+    display: grid;
+    grid-template-columns: 4fr 5fr;
+    gap: $space*4;
+
+    &__heading {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: $space*4;
+        max-height: 25vh;
+        min-height: 20vh;
+        max-height: $space*25;
+        position: relative;
+        background-origin: border-box;
+        background-size: cover;
+        background-position: 50% 50%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        padding: $space*2;
+        box-sizing: border-box;
+        border-radius: $border-radius;
+        color: $text-color;
+        transition: transform .1s ease-in,-webkit-transform .1s ease-in;
+
+        &:hover {
+            cursor: pointer;
+            transform: translateY(-2px);
+
+            > .gradient {
+                opacity: 0.9;
+            }
+        }
+
+        > .gradient {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 90%;
+            background: rgb(0,0,0);
+            background: linear-gradient(180deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
+            transition: opacity 0.2s;
+        }
+
+        > .title {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: $space*2;
+            padding: $space*2;
+
+            > h2 {
+                margin: 0;
+                text-align: right;
+            }
+            > h3 {
+                text-align: right;
+                font-style: oblique;
+                font-weight: normal;
+                font-variant: all-petite-caps;
+                font-size: 1em;
+                color: $primary-gray;
+            }
+        }
+
+        
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        gap: $space*2;
+
+        > p {
+            margin: 0;
+        }
+    }
+
+   
+}
+
+@media only screen and (max-width: 800px) {
+    .blogrow {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: auto auto;
+        gap: $space*2;
+    }
+  }

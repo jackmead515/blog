@@ -1,0 +1,28 @@
+title: "DHT11 Driver in Rust"
+
+subtitle: Reading a DHT11 temperature and humidity sensor in Rust
+
+date: 2020-01-04
+
+file: dht11-rust-driver.md
+
+link: dht11-temperature-humidity-rust-driver-raspberry-pi
+
+description:
+  The DHT11 sensor can read temperature and humidity at 
+  a high accuracy. Learn how to create a simple driver 
+  for it in Rust for the Raspberry Pi!
+
+image: /images/generic/raspberry-pi.jpg
+
+tags:
+ - rust
+ - embedded
+ - raspberry
+ - pi
+ - arduino
+ - dht11
+ - python
+ - sensor
+ - electronics
+ - programming

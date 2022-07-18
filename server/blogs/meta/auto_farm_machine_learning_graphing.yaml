@@ -1,0 +1,23 @@
+date: '2020-12-07'
+description: Using the green masks extracted from the auto farm images, learn how
+  to graph the data to anaylze it over time using Numpy, Pandas, and Matplotlib
+file: auto_farm_machine_learning_graphing.md
+image: /images/autofarm/full_green_graph_back.png
+link: auto-farm-machine-learning-pandas-matplotlib-graphing
+subtitle: Shaping a color mask into a graphical
+  format using Numpy, Pandas, and Matplotlib
+tags:
+- programming
+- python
+- postgres
+- opencv
+- sklearn
+- keras
+- regression
+- tensorflow
+- neural
+- network
+- pandas
+- numpy
+- matplotlib
+title: Graphing The Color Masks From Auto Farm Images

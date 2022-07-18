@@ -1,27 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { PersistGate } from 'redux-persist/lib/integration/react';
-import { Provider } from 'react-redux';
 import axios from 'axios';
+import ReactDOM from 'react-dom/client';
 
-import { persistor, store } from './configureStore';
-import * as serviceWorker from './serviceWorker';
-import * as config from './config';
-import AppContainer from './app/scenes/AppContainer';
+import './styles/index.scss';
 
-import './app/styles/index.css';
+import Root from './root';
 
-config.initialize();
+const dev = process.env.NODE_ENV === 'development' ? true : false;
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
-axios.defaults.baseURL = config.data.baseUrl;
+axios.defaults.baseURL = dev ? 'http://127.0.0.1:1234' : 'https://www.speblog.org';
 
-ReactDOM.render((
-  <PersistGate persistor={persistor}>
-    <Provider store={store}>
-      <AppContainer />
-    </Provider>
-  </PersistGate>
-), document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-serviceWorker.unregister();
+root.render(
+  <Root />
+);

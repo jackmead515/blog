@@ -1,0 +1,20 @@
+.blogs {
+    max-height: 100%;
+    overflow: auto;
+
+    &__wrapper {
+        padding: $space*4;
+        max-width: 1000px;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: $space*4;
+    }
+
+    &__related { 
+        border-top: 1px solid $border-color;
+        padding-top: $space*4;
+    }
+}

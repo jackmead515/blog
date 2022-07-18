@@ -1,0 +1,10 @@
+.date {
+    display: flex;
+    gap: $space;
+    align-items: center;
+    font-size: 1em;
+
+    > span {
+        font-size: 1em;
+    }
+}

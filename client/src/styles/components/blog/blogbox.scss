@@ -1,0 +1,62 @@
+.blogbox {
+
+    &__image {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: $space*4;
+        width: 100%;
+        height: 30vw;
+        min-height: 200px;
+        max-height: 250px !important;
+        position: relative;
+        background-origin: border-box;
+        background-size: cover;
+        background-position: 50% 50%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        padding: $space*2;
+        box-sizing: border-box;
+        border-radius: $border-radius;
+        color: $text-color;
+        transition: transform .1s ease-in,-webkit-transform .1s ease-in;
+
+        &:hover {
+            cursor: pointer;
+            transform: translateY(-2px);
+
+            > .gradient {
+                opacity: 0.9;
+            }
+        }
+
+        > .gradient {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 90%;
+            background: rgb(0,0,0);
+            background: linear-gradient(180deg, rgba(0,0,0,0) 10%, rgba(0,0,0,1) 100%);
+            transition: opacity 0.2s;
+        }
+    }
+
+    &__title {
+        position: absolute;
+        left: $space*2;
+        bottom: $space*2;
+        display: grid;
+        gap: $space;
+        
+        > h3 {
+            margin: 0;
+            font-style: oblique;
+            font-weight: normal;
+            font-variant: all-petite-caps;
+            font-size: 1em;
+            color: $primary-gray;
+        }
+
+    }
+
+}

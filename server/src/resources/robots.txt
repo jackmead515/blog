@@ -1,5 +1,0 @@
-Sitemap: https://www.speblog.org/sitemap.xml
-
-User-agent: * 
-Disallow: /tag/*
-

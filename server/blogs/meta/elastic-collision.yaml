@@ -1,0 +1,26 @@
+date: '2019-11-09'
+description: Collisions between two objects need to properly resolve themselves according
+  to their mass, speed, and direction of travel. Find out about how the algorithm
+  works.
+file: elastic-collision.md
+image: /images/generic/universe.jpg
+link: elastic-collision
+subtitle: Resolving collision between two polygons
+tags:
+- collision
+- simulation
+- math
+- algorithm
+- seperate
+- axis
+- theorem
+- detection
+- resolution
+- gravity
+- momentum
+- javascript
+- polygon
+- programming
+- rust
+- wasm
+title: Elastic Collision

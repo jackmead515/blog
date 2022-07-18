@@ -1,61 +1,52 @@
 const { Pool } = require('pg');
+const pg = require('pg');
+
 const config = require('../config');
 
-const options = {
+pg.types.setTypeParser(pg.types.builtins.INT8, parseInt);
+
+const pool = new Pool({
+  connectionString: config.POSTGRES_URL,
   max: 10,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
-};
+});
 
-if (config.pgUrl) {
-  options.connectionString = config.pgUrl;
-} else {
-  options.user = config.pgUser;
-  options.password = config.pgPassword;
-  options.database = config.pgDatabase;
-  options.port = 5432;
+pool.on('error', (err) => {
+  console.error('postgres error', err);
+});
+
+async function withClient(func) {
+    let client = null;
+    try {
+      client = await pool.connect();
+      return await func(client);
+    } finally {
+      if (client !== null) {
+        client.release();
+      }
+    }
 }
 
-const pool = new Pool({ ...options });
-
 async function initialize() {
-  let client = null;
-  try {
-    client = await pool.connect();
+  await withClient(async (client) => {
     await client.query(`
       CREATE TABLE IF NOT EXISTS stats (
         id SERIAL PRIMARY KEY,
-        name VARCHAR(500) NOT NULL,
-        time BIGINT NOT NULL
-      );
-      CREATE TABLE IF NOT EXISTS views (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(500) NOT NULL UNIQUE,
-        amount BIGINT NOT NULL
+        link TEXT NOT NULL UNIQUE,
+        amount BIGINT NOT NULL,
+        times BIGINT[] NOT NULL
       );
     `);
-  } finally {
-    if (client !== null) {
-      client.release();
-    }
-  }
-}
-
-async function drop() {
-  let client = null;
-  try {
-    client = await pool.connect();
     await client.query(`
-      DROP TABLE stats;
-      DROP TABLE views;
+      CREATE INDEX IF NOT EXISTS stats_index ON stats (link);
     `);
-  } finally {
-    if (client !== null) {
-      client.release();
-    }
-  }
+  });
 }
 
-module.exports = { pool, drop, initialize };
 
-
+module.exports = {
+    pool,
+    initialize,
+    withClient
+}

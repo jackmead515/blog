@@ -1,0 +1,46 @@
+.share {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    flex-wrap: wrap;
+    align-items: center;
+    grid-gap: $space*2;
+
+    &__reddit {
+        background-color: #FF4301 !important;
+    }
+
+    &__twitter {
+        background-color: #1DA1F2 !important;
+    }
+
+    &__facebook {
+        background-color: #3b5998 !important;
+    }
+
+    &__linkedin {
+        background-color: #2867B2 !important;
+    }
+
+    &__github {
+        background-color: #333 !important;
+    }
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1em;
+        padding: $space;
+        text-decoration: none;
+        color: #fff;
+        border-radius: $border-radius;
+        min-width: $space*20;
+        transition: transform .1s ease-in,-webkit-transform .1s ease-in;
+    }
+
+    a:hover {
+        cursor: pointer;
+        transform: translateY(-2px);
+    }
+}

@@ -2,7 +2,7 @@
   "name": "cap-sensor-vis",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://127.0.0.1:5000/plugin/capacitor-sensor",
+  "homepage": "http://127.0.0.1:1234/plugins/cap-sensor-vis",
   "dependencies": {
     "d3": "^5.15.0",
     "react": "^16.12.0",

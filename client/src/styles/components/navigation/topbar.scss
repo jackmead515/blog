@@ -1,0 +1,15 @@
+
+.topbar {
+    background-color: adjust-color($color: $background-color, $lightness: 5%);
+    padding: $space*4;
+
+    display: flex;
+    gap: $space*4;
+    align-items: center;
+    justify-content: center;
+
+    > a {
+        font-variant: all-small-caps;
+        font-size: 1.2em;
+    }
+}

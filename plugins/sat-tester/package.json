@@ -2,14 +2,13 @@
   "name": "sat-tester",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://127.0.0.1:5000/plugin/sat-tester",
+  "homepage": "http://127.0.0.1:1234/plugins/sat-tester",
   "dependencies": {
     "d3": "^5.12.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0",
-    "rust-wasm-sat-pkg": "0.1.0",
-    "three": "^0.119.1"
+    "rust-wasm-sat-pkg": "file:../rust-wasm-sat-pkg"
   },
   "scripts": {
     "start": "react-app-rewired start",

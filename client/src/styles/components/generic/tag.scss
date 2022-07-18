@@ -1,0 +1,18 @@
+.tag {
+    padding: 2px $space;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    text-transform: lowercase;
+    transition: transform .1s ease-in,-webkit-transform .1s ease-in;
+    color: $text-color;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: $space*2;
+    background-color: adjust-color($color: $background-color, $lightness: 5%);
+
+    &:hover {
+        cursor: pointer;
+        transform: translateY(-2px);
+    }
+}

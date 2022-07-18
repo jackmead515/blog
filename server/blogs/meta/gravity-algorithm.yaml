@@ -1,0 +1,25 @@
+date: '2019-11-10'
+description: Gravity is a fundamental force in nature. Explore how the simple mathematics
+  behind the algorithm are applied in a 2D simulation.
+file: gravity-algorithm.md
+image: /images/generic/gravity.png
+link: gravity-algorithm
+subtitle: Applying gravity between objects in simulations
+tags:
+- collision
+- simulation
+- math
+- algorithm
+- seperate
+- axis
+- theorem
+- detection
+- resolution
+- gravity
+- momentum
+- javascript
+- polygon
+- programming
+- rust
+- wasm
+title: Gravity Algorithm
