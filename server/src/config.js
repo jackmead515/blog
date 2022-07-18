@@ -6,6 +6,8 @@ const config = {
 
     PRODUCTION: process.env.NODE_ENV === 'production',
 
+    DOMAIN: process.env.DOMAIN || 'http://localhost:3000',
+
     POSTGRES_URL: process.env.POSTGRES_URL || 'postgres://postgres:password@localhost:54320/postgres',
 }
 
