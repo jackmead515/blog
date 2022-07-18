@@ -8,7 +8,9 @@ pg.types.setTypeParser(pg.types.builtins.INT8, parseInt);
 const pool = new Pool({
   connectionString: config.POSTGRES_URL,
   max: 10,
-  ssl: true,
+  ssl: {
+    rejectUnauthorized: false,
+  },
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
 });
