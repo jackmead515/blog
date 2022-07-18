@@ -1,15 +1,14 @@
-require('module-alias/register');
 
 global.__basedir = __dirname;
 
 const express = require('express');
 const http = require('http');
 
-const config = require('@config');
-const forceSSL = require('@middleware/forceSSL');
+const config = require('./config');
+const forceSSL = require('./middleware/forceSSL');
 
-const cacheClient = require('@clients/cache');
-const postgres = require('@clients/postgres');
+const cacheClient = require('./clients/cache');
+const postgres = require('./clients/postgres');
 
 async function run() {
 

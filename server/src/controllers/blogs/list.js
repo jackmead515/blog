@@ -1,4 +1,4 @@
-const pagination = require("@middleware/pagination");
+const pagination = require("../../middleware/pagination");
 
 const blogService = require('../../services/blogs');
 
