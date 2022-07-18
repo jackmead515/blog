@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/plugins/cap-sensor-vis/static/css/main.f14751c5.chunk.css",
+    "main.js": "/plugins/cap-sensor-vis/static/js/main.5218f2da.chunk.js",
+    "main.js.map": "/plugins/cap-sensor-vis/static/js/main.5218f2da.chunk.js.map",
+    "runtime-main.js": "/plugins/cap-sensor-vis/static/js/runtime-main.00985de7.js",
+    "runtime-main.js.map": "/plugins/cap-sensor-vis/static/js/runtime-main.00985de7.js.map",
+    "static/js/2.29ffcd99.chunk.js": "/plugins/cap-sensor-vis/static/js/2.29ffcd99.chunk.js",
+    "static/js/2.29ffcd99.chunk.js.map": "/plugins/cap-sensor-vis/static/js/2.29ffcd99.chunk.js.map",
+    "index.html": "/plugins/cap-sensor-vis/index.html",
+    "precache-manifest.c69cb05592f8571aeb7a68d918ab5c06.js": "/plugins/cap-sensor-vis/precache-manifest.c69cb05592f8571aeb7a68d918ab5c06.js",
+    "service-worker.js": "/plugins/cap-sensor-vis/service-worker.js",
+    "static/css/main.f14751c5.chunk.css.map": "/plugins/cap-sensor-vis/static/css/main.f14751c5.chunk.css.map",
+    "static/js/2.29ffcd99.chunk.js.LICENSE": "/plugins/cap-sensor-vis/static/js/2.29ffcd99.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.00985de7.js",
+    "static/js/2.29ffcd99.chunk.js",
+    "static/css/main.f14751c5.chunk.css",
+    "static/js/main.5218f2da.chunk.js"
+  ]
+}

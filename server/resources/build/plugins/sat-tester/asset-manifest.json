@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/plugins/sat-tester/static/css/main.4900a393.chunk.css",
+    "main.js": "/plugins/sat-tester/static/js/main.97300c59.chunk.js",
+    "main.js.map": "/plugins/sat-tester/static/js/main.97300c59.chunk.js.map",
+    "runtime-main.js": "/plugins/sat-tester/static/js/runtime-main.80208fb3.js",
+    "runtime-main.js.map": "/plugins/sat-tester/static/js/runtime-main.80208fb3.js.map",
+    "static/js/2.f868fb43.chunk.js": "/plugins/sat-tester/static/js/2.f868fb43.chunk.js",
+    "static/js/2.f868fb43.chunk.js.map": "/plugins/sat-tester/static/js/2.f868fb43.chunk.js.map",
+    "static/js/3.238c2cba.chunk.js": "/plugins/sat-tester/static/js/3.238c2cba.chunk.js",
+    "bb8cfe08d90a2e44b32a.module.wasm": "/plugins/sat-tester/bb8cfe08d90a2e44b32a.module.wasm",
+    "static/js/3.238c2cba.chunk.js.map": "/plugins/sat-tester/static/js/3.238c2cba.chunk.js.map",
+    "index.html": "/plugins/sat-tester/index.html",
+    "precache-manifest.b4626a379955e4b36d4b118fc41ffa64.js": "/plugins/sat-tester/precache-manifest.b4626a379955e4b36d4b118fc41ffa64.js",
+    "service-worker.js": "/plugins/sat-tester/service-worker.js",
+    "static/css/main.4900a393.chunk.css.map": "/plugins/sat-tester/static/css/main.4900a393.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.80208fb3.js",
+    "static/js/2.f868fb43.chunk.js",
+    "static/css/main.4900a393.chunk.css",
+    "static/js/main.97300c59.chunk.js"
+  ]
+}

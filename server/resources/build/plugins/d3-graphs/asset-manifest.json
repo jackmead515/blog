@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/plugins/d3-graphs/static/css/main.201bdfb3.chunk.css",
+    "main.js": "/plugins/d3-graphs/static/js/main.bea0a558.chunk.js",
+    "main.js.map": "/plugins/d3-graphs/static/js/main.bea0a558.chunk.js.map",
+    "runtime-main.js": "/plugins/d3-graphs/static/js/runtime-main.480d9297.js",
+    "runtime-main.js.map": "/plugins/d3-graphs/static/js/runtime-main.480d9297.js.map",
+    "static/js/2.1e4bc4cf.chunk.js": "/plugins/d3-graphs/static/js/2.1e4bc4cf.chunk.js",
+    "static/js/2.1e4bc4cf.chunk.js.map": "/plugins/d3-graphs/static/js/2.1e4bc4cf.chunk.js.map",
+    "index.html": "/plugins/d3-graphs/index.html",
+    "precache-manifest.bff1ba31d1a9d580182b862e014dd42f.js": "/plugins/d3-graphs/precache-manifest.bff1ba31d1a9d580182b862e014dd42f.js",
+    "service-worker.js": "/plugins/d3-graphs/service-worker.js",
+    "static/css/main.201bdfb3.chunk.css.map": "/plugins/d3-graphs/static/css/main.201bdfb3.chunk.css.map",
+    "static/js/2.1e4bc4cf.chunk.js.LICENSE": "/plugins/d3-graphs/static/js/2.1e4bc4cf.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.480d9297.js",
+    "static/js/2.1e4bc4cf.chunk.js",
+    "static/css/main.201bdfb3.chunk.css",
+    "static/js/main.bea0a558.chunk.js"
+  ]
+}

@@ -7,8 +7,6 @@ node_modules
 **/.vscode
 
 **/dist
-**/dist
-**/build
 **/build
 **/target
 
@@ -19,7 +17,8 @@ plugin/rust-wasm/target
 __MAC_OSX
 
 /data
-/server/resources
 /archive
 /client/public/plugins
 /client/public/sitemap.xml
+
+!server/resources/build
