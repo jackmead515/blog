@@ -8,14 +8,14 @@
   },
   "engineStrict": true,
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon server/src/index.js"
   },
   "author": "",
   "license": "ISC",
   "_moduleAliases": {
-    "@middleware": "./src/middleware",
-    "@clients": "./src/clients",
-    "@config": "./src/config.js"
+    "@middleware": "./server/src/middleware",
+    "@clients": "./server/src/clients",
+    "@config": "./server/src/config.js"
   },
   "dependencies": {
     "ajv": "^8.11.0",
