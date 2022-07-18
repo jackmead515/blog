@@ -26,7 +26,9 @@ async function run() {
 
     app.disable('x-powered-by');
 
-    app.use('/', require('./controllers'));
+    const controllers = require('./controllers');
+
+    app.use('/', controllers);
 
     server.listen(config.HTTP_PORT, () => console.log('Server started on port: ' + config.HTTP_PORT));
 }
