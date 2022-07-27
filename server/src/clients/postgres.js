@@ -5,15 +5,20 @@ const config = require('../config');
 
 pg.types.setTypeParser(pg.types.builtins.INT8, parseInt);
 
-const pool = new Pool({
+const options = {
   connectionString: config.POSTGRES_URL,
   max: 10,
-  ssl: {
-    rejectUnauthorized: false,
-  },
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
-});
+}
+
+if (config.PRODUCTION) {
+  options.ssl = {
+    rejectUnauthorized: false,
+  };
+}
+
+const pool = new Pool(options);
 
 pool.on('error', (err) => {
   console.error('postgres error', err);

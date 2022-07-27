@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/plugins/cap-sensor-vis/precache-manifest.c69cb05592f8571aeb7a68d918ab5c06.js"
+  "/plugins/cap-sensor-vis/precache-manifest.8cc48d5b66ae0749c43ab4c805f97f53.js"
 );
 
 self.addEventListener('message', (event) => {
