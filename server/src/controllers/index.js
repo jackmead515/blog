@@ -10,7 +10,6 @@ const router = express.Router();
 const clientRoute = express.static(path.join(global.__basedir, '../resources/build'));
 
 router.use(cors({ origin: '*' }));
-router.use(helmet());
 router.use(compression());
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json({ limit: '1mb' }));
