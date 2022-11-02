@@ -1,0 +1,29 @@
+date: '2022-07-26'
+description: "
+  Data encoding is a powerful way to move and store
+  data in a fast and cost effective way. This guide explores
+  some volcabulary around what it is and what the most standard
+  formats are while also laying out an encoding plan for an IOT
+  data pipeline application"
+
+file: what-is-data-encoding.md
+image: /images/generic/data_encoding.png
+link: what-is-data-encoding-with-json-yaml-avro-protobuf-parquet-base64-jcof
+subtitle: Exploring the definition of Encoding and different popular techniques 
+tags:
+- parquet
+- json
+- base64
+- xml
+- markdown
+- yaml
+- csv
+- protobuf
+- apache
+- google
+- avro
+- encoding
+- compression
+- programming
+- schema
+title: What Is Data Encoding?

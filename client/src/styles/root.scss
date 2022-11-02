@@ -44,6 +44,7 @@ code {
     padding: $space;
     border-radius: $border-radius;
     box-sizing: border-box;
+    background-color: adjust-color($color: $background-color, $lightness: 5%);
 }
 
 table {
@@ -64,7 +65,7 @@ th, td {
 }
 
 tr:hover {
-    background-color: adjust-color($color: $background-color, $lightness: 6%) !important;
+    background-color: adjust-color($color: $background-color, $lightness: 5%) !important;
 }
 
 tr:nth-child(even) {

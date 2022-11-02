@@ -25,6 +25,9 @@
 		<loc>https://www.speblog.org/blog/encoding-with-avro-json-csv-protobuf-base64-in-java</loc>
 	</sitemap>
 	<sitemap>
+		<loc>https://www.speblog.org/blog/what-is-data-encoding-with-json-yaml-avro-protobuf-parquet-base64-jcof</loc>
+	</sitemap>
+	<sitemap>
 		<loc>https://www.speblog.org/blog/gravity-algorithm</loc>
 	</sitemap>
 	<sitemap>

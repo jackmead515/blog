@@ -7,5 +7,11 @@ All the code I use for the entire application is in this repo. That means that i
 Contributing consists of asking questions and adding suggestions for the types of blogs I should add or write. Submit an issue and flag it with a label of "enhancement" for suggestions or "question" for any general questions. I'll try to answer to the best of my ability!
 
 
+## My Images
+
+Dude, stock images are old. I use: https://freeimagegenerator.com/
+
+## Just For Me
+
 heroku buildpacks:set heroku/nodejs
 git push heroku master
