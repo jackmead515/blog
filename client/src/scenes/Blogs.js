@@ -146,7 +146,10 @@ export default class Blogs extends React.PureComponent {
           <SearchBar />
           <Blog blog={blog} content={content}></Blog>
           <SectionHeader>Thanks For Reading!</SectionHeader>
-          <NextPrev next={blog?.metadata?.next} prev={blog?.metadata?.previous}></NextPrev>
+          <NextPrev 
+            next={blog?.metadata?.next}
+            prev={blog?.metadata?.previous}>
+          </NextPrev>
           {this.renderStats()}
           <SectionHeader>Share</SectionHeader>
           <Share />

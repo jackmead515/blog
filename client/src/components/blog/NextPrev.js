@@ -3,7 +3,6 @@
 export default function NextPrev({ next, prev }) {
 
     let nextComp = <div></div>;
-    
     if (next) {
         nextComp = (
             <a className="nextprev__item" href={`/blogs/${next.link}`}>

@@ -44,6 +44,7 @@ if __name__ == "__main__":
         shingles = get_shingles(head.get('title'))
         shingles.extend(get_shingles(head.get('subtitle')))
         shingles.extend(get_shingles(head.get('description')))
+        shingles.extend(head.get('tags'))
         results[i]['minhash'] = process_minhash(shingles, permutations)
 
     forest = MinHashLSHForest(num_perm=permutations)

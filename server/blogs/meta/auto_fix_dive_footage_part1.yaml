@@ -1,0 +1,32 @@
+date: '2022-11-01'
+
+description: Getting high clarity and resolution from a scuba dive, adjusting the red
+  discoloration, and highlighting only the most intimate footage from the hundreds
+  of raw gigabytes of footage can be a very long and tedious process that is very manual.
+  In this blog, we explore how we can script and fix that using AI!
+
+file: auto_fix_dive_footage_part1.md
+
+image: /images/generic/scuba_diver.png
+
+link: automatic-scuba-diving-footage-artifical-intelligence-part-1
+
+subtitle: Identifying what is interesting in dive footie by using object detection
+
+title: Automatically Fixing Diving Footage - Object Detection
+
+tags:
+- python
+- ai
+- deep
+- machine
+- learning
+- numpy
+- keras
+- neural
+- networks
+- sklearn
+- lstm
+- pandas
+- matplotlib
+- programming
