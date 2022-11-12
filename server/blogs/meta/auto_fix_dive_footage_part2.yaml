@@ -1,0 +1,29 @@
+date: '2022-11-01'
+
+description: I'm attempting to explore what motion detection and blur in my dive footage means for interesting or uninteresting footage. Motion of cute fishies are great! Motion because I can't stablize the camera is bad. Can I detect the difference?
+
+file: auto_fix_dive_footage_part2.md
+
+image: /images/fix-dive/motion_blur_cover.jpg
+
+link: automatic-scuba-diving-footage-artifical-intelligence-part-2
+
+subtitle: Identifying what is interesting in dive footie by using motion blur
+
+title: Automatically Fixing Diving Footage - Motion Detection
+
+tags:
+- python
+- ai
+- deep
+- machine
+- learning
+- numpy
+- keras
+- neural
+- networks
+- sklearn
+- lstm
+- pandas
+- matplotlib
+- programming

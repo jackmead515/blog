@@ -73,7 +73,7 @@ plt.legend()
 plt.show()
 ```
 
-<img src="/images/fix-dive/objects.png" style="max-height:50vh; width:auto; height:auto; margin:auto;"></img>
+<img src="/images/fix-dive/objects.png">
 
 Okay well very interesting results to say the least! Something is definetely going on here and it's worth anaylzing the peeks and valleys. Let's check that out. But first, we have to gather the video segments and convert them into gifs so I can embed them into my blog. Here is some fun code for that:
 
