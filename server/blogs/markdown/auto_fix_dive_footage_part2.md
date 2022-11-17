@@ -80,7 +80,7 @@ So, maybe we are ready for some machine learning? Let's try a super stupid simpl
 xdf = pd.read_csv('../data.csv')
 ydf = pd.read_csv('../annotated.csv')
 
-# to a join, because I didn't annotated every single frame
+# doing a join because I didn't annotated every single frame
 df = xdf.join(ydf, on='frame_index', how='inner', lsuffix='_x', rsuffix='_y')
 df.drop(['frame_index_x', 'frame_index_y'], axis=1, inplace=True)
 data = df.to_numpy()

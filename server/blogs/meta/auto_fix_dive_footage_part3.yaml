@@ -1,0 +1,29 @@
+date: '2022-11-16'
+
+description: It could be that the clarity and stabilization of the footage could use some work before I try to apply classifcation too it. Lets try to do that with some OpenCV techniques!
+
+file: auto_fix_dive_footage_part3.md
+
+image: /images/fix-dive/stabilization_cover.png
+
+link: automatic-scuba-diving-footage-artifical-intelligence-part-3
+
+subtitle: Identifying what is interesting in dive footie by cleaning it up
+
+title: Automatically Fixing Diving Footage - Stabilization and Cleaning
+
+tags:
+- python
+- ai
+- deep
+- machine
+- learning
+- numpy
+- keras
+- neural
+- networks
+- sklearn
+- lstm
+- pandas
+- matplotlib
+- programming
