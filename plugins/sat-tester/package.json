@@ -7,7 +7,7 @@
     "d3": "^5.12.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0",
+    "react-scripts": "5.0.1",
     "rust-wasm-sat-pkg": "file:../rust-wasm-sat-pkg"
   },
   "scripts": {
