@@ -6,7 +6,7 @@ export default function LocalDate({ date }) {
 
     return (
         <span className="date">
-            <span>&#9774;</span>{dateString}
+            <span>&#9760;</span>{dateString}
         </span>
     )
 

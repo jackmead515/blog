@@ -40,6 +40,7 @@
             object-fit: cover;
             max-height: 90vh;
             border-radius: $border-radius;
+            animation: fadeIn 0.3s linear 1;
         }
 
         p {
@@ -56,4 +57,10 @@
         }
 
     }
+}
+
+// fadeIn 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }

@@ -2,7 +2,7 @@ So, I've always been a fan of big data. I do it as my full time job. And trust m
 
 When comparing encoding techniques, there may only be a few kilobytes of difference between the two. But if you have billions of encoded readings, even a fraction of a fraction of bytes saved can save thousands of dollars.
 
-[Serialization Methods Github Source Code](https://github.com/jackmead515?tab=repositories)
+[Serialization Methods Github Source Code](https://github.com/jackmead515/serializations)
 
 ```bash
 20,000 strings at 20 characters

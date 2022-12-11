@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: BlinkMacSystemFont, sans-serif;
     background-color: $background-color;
     color: $text-color;
     font-size: $space*3;
@@ -31,6 +31,12 @@ pre {
     border-radius: $border-radius !important;
     box-shadow: none !important;
     background-color: adjust-color($color: $background-color, $lightness: 5%) !important;
+}
+
+pre.mermaid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 iframe {

@@ -110,7 +110,7 @@ print(score)
 
 The score doesn't look too bad. I ran it several times with various random states of the `train_test_split` and mostly got <b style="color: lime;">80% or more accuracy</b>! Pretty cooooooooooool :)
 
-But it really means nothing unless I have a validation set: another completely annotated video, preferably a longer one with more interesting aspects in it.
+But it really means nothing unless I have a validation set: another completely annotated video, preferably a longer one with more interesting aspects in it. I also should attempt some cross validation to make sure that I'm not overfitting and that the data is truly detectable.
 
 In addition, it might make more sense to attempt to stabilize the footage first. That way, the motion might coorespond more too creatures that are interesting and be a more positive indicator of interesting footage then a negative one.
 

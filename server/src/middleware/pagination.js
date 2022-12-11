@@ -21,7 +21,6 @@ module.exports = function(defaultPageSize=10, maxPageSize=100) {
   
       req.pagination.skip = (req.pagination.page - 1) * req.pagination.pageSize;
   
-  
       return next();
     };
   };

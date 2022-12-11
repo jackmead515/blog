@@ -1,5 +1,8 @@
 .iconloader {
     animation: spin 0.8s linear infinite, fadeIn 0.5s linear 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes spin {

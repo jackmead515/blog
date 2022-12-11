@@ -4,6 +4,12 @@ I mean it's really really hard to hold my camera stable under the water. You'd b
 
 My goal in this blog is to put some structure around my code base using some design patterns that I've discovered to be the easiest to maintain while also trying to stablize and clean my dive footage before I apply object or motion detection.
 
+```mermaid
+flowchart LR
+  A["frame"] --> B["transformation"]
+  B --> C["feature"]
+```
+
 To start, we can think about all the things I do to the frame of the video as a `transformation` and lock in that vocabulary. All the data points we gather from the footage we can consider the vocabulary of `features`. Usually, we apply transformations to the footage to obtain features. Sometimes, we apply many transformations in parallel or in sequence in order to obtain the desired feature. With this in mind, we can consider writing some configuration YAML to describe this:
 
 ```yaml
@@ -218,7 +224,6 @@ Boy have we done a lot of work in this post. But I was just too excited I couldn
 And I think that it's a pretty solid amount for one post don't you think? But we are far from done with this. The next blog will actually clean up this code, apply the algorithm to the entire affine transformation matrix, and we will actually get to see the result in action after we fine tune the parameters.
 
 For now, stay safe. Peace.
-
 
 
 

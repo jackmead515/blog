@@ -43,16 +43,16 @@ Complain about the scoring system all you want but overall I think most people w
 
 A great way to discuss the different techniques is to start by laying the foundation for the different areas in which Encoding can be applied. I'll lay out some vocabulary in the senario of an IOT device that generates some data that needs to be view by different operators, needs to have machine learning run on top of it, and needs to be stored for very long time frames. Something like this:
 
-```
-               ┌────────────────┐
-               │IOT OLED Display│
-┌──────────┐   ├────────────────┘  ┌────────┐  ┌────────┐
-│IOT Device├───┤                   │Database├──┤Local UI│
-└──────────┘   ├─────────────┐     ├────────┘  └────────┘
-               │Message Bus 1├─────┤
-               └─────────────┘     ├─────────────┐  ┌──────┐  ┌────────┐  ┌─────────┐
-                                   │Message Bus 2├──┤ML Job├──┤Datalake├──┤Remote UI│
-                                   └─────────────┘  └──────┘  └────────┘  └─────────┘
+```mermaid
+flowchart LR
+  A["IOT Device"] --> B["IOT OLED Display"]
+  A --> C["Message Bus 1"]
+  C --> D["Database"]
+  C --> E["Message Bus 2"]
+  D --> F["Local UI"]
+  E --> G["ML Job"]
+  G --> H["Datalake"]
+  H --> J["Remote UI"]
 ```
 
 ### IOT Device
@@ -71,7 +71,7 @@ This display may be a local HMI interface that a user has to integrate with in o
 
 ### Message Bus 1
 
-This message bus is the initial bus that will take the raw IOT device data and package it for transfer around the warehouse, or region, or whatever. It may pick up the raw data and just use that. But for this application, the most high volume of data is going to exist which will require a lot of compression. My suggestion is to package it in `Avro` or `Protobuf` and `GZIP` compress it.
+This message bus is the initial bus that will take the raw IOT device data and package it for transfer around the warehouse, or region, or whatever. It may pick up the raw data and just use that. But for this application, the most high volume of data is going to exist which will require a lot of compression. My suggestion is to package it in `Avro` or `Protobuf` and `GZIP` compress it. But if you used a custom protocol for the IOT Device, then that would probably be the most compressed format to use.
 
 ### Database
 
@@ -91,7 +91,7 @@ Now, storage in a Datalake typically means you need to store massive amounts of 
 
 ### Remote UI
 
-This UI doesn't need very fast retrieval, but may need to download a lot of data to graph it or generate a remote. In any case, `YAML` or `JSON` is just fine for this type of application As it's extremely compatabile with Javascript in the web browser. `Protobuf` and `Avro` could still be used though as there are libraries for it.
+This UI doesn't need very fast retrieval, but may need to download a lot of data to graph it or generate a report. In any case, `YAML` or `JSON` is just fine for this type of application As it's extremely compatabile with Javascript in the web browser. `Protobuf` and `Avro` could still be used though as there are libraries for it.
 
 ## Conclusion
 

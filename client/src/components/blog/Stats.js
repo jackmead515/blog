@@ -95,7 +95,7 @@ export default class Stats extends Component {
       .attr('height', height);
     
     const line = d3.line()
-      .curve(d3.curveMonotoneX)
+      .curve(d3.curveCatmullRom)
       .x(d => xScale(d.x))
       .y(d => yScale(d.y));
     

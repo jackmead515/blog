@@ -2,7 +2,6 @@ import React from "react";
 
 import LocalDate from '../generic/LocalDate';
 
-
 export default function BlogRow({ blog }) {
   return (
     <div className="blogrow">

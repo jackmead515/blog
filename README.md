@@ -13,5 +13,13 @@ Dude, stock images are old. I use: https://freeimagegenerator.com/
 
 ## Just For Me
 
+### For Building
+```
 heroku buildpacks:set heroku/nodejs
 git push heroku master
+```
+
+### For Loading Development
+```
+tmuxp load ~/.tmux/blog.yml
+```

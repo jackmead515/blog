@@ -16,6 +16,7 @@ export default class SearchBar extends React.PureComponent {
         };
 
         this.onInputChange = this.onInputChange.bind(this);
+        this.resetInput = this.resetInput.bind(this);
         this.inputObservable = new Subject();
     }
 
@@ -26,7 +27,12 @@ export default class SearchBar extends React.PureComponent {
                 this.setState({ loading: true }, () => {
                     services.searchBlogs(search)
                         .then((results) => {
-                            this.setState({ searchResults: results });
+                            this.setState({ searchResults: results }, () => {
+                                const search = document.getElementById("searchbar__results");
+                                if (search) {
+                                    search.focus();
+                                }
+                            });
                         })
                         .finally(() => {
                             this.setState({ loading: false });
@@ -41,6 +47,10 @@ export default class SearchBar extends React.PureComponent {
         this.inputObservable.next(value);
     }
 
+    resetInput() {
+        this.setState({ value: '', searchResults: [] });
+    }
+
     renderSearchResults() {
         const { searchResults } = this.state;
 
@@ -49,7 +59,10 @@ export default class SearchBar extends React.PureComponent {
         }
 
         return (
-            <div className="searchbar__results">
+            <div
+                id="searchbar__results"
+                onBlur={this.resetInput}
+                className="searchbar__results">
                 {searchResults.map((result, i) => {
                     return <a key={i} href={`/blogs/${result.link}`}>{result.title}</a>
                 })}
@@ -63,7 +76,7 @@ export default class SearchBar extends React.PureComponent {
         if (loading) {
             return (
                 <div className="searchbar__icon">
-                    <IconLoader>&#9734;</IconLoader>
+                    <IconLoader>&#9762;</IconLoader>
                 </div>
             )
         }

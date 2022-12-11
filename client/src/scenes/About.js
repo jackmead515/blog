@@ -21,7 +21,7 @@ class About extends React.PureComponent {
     const content = converter.makeHtml(`
 \t Hey I'm Jack. This is my blog. Welcome.
 
-I'm a software engineer. But also an adventurer. So if I feel up for it, I'll write some pretty unrelated articles.
+I'm a software engineer. But also an adventurer. And probably a bunch of other nouns. So if I feel up for it, I'll write some pretty unrelated articles.
 
 That said, I've worked with a lot of technologies. Web, mobile, game, desktop, backend, firmware, video, big data, machine learning, algorithms, you name it.
 
