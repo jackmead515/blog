@@ -1,0 +1,20 @@
+date: '2022-12-21'
+description: A project I think a lot of programmers want to do 
+  is to build a world within a computer. Explore with me game 
+  building techniques such as procedural terrian generation 
+  using noise functions, basic 2D graphics, physics, and much much more.
+file: evo_sim_part1.md
+image: /images/evosim/forest_cover.png
+link: evolution-simulator-generic-algorithm-python-rust-numba
+subtitle: Designing a world that evolves within a computer
+tags:
+- python
+- rust
+- numpy
+- numba
+- genetics
+- evolution
+- algorithms 
+- programming
+- game
+title: EvoSim - Design
