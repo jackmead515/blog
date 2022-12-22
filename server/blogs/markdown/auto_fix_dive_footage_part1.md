@@ -73,7 +73,7 @@ plt.legend()
 plt.show()
 ```
 
-<img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/objects.png">
+<img src="https://speblog-storage.s3.us-west-1.amazonaws.com/images/fix-dive/objects.png">
 
 Okay well very interesting results to say the least! Something is definetely going on here and it's worth anaylzing the peeks and valleys. Let's check that out. But first, we have to gather the video segments and convert them into gifs so I can embed them into my blog. Here is some fun code for that:
 
@@ -126,15 +126,15 @@ if __name__ == "__main__":
 
 <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px;">
     <div>
-        <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/high_objects_interesting.gif" style="max-height:50vh; width:auto; height:auto;"></img>
+        <img src="https://speblog-storage.s3.us-west-1.amazonaws.com/images/fix-dive/high_objects_interesting.gif" style="max-height:50vh; width:auto; height:auto;"></img>
         <p>High Object Count and Interesting</p>
     </div>
     <div>
-        <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/low_objects_uninteresting.gif" style="max-height:50vh; width:auto; height:auto;"></img>
+        <img src="https://speblog-storage.s3.us-west-1.amazonaws.com/images/fix-dive/low_objects_uninteresting.gif" style="max-height:50vh; width:auto; height:auto;"></img>
         <p>Low Object Count and Uninteresting</p>
     </div>
     <div>
-        <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/low_objects_interesting.gif" style="max-height:50vh; width:auto; height:auto;"></img>
+        <img src="https://speblog-storage.s3.us-west-1.amazonaws.com/images/fix-dive/low_objects_interesting.gif" style="max-height:50vh; width:auto; height:auto;"></img>
         <p>Low Object Count and Interesting</p>
     </div>
 </div>

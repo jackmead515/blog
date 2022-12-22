@@ -2,7 +2,7 @@ date: '2019-10-23'
 description: Learn about 2D physics and collision detection while playing around with
   a D3.js in browser sandbox simulation.
 file: collision-simulation.md
-image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/generic/universe2.jpg
+image: https://speblog-storage.s3.us-west-1.amazonaws.com/images/generic/universe2.jpg
 link: collision-simulation
 subtitle: The math and algorithms behind my tiny universe
 tags:

@@ -15,7 +15,7 @@ Now, this dream is obviously a huge challenge to tackle. But slowing and over a 
 Just like Minecraft, probably not nearly as good, but just as beautiful. My goal for that is to create a ecosystem for the creatures, plants, and the explorer to survive and hopefully thrive.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/evosim/terrian.png" style="max-height:50vh; width:auto; height:auto;"></img>
+    <img src="https://speblog-storage.s3.us-west-1.amazonaws.com/images/evosim/terrian.png" style="max-height:50vh; width:auto; height:auto;"></img>
 </div>
 
 ### Scheduled seasons with day and night cycles
@@ -27,7 +27,7 @@ In the real world, night and day means a whole lot for survival. Further, season
 This is critical for the simulation to feel nature. If the environment, whether a boundary, weather condition, or time of day, the creature should be aware and be able to adapt.
 
 <div style="display: flex; flex-direction: column; gap: 10px; justify-content: center; align-items: center;">
-    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/evosim/forest.gif" style="max-height:50vh; width:auto; height:auto;"></img>
+    <img src="https://speblog-storage.s3.us-west-1.amazonaws.com/images/evosim/forest.gif" style="max-height:50vh; width:auto; height:auto;"></img>
     <p>Forest Growth Algorithm</p>
 </div>
 
@@ -39,7 +39,7 @@ Now this is fun. So, I want to code a genetic algorithm such that each feature a
 To top it off, that genetic code should be visible to the explorer through an interface but also through normal play. Maybe there are some creatures who have a red hue versus others that have a blue hue. 
 
 <div style="display: flex; flex-direction: column; gap: 10px; justify-content: center; align-items: center;">
-    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/evosim/swarm.gif" style="max-height:50vh; width:auto; height:auto;"></img>
+    <img src="https://speblog-storage.s3.us-west-1.amazonaws.com/images/evosim/swarm.gif" style="max-height:50vh; width:auto; height:auto;"></img>
     <p>Flocking Algorithm</p>
 </div>
 

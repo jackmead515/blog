@@ -3,7 +3,7 @@ description: Collisions between two objects need to properly resolve themselves 
   to their mass, speed, and direction of travel. Find out about how the algorithm
   works.
 file: elastic-collision.md
-image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/generic/universe.jpg
+image: https://speblog-storage.s3.us-west-1.amazonaws.com/images/generic/universe.jpg
 link: elastic-collision
 subtitle: Resolving collision between two polygons
 tags:

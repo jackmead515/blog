@@ -2,7 +2,7 @@ date: '2019-11-10'
 description: Gravity is a fundamental force in nature. Explore how the simple mathematics
   behind the algorithm are applied in a 2D simulation.
 file: gravity-algorithm.md
-image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/generic/gravity.png
+image: https://speblog-storage.s3.us-west-1.amazonaws.com/images/generic/gravity.png
 link: gravity-algorithm
 subtitle: Applying gravity between objects in simulations
 tags:

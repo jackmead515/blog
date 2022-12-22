@@ -3,7 +3,7 @@ description: With the MCP3008, you have the power to read analog signals to digi
   ones at a higher accuracy. Explore how to properly design your sensor circuit to
   get the most accurate readings.
 file: mcp3008-circuit.md
-image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/generic/electronics2.jpg
+image: https://speblog-storage.s3.us-west-1.amazonaws.com/images/generic/electronics2.jpg
 link: mcp3008-analog-digital-electronic-circuit-raspberry-pi
 subtitle: Design a high accuracy circuit schematic for the mcp3008 adc chip.
 tags:

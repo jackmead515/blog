@@ -107,9 +107,9 @@ for color in sorted(color_map.keys()):
     data.append([color, percentage, frame_index])
 ```
 
-<img style="margin: auto; max-width: 500px;" src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/color_wheel.gif">
+<img style="margin: auto; max-width: 500px;" src="https://speblog-storage.s3.us-west-1.amazonaws.com/images/fix-dive/color_wheel.gif">
 
-<img style="margin: auto; max-width: 500px; max-height: fit-content !important;" src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/color_profiles.png">
+<img style="margin: auto; max-width: 500px; max-height: fit-content !important;" src="https://speblog-storage.s3.us-west-1.amazonaws.com/images/fix-dive/color_profiles.png">
 
 This is actually really funny to see this because what more could I expect. Of course the camera is only really capturing blues with a few browns and greens thrown in there. It's just really hard to detect virtually any other colors with my crappy camera! But, maybe there is some pattern to those colors that change over time to indicate something interesting.
 
@@ -124,7 +124,7 @@ Index(['blue', 'brown', 'black', 'green', 'white'], dtype='object', name='color'
 
 Let's graph the blue, brown, and green's together with the rest of our data (the motion and the objects). Note hear that in order to display it all on one graph I use a scaler to convert the values to be between 0 and 1.
 
-<img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/with_color_features.png">
+<img src="https://speblog-storage.s3.us-west-1.amazonaws.com/images/fix-dive/with_color_features.png">
 
 Wow. Lots of data :fire: :heart: I really like this. A very valuable note to make here is that I don't have a lot of variation in the green and brown colors when the footage is uninteresting. But, there is a lot more flucuation when there is something interesting! So this again may be another variable to consider. Quickly, I'll pop back over to our classifier and see how it performs
 

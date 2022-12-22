@@ -3,7 +3,7 @@ So far I've made some facinating discoveries. And I want to share them with you 
 <details open>
 <summary>Green Pixel Experiment Results</summary>
 <br>
-    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/full_green_graph_back.png">
+    <img src="https://speblog-storage.s3.us-west-1.amazonaws.com/images/autofarm/full_green_graph_back.png">
 </details>
 
 What your seeing is all the datapoints corresponding to the green pixels within the different image classes. Unfortunately, for this initial experiment, I ran into a camera problem. The crappy USB web camera I had was only rated at 720p. But, for some reason, it didn't want to take 720p images sometimes! So I had to order a new one about half way through the experiment
@@ -114,7 +114,7 @@ plot.imshow(filtered)
 <details open>
 <summary>Image, Mask, Filtered Comparison</summary>
 <br>
-    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/mask_comparison.png">
+    <img src="https://speblog-storage.s3.us-west-1.amazonaws.com/images/autofarm/mask_comparison.png">
 </details>
 
 Oh we are really getting somewhere! Pretty dope right? Some masks are better than others as the lighting conditions change throughout the day. For whatever images and mask you have, play around with the color ranges. If your building a dataset, biasly pick a mask for each image that tries to capture the entire plant! (this is what I'm going to do in the future for instance segmentation).

@@ -2,7 +2,7 @@ date: '2020-12-27'
 description: The soil moisture from the plants in AutoFarm were captured using cheap
   capacitive sensors. Explore how to wrangle this data into an explorable manner.
 file: auto_farm_machine_learning_soil_moisture.md
-image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/soil_sensor.jpg
+image: https://speblog-storage.s3.us-west-1.amazonaws.com/images/autofarm/soil_sensor.jpg
 link: auto-farm-machine-learning-pandas-matplotlib-capacitive-soil-moisture
 subtitle: Wrangling soil moisture data into an explorable form.
 tags:

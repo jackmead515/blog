@@ -13,7 +13,7 @@ description:
   a high accuracy. Learn how to create a simple driver 
   for it in Rust for the Raspberry Pi!
 
-image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/generic/raspberry-pi.jpg
+image: https://speblog-storage.s3.us-west-1.amazonaws.com/images/generic/raspberry-pi.jpg
 
 tags:
  - rust

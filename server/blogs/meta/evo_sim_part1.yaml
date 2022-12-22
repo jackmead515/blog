@@ -4,7 +4,7 @@ description: A project I think a lot of programmers want to do
   building techniques such as procedural terrian generation 
   using noise functions, basic 2D graphics, physics, and much much more.
 file: evo_sim_part1.md
-image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/evosim/forest_cover.png
+image: https://speblog-storage.s3.us-west-1.amazonaws.com/images/evosim/forest_cover.png
 link: evolution-simulator-generic-algorithm-python-rust-numba
 subtitle: Designing a world that evolves within a computer
 tags:
