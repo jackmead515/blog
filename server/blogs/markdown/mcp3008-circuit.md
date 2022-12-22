@@ -26,11 +26,11 @@ For reference, I've included a list of all components I use and their datasheets
 
 The capacitive soil sensor and photo resistor are just two different examples of sensors I happened to have on hand for this experiment. By no means is this circuit limited to these sensors. Any other resistive or capacitive sensor can be used. If you get all the components hooked up, you'll have something that looks like this with the sensors circled in green.
 
-<img src="/images/mcp3008_circuit.jpg" alt="image">
+<img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/mcp3008_circuit.jpg" alt="image">
 
 Don't worry about my mess though. If you can manage to make it look cleaner, go for it! I don't actually use the MCP1541 in the picture because I got lazy. Additionally, I have everything powered from the Pi. But, since the Pi can hardly supply any current, I would highly suggest against powering anything off of it. Below is the actual schematic to use for a better guideline.
 
-<img src="/images/mcp3008_circuit_diagram.png" alt="image">
+<img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/mcp3008_circuit_diagram.png" alt="image">
 
 You will have to manually adjust the potentiometers until you get the correct voltage output you want. This all just depends on the specific sensor your using as each sensor will have different capacitance and resistance.
 

@@ -7,7 +7,7 @@ description: "
   data pipeline application"
 
 file: what-is-data-encoding.md
-image: /images/generic/data_encoding.png
+image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/generic/data_encoding.png
 link: what-is-data-encoding-with-json-yaml-avro-protobuf-parquet-base64-jcof
 subtitle: Exploring the definition of Encoding and different popular techniques 
 tags:

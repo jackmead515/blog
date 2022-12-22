@@ -3,7 +3,7 @@ description: 'In an effort to get a realistic dataset, I deployed my long time p
   AutoFarm on a crop of basil plants. Using simple python, makeshift electronics,
   and a cheap usb web camera, growing basil has never been so amateurly scientific.'
 file: auto_farm_experiment.md
-image: /images/autofarm/setup.png
+image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/setup.png
 link: auto-farm-experiment
 subtitle: Experimenting with electronics, raspberry pi, data science, and biology!
 tags:

@@ -2,7 +2,7 @@ date: '2019-11-17'
 description: Building a LSTM neural network in keras has never been eaiser than before.
   Explore how to use the AI to predict the weather.
 file: building-tii.md
-image: /images/generic/ai.jpg
+image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/generic/ai.jpg
 link: building-lstm-neural-network-in-keras-for-weather-data
 subtitle: Building a time series forecasting AI with Keras for the weather
 tags:

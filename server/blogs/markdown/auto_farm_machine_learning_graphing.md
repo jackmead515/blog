@@ -115,7 +115,7 @@ The data is stored as a numpy matrix instead of a pandas dataframe. Why? I dunno
 <details open>
 <summary>Green Pixel Experiment Results</summary>
 <br>
-    <img src="/images/autofarm/full_green_graph_back.png">
+    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/full_green_graph_back.png">
 </details>
 
 Clearly, there is a trend upwards of green data (regardless of the different resolution). But there is also SOOO much noise! Let's try to clear that up.
@@ -169,7 +169,7 @@ plot.show()
 <details open>
 <summary>Aggregated One Hour Results</summary>
 <br>
-    <img src="/images/autofarm/full_green_graph_early_late_back.png">
+    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/full_green_graph_early_late_back.png">
 </details>
 
 And that's just going to about wrap it up for me. In the next blog, I'll go over some different machine learning algorithms along with neural networks that try to show the rate of green pixels growing over time. Until then, I hope you gained somethng from this. If not, let me know in the comments. Stay safe. Peace.

@@ -101,11 +101,11 @@ The below gif shows the result of the unstable and uninteresting part of my dive
 
 <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px;">
     <div>
-        <img src="/images/fix-dive/uninteresting_stabilized.gif">
+        <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/uninteresting_stabilized.gif">
         <p>Uninteresting Footage</p>
     </div>
     <div>
-        <img src="/images/fix-dive/interesting_stabilized.gif">
+        <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/interesting_stabilized.gif">
         <p>Interesting Footage</p>
     </div>
 </div>
@@ -126,7 +126,7 @@ df = pd.DataFrame(data, columns=['frame_index', 'stabilize_dx', 'stabilize_dy', 
 df.to_csv('stabilize_motion.csv', index=False)
 ```
 
-<img src="/images/fix-dive/affine_transformations.png">
+<img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/affine_transformations.png">
 
 If you take a look at the <b style="color: green;">green</b> line, the `stabilize_dy` feature, you'll notice that it got a bit out of hand. Like, wildly out of hand. All of the features spiked around that portion of the video though and we should be able to detect those spikes and smooth them out.
 
@@ -209,7 +209,7 @@ for group in groups:
 
 And bam that seems to work! That crazy section of super extremas have been smoothed out. You'll still see a sharp spike up and then down where the original extremas were. But, I planned for this. Again, I didn't want to cut out those extremas but smooth them out so they were not as extreme.
 
-<img src="/images/fix-dive/scaled_affine_transformations.png">
+<img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/scaled_affine_transformations.png">
 
 Boy have we done a lot of work in this post. But I was just too excited I couldn't stop programming and discovering all that was possible. To recap though:
 

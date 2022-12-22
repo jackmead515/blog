@@ -3,7 +3,7 @@ description: The MCP3008 is a popular chip that can use the SPI protocol to read
   signals. Build a minimal Rust driver for the chip using the SpiDev interface on
   the Raspberry Pi.
 file: mcp3008-rust.md
-image: /images/generic/electronics.jpg
+image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/generic/electronics.jpg
 link: mcp3008-analog-digital-spidev-rust-driver-raspberry-pi
 subtitle: Reading a MCP3008 chip using the SpiDev package
 tags:

@@ -1,0 +1,29 @@
+date: '2022-11-22'
+
+description: By identifying patterns in the colors and masking the footage, I may be able to find more features that make the footage interesting or uninteresting.
+
+file: auto_fix_dive_footage_part4.md
+
+image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/silent_ocean.png
+
+link: automatic-scuba-diving-footage-artifical-intelligence-part-4
+
+subtitle: Exploring color patterns and using masking techniques
+
+title: Automatically Fixing Diving Footage - Color Masking
+
+tags:
+- python
+- ai
+- deep
+- machine
+- learning
+- numpy
+- keras
+- neural
+- networks
+- sklearn
+- lstm
+- pandas
+- matplotlib
+- programming

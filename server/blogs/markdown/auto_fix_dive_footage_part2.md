@@ -4,7 +4,7 @@ But! that's okay. Because that's just how I write. When preparing to write this 
 
 My plan is to randomly select around 20% of the frames from the video and then blend them together to create hotspots of interest. I have no code for this, because I did it the hard way, but here are the results:
 
-<img src="/images/fix-dive/annotated.png">
+<img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/annotated.png">
 
 The <b style="color: red">red</b> is uninteresting, the <b style="color: green">green</b> is interesting. There is only a smaller portion of the dive footage that is uninteresting and it's mostly due to the footage being really shaky. Maybe this won't be enough footage. But, eh, we have something to test on for now.
 
@@ -24,7 +24,7 @@ median_motion = np.median(flow)
 
 This will produce the median value for the total amount of motion in the frame. But, high motion could simply be due to that freaky shark or the massive school of fish. Not nessesarily the camera shaking. When we graph this data we see something like this:
 
-<img src="/images/fix-dive/annotated_median_motion.png">
+<img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/annotated_median_motion.png">
 
 At first this looks quite promising! We see lots of movement around the point at which the footage isn't interesting. But there is still movement even after that when the camera isn't nearly as shaky.
 
@@ -58,13 +58,13 @@ ax.grid('on')
 plt.show()
 ```
 
-<img src="/images/fix-dive/grid_motion.png">
+<img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/grid_motion.png">
 
 Well it was fun to generate a 3D graph. It is readily apparent that there is movement over all the grid sections during the uninteresting portion of frames. But right now this is no different then just taking the median motion of the entire frame. So for now, I'll put a pin in this and just use the overall motion of the whole frame. But we should come back to this at some point as it may be useful when understanding the movement of some objects or sections of a frame versus others.
 
 Let's graph all our data points together and have a brain storming session:
 
-<img src="/images/fix-dive/motion_objects_annotated.png">
+<img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/fix-dive/motion_objects_annotated.png">
 
 Some key indicators come to mind:
 

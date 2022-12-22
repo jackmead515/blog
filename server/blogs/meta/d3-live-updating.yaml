@@ -3,7 +3,7 @@ description: Everyone can make a line graph really easily with D3.js. But updati
   a graph for a live feed is another story. Learn how you can make live updating graphs
   with D3!
 file: d3-live-updating.md
-image: /images/generic/code2.jpg
+image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/generic/code2.jpg
 link: d3-live-updating-graph
 subtitle: Building D3 graphs for live update feeds
 tags:

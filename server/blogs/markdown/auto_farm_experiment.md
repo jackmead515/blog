@@ -20,7 +20,7 @@ for us!
 <details open>
 <summary>Basically, my experiment that actually produced results was this...</summary>
 <br>
-    <img src="/images/autofarm/setup.png">
+    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/setup.png">
 </details>
 
 Not much? Yeah. I was limited in apartment space while living and working in Hawaii. My desk was actually only two feet away so I had to be careful not to roll my desk chair over the chords! lolz. But, it works. Basically, I have a small planter box where I planted 4 rows of basil, Sweet and Genova, and only had the ability to plug in 4 soil sensors into the top 2 plants of each species. The PVC pipe stand you see is just the support for the simple 1080p usb web cam I had plugged into my raspberry pi. Like I said, plants don't need a whole lot to grow well!
@@ -28,7 +28,7 @@ Not much? Yeah. I was limited in apartment space while living and working in Haw
 <details open>
 <summary>As for the web cam...</summary>
 <br>
-    <img src="/images/autofarm/webcams.jpg">
+    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/webcams.jpg">
 </details>
 
 It's basically just a PVC pipe with a web cam taped too it using electrical tape. I mean, can't get much simpler. However, if your project will be outside, you have to think about how to prevent humidity, water proof the casing, and try to build a heat shield to prevent the camera from being in direct sunlight. I was going to put my project outside but couldn't as I don't have any electricity outside!
@@ -41,7 +41,7 @@ old ethernet cable that I was able to snatch up from work.
 <details open>
 <summary>The sensor enclourse...</summary>
 <br>
-    <img src="/images/autofarm/sensors.jpg">
+    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/sensors.jpg">
 </details>
 
 Now it's pretty clear that I am using those capacitive soil moisture sensors that you can find anywhere on Ebay or Amazon.
@@ -50,7 +50,7 @@ They are not corrosive and that was a major selling point for me. But one thing 
 <details open>
 <summary>The soil sensor...</summary>
 <br>
-    <img src="/images/autofarm/soil_sensor.jpg">
+    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/soil_sensor.jpg">
 </details>
 
 Just take some hot glue (those sticks they sell in the general store), cut small circles from the sticks and place them on top of the electronics at the top part of the sensor. Don't be stingy with the hot glue as it will become the main mechanism to make the sensor waterproof. Now, get some thick heat shrink tubing and place a small cut over the hot glue and the connector where the cords are. After that, just take your heat gun and heat it up until the hot glue gets really nice and gooey. Wait for it to dry and cut away the excess glue if there is any. And tada!! Your done! A perfectly water proofed soil sensor. I have tested it by completely submerging it underwater and leaving it out in the rain. Doesn't hurt it one bit!
@@ -64,7 +64,7 @@ Now the electronics was a very long and iterative process. What I mean by that i
 <details open>
 <summary>The electronic circuit...</summary>
 <br>
-    <img src="/images/autofarm/arduino.jpg">
+    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/arduino.jpg">
 </details>
 
 It's just an Arduino Nano connected to a MCP6004 op-amp in a unity gain buffer configuration, with a high valued resistor on the output of the soil sensor to reduce impedance, and a capacitor in parallel with the sensor to reduce noise. In addition, I had two DS18B20 temperature probes hooked up in a one wire configuration with one as the leader and the other as the follower. I don't have a picture for that, unfortunately. But basically, the output of one one wire probe is feed into the other which is the "master" node. For convience, I've attached the circuit diagram as well.
@@ -96,7 +96,7 @@ The main task I'm working on now is exploring how I can measure the biomass or l
 <details open>
 <summary>Very exciting questions to be answered...</summary>
 <br>
-    <img src="/images/autofarm/mask_comparison.png">
+    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/mask_comparison.png">
 </details>
 
 But I do also want to anaylze the soil moisture to see how it behaves over time and when I can predictably say that the plants need to be watered again.
@@ -104,7 +104,7 @@ But I do also want to anaylze the soil moisture to see how it behaves over time 
 <details open>
 <summary>Soil moisture values over time...</summary>
 <br>
-    <img src="/images/autofarm/soil_agged.png">
+    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/soil_agged.png">
 </details>
 
 Slowly, I'll start answering these questions. And as I do, I'll write complete posts on the topic to let you all know how to do it as well.

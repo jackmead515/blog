@@ -69,7 +69,7 @@ for time in dfw.timestamp:
 plot.show()
 ```
 
-<img src="/images/autofarm/agged20s_soil_moisture_marked.png">
+<img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/agged20s_soil_moisture_marked.png">
 
 The data looks... not good, depending on your perspective. But to me, the watering times are pretty much spot on, and, each segment looks to have a very similar slope, which is the key to this experiment.
 
@@ -120,7 +120,7 @@ plot.show()
 <details open>
 <summary>Individual Drops in Moisture from Sensor 1</summary>
 <br>
-    <img src="/images/autofarm/soil_agged60s_marked_split.png">
+    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/soil_agged60s_marked_split.png">
 </details>
 
 So far, the data is looking kinda janky! At least to the untrained eye. But after we apply some simple linear regression to it, it's actually really linear indeed. So lets do that. The following code is a bit lengthy, but bare with me. 
@@ -172,14 +172,14 @@ plot.show()
 <details open>
 <summary>LinearRegression Applied to Sensor 1</summary>
 <br>
-    <img src="/images/autofarm/soil_linear_models.png">
+    <img src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/soil_linear_models.png">
 </details>
 
 Now, even to the untrained eye, that is very linear in behavior. Which is super excellent indeed. It makes the job of machine learning exceptionally easy. But, we are missing one thing. We normalized the y axis. Which means we lose a lot of the distribution of the time. So lets repeat the code above but remove the standarization part. 
 
 If we plot the slopes, getting the slope using `model.coef_[0][0]`, we see... something interesting.
 
-<img style="max-width: 500px; margin: 0 auto;" src="/images/autofarm/soil_linear_slopes_notnorm.png">
+<img style="max-width: 500px; margin: 0 auto;" src="http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/autofarm/soil_linear_slopes_notnorm.png">
 
 The slope is increasing over time. Or, at least, if it's not increasing, it sure isn't the same each time. This could be due to a multitude of reasons. For one, the soil chemistry changes overtime as the plants suck up more nutrients from it. In addition, as the plants grow, you might expect the slope to increase as they will consume more water as they grow. But I think one of the biggest things we fail to gather is <b>light intensity</b>.
 

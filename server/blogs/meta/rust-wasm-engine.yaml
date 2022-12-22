@@ -2,7 +2,7 @@ date: '2020-08-16'
 description: Web Assembly is offically a new language of the web joining Javascript,
   CSS, and HTML. Explore how powerful and fast WASM can be in Rust!
 file: rust-wasm-engine.md
-image: /images/generic/web_assembly.png
+image: http://speblog-storage.s3-website-us-west-1.amazonaws.com/images/generic/web_assembly.png
 link: rust-wasm-web-assembly-physics-engine-test
 subtitle: Rewritting my physics engine in Rust WASM for performance testing
 tags:
