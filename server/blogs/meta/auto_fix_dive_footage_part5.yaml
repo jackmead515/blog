@@ -1,0 +1,29 @@
+date: '2022-12-29'
+
+description: The stabilization technique I use could take many hours to process. By using Numba and Dask, we can dramatically reduce that.
+
+file: auto_fix_dive_footage_part5.md
+
+image: https://speblog-storage.s3.us-west-1.amazonaws.com/images/fix-dive/silent_ocean2.png
+
+link: automatic-scuba-diving-footage-artifical-intelligence-part-5
+
+subtitle: Harder, better, faster, stronger stabilization utilizing Dask and Numba
+
+title: Automatically Fixing Diving Footage - Better Stabilization
+
+tags:
+- python
+- ai
+- deep
+- machine
+- learning
+- numpy
+- keras
+- neural
+- networks
+- sklearn
+- lstm
+- pandas
+- matplotlib
+- programming
